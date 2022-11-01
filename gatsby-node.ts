@@ -25,9 +25,9 @@ type CreatePagesFuncProps = {
 
 const createBlogPages = ({ createPage, edges }: CreatePagesFuncProps) => {
   // Define a template for blog post
-  const blogPost = path.resolve(`./src/templates/blog-post.js`);
+  const blogPost = path.resolve(`./src/templates/blog-post.tsx`);
 
-  edges.forEach(({ node, next, prev }) => {
+  edges.forEach(({ node, next, previous }) => {
     createPage({
       path: node.fields.slug,
       component: blogPost,
@@ -35,7 +35,7 @@ const createBlogPages = ({ createPage, edges }: CreatePagesFuncProps) => {
         // additional data can be passed via context
         slug: node.fields.slug,
         nextSlug: next?.fields.slug ?? '',
-        prevSlug: prev?.fields.slug ?? '',
+        prevSlug: previous?.fields.slug ?? '',
       },
     });
   });
@@ -43,7 +43,7 @@ const createBlogPages = ({ createPage, edges }: CreatePagesFuncProps) => {
 
 const createPostsPages = ({ createPage, edges }: CreatePagesFuncProps) => {
   // Define a template for blog post
-  const blogPost = path.resolve(`./src/templates/blog-post.js`);
+  const blogPost = path.resolve(`./src/templates/blog-post.tsx`);
   const categorySet = new Set(['All']);
 
   edges.forEach(({ node }) => {
@@ -102,7 +102,7 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions,
               slug
             }
           }
-          prev {
+          previous {
             fields {
               slug
             }

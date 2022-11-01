@@ -14,6 +14,10 @@ const GlobalStyle: React.FC = () => (
         height: 100%;
         overflow-y: scroll;
         font-size: 14px;
+        a {
+          color: #000;
+          text-decoration: none;
+        }
       }
     `}
   />

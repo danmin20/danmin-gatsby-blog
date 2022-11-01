@@ -17,7 +17,7 @@ export default {
     bio: {
       role: `개발자`,
       description: ['Frontend', 'React', 'Typescript'],
-      thumbnail: 'sample.png', // Path to the image in the 'asset' folder
+      thumbnail: 'thumbnail.png',
     },
     social: {
       github: `https://github.com/danmin20`,

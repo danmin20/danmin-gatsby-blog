@@ -44,7 +44,11 @@ const Image: React.FC<ImageProps> = ({ src, ...rest }) => {
 
   const match = useMemo(() => data.images.edges.find(({ node }) => src === node.relativePath), [data, src]);
 
+  console.log('data.images', data.images);
+
   if (!match) return null;
+
+  console.log('match', match);
 
   const { node: { childImageSharp, publicURL, extension } = {} } = match;
 
