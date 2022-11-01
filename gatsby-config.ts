@@ -102,6 +102,16 @@ const config: GatsbyConfig = {
           global: false,
         },
         escapeEntities: {},
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: siteMetadata.title,
+        short_name: siteMetadata.title,
+        description: siteMetadata.description,
+        start_url: `/`,
+        lang: `en`,
+        display: `standalone`,
+        icon: `static/favicon.png`,
       },
     },
   ],
