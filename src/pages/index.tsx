@@ -1,96 +1,73 @@
-import * as React from 'react';
-import { Link, graphql } from 'gatsby';
+import React, { useCallback, useState } from 'react';
+import { graphql } from 'gatsby';
 
 import Bio from '../components/bio';
-import Layout from '../components/layout';
+import Layout from '../layout';
 import Seo from '../components/seo';
-import { MarkdownRemark, SiteSiteMetadata } from '../type';
+import { AllMarkdownRemark, SiteMetadata } from '../type';
+import PostClass from '../models/post';
+import { getUniqueCategories } from '../utils/helpers';
 
 type BlogIndexProps = {
   data: {
-    site: { siteMetadata: SiteSiteMetadata };
-    allMarkdownRemark: { nodes: MarkdownRemark[] };
+    site: { siteMetadata: SiteMetadata };
+    allMarkdownRemark: AllMarkdownRemark;
   };
-  location: Location;
 };
 
-const BlogIndex: React.FC<BlogIndexProps> = ({ data, location }) => {
-  const siteTitle = (data.site.siteMetadata?.title as string) || `Title`;
-  const posts = data.allMarkdownRemark.nodes;
-
-  if (posts.length === 0) {
-    return (
-      <Layout location={location} title={siteTitle}>
-        <Bio />
-        <p>
-          No blog posts found. Add markdown posts to "content/blog" (or the directory you specified for the
-          "gatsby-source-filesystem" plugin in gatsby-config.js).
-        </p>
-      </Layout>
-    );
-  }
+const BlogIndex: React.FC<BlogIndexProps> = ({ data }) => {
+  const posts = data.allMarkdownRemark.edges.map(({ node }) => new PostClass(node));
+  const { author, language } = data.site.siteMetadata;
+  const categories = ['All', ...getUniqueCategories(posts)];
+  const featuredTabIndex = categories.findIndex((category) => category === 'featured');
+  const [tabIndex, setTabIndex] = useState(featuredTabIndex === -1 ? 0 : featuredTabIndex);
+  const onTabIndexChange = useCallback((_e: void, value: number) => setTabIndex(value), []);
 
   return (
-    <Layout location={location} title={siteTitle}>
-      <Bio />
-      <ol style={{ listStyle: `none` }}>
-        {posts.map((post) => {
-          const title = post.frontmatter.title || post.fields.slug;
-
-          return (
-            <li key={post.fields.slug}>
-              <article className='post-list-item' itemScope itemType='http://schema.org/Article'>
-                <header>
-                  <h2>
-                    <Link to={post.fields.slug} itemProp='url'>
-                      <span itemProp='headline'>{title}</span>
-                    </Link>
-                  </h2>
-                  <small>{post.frontmatter.date}</small>
-                </header>
-                <section>
-                  <p
-                    dangerouslySetInnerHTML={{
-                      __html: post.frontmatter.description || post.excerpt,
-                    }}
-                    itemProp='description'
-                  />
-                </section>
-              </article>
-            </li>
-          );
-        })}
-      </ol>
+    <Layout>
+      <Seo title='Home' />
+      <Bio author={author} />
+      {/* <PostTabs posts={posts} onChange={onTabIndexChange} tabs={categories} tabIndex={tabIndex} showMoreButton /> */}
     </Layout>
   );
 };
 
 export default BlogIndex;
 
-/**
- * Head export to define metadata for the page
- *
- * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
- */
-export const Head = () => <Seo title='All posts' />;
-
 export const pageQuery = graphql`
   query {
-    site {
-      siteMetadata {
-        title
+    allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }) {
+      edges {
+        node {
+          id
+          excerpt(pruneLength: 500, truncate: true)
+          frontmatter {
+            categories
+            title
+            date(formatString: "MMMM DD, YYYY")
+          }
+          fields {
+            slug
+          }
+        }
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-      nodes {
-        excerpt
-        fields {
-          slug
-        }
-        frontmatter {
-          date(formatString: "MMMM DD, YYYY")
-          title
-          description
+
+    site {
+      siteMetadata {
+        language
+        author {
+          name
+          bio {
+            role
+            description
+            thumbnail
+          }
+          social {
+            github
+            linkedIn
+            email
+          }
         }
       }
     }

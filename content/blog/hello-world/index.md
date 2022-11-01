@@ -1,7 +1,10 @@
 ---
+emoji: 🔮
 title: Hello World
-date: "2015-05-01T22:12:03.284Z"
-description: "Hello World"
+date: '2021-07-06 00:00:00'
+author: 단민
+tags: 블로그 github-pages gatsby
+categories: 블로그 featured
 ---
 
 This is my first post on my new fake blog! How exciting!

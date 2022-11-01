@@ -30,10 +30,12 @@
     "prismjs": "^1.29.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
+    "react-helmet": "^6.1.0",
     "typeface-merriweather": "0.0.72",
     "typeface-montserrat": "0.0.75"
   },
   "devDependencies": {
+    "@types/react-helmet": "^6.1.5",
     "prettier": "^2.7.1",
     "typescript": "^4.8.4"
   },

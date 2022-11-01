@@ -4,7 +4,17 @@ import { css, Global } from '@emotion/react';
 const GlobalStyle: React.FC = () => (
   <Global
     styles={css`
-      background-color: red;
+      * {
+        box-sizing: border-box;
+        appearance: none;
+      }
+      html {
+        font-family: 'montserrat';
+        width: 100%;
+        height: 100%;
+        overflow-y: scroll;
+        font-size: 14px;
+      }
     `}
   />
 );

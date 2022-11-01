@@ -16,6 +16,14 @@ const config: GatsbyConfig = {
         policy: [{ userAgent: '*', allow: '/' }],
       },
     },
+    // {
+    //   resolve: `gatsby-plugin-google-analytics`,
+    //   options: {
+    //     trackingId: siteMetadata.ga,
+    //     head: true,
+    //     anonymize: true,
+    //   },
+    // },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -55,70 +63,45 @@ const config: GatsbyConfig = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
-      resolve: `gatsby-plugin-feed`,
+      resolve: `gatsby-plugin-manifest`,
       options: {
-        query: `
-          {
-            site {
-              siteMetadata {
-                title
-                description
-                siteUrl
-                site_url: siteUrl
-              }
-            }
-          }
-        `,
-        feeds: [
-          {
-            serialize: ({ query: { site, allMarkdownRemark } }: any) => {
-              return allMarkdownRemark.nodes.map((node: any) => {
-                return Object.assign({}, node.frontmatter, {
-                  description: node.excerpt,
-                  date: node.frontmatter.date,
-                  url: site.siteMetadata.siteUrl + node.fields.slug,
-                  guid: site.siteMetadata.siteUrl + node.fields.slug,
-                  custom_elements: [{ 'content:encoded': node.html }],
-                });
-              });
-            },
-            query: `
-              {
-                allMarkdownRemark(
-                  sort: { order: DESC, fields: [frontmatter___date] },
-                ) {
-                  nodes {
-                    excerpt
-                    html
-                    fields {
-                      slug
-                    }
-                    frontmatter {
-                      title
-                      date
-                    }
-                  }
-                }
-              }
-            `,
-            output: '/rss.xml',
-            title: 'Gatsby Starter Blog RSS Feed',
-          },
-        ],
+        name: siteMetadata.title,
+        short_name: siteMetadata.title,
+        description: siteMetadata.description,
+        start_url: `/`,
+        lang: `en`,
+        display: `standalone`,
+        icon: `static/favicon.ico`,
       },
     },
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: `gatsby-remark-prismjs`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
-        start_url: `/`,
-        background_color: `#ffffff`,
-        // This will impact how browsers show your PWA/website
-        // https://css-tricks.com/meta-theme-color-and-trickery/
-        // theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        classPrefix: 'language-',
+        inlineCodeMarker: null,
+        aliases: {},
+        showLineNumbers: false,
+        noInlineHighlight: false,
+        languageExtensions: [
+          {
+            language: 'superscript',
+            extend: 'javascript',
+            definition: {
+              superscript_types: /(SuperType)/,
+            },
+            insertBefore: {
+              function: {
+                superscript_keywords: /(superif|superelse)/,
+              },
+            },
+          },
+        ],
+        prompt: {
+          user: 'root',
+          host: 'localhost',
+          global: false,
+        },
+        escapeEntities: {},
       },
     },
   ],
