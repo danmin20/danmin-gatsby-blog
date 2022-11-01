@@ -13,6 +13,7 @@ export interface SiteMetadata {
 
 export interface Author {
   name: string;
+  nickname: string;
   bio: {
     role: string;
     description: string[];
@@ -24,6 +25,7 @@ export interface Author {
 export interface Social {
   github: string;
   linkedIn: string;
+  resume: string;
   email: string;
 }
 

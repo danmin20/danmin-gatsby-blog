@@ -58,6 +58,7 @@ export const pageQuery = graphql`
         language
         author {
           name
+          nickname
           bio {
             role
             description
@@ -66,6 +67,7 @@ export const pageQuery = graphql`
           social {
             github
             linkedIn
+            resume
             email
           }
         }

@@ -13,15 +13,17 @@ export default {
 
   author: {
     name: `이정민`,
+    nickname: `단민`,
     bio: {
       role: `개발자`,
-      description: ['사람에 가치를 두는', '능동적으로 일하는', '이로운 것을 만드는'],
+      description: ['Frontend', 'React', 'Typescript'],
       thumbnail: 'sample.png', // Path to the image in the 'asset' folder
     },
     social: {
       github: `https://github.com/danmin20`,
       linkedIn: `https://www.linkedin.com/in/jeonming-lee/`,
       email: `ljm991108@gmail.com`,
+      resume: `https://www.figma.com/file/dtkCl6G7G5DVe18DN2LWny/%EC%9D%B4%EC%A0%95%EB%AF%BC-%EC%9D%B4%EB%A0%A5%EC%84%9C?node-id=0%3A1`,
     },
   },
 

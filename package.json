@@ -31,6 +31,7 @@
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-helmet": "^6.1.0",
+    "react-rotating-text": "^1.4.1",
     "typeface-merriweather": "0.0.72",
     "typeface-montserrat": "0.0.75"
   },
