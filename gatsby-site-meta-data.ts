@@ -17,7 +17,9 @@ export default {
     bio: {
       role: `개발자`,
       description: ['Frontend', 'React', 'Typescript'],
-      thumbnail: 'thumbnail.png',
+      birth: '1999.11.08',
+      residence: 'Seoul, South Korea',
+      bachelorDegree: 'Kyunghee Univ. Computer Engineering (2018.03-2022.02)',
     },
     social: {
       github: `https://github.com/danmin20`,

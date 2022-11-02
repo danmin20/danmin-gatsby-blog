@@ -125,12 +125,7 @@ export const onCreateNode: GatsbyNode['onCreateNode'] = ({ node, actions, getNod
   const { createNodeField } = actions;
 
   if (node.internal.type === `MarkdownRemark`) {
-    const value = createFilePath({ node, getNode });
-
-    createNodeField({
-      name: `slug`,
-      node,
-      value,
-    });
+    const slug = createFilePath({ node, getNode, basePath: `content` });
+    createNodeField({ node, name: `slug`, value: slug });
   }
 };

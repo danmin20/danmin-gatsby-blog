@@ -5,6 +5,7 @@ import Bio from '../components/bio';
 import Layout from '../layout';
 import Seo from '../components/seo';
 import { AllMarkdownRemark, SiteMetadata } from '../type';
+import Introduction from '../components/introduction';
 
 type BlogIndexProps = {
   data: {
@@ -20,6 +21,7 @@ const BlogIndex: React.FC<BlogIndexProps> = ({ data }) => {
     <Layout>
       <Seo title='Home' />
       <Bio author={author} />
+      <Introduction author={author} />
     </Layout>
   );
 };
@@ -37,7 +39,9 @@ export const pageQuery = graphql`
           bio {
             role
             description
-            thumbnail
+            birth
+            residence
+            bachelorDegree
           }
           social {
             github

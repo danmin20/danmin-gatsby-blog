@@ -17,7 +17,9 @@ export interface Author {
   bio: {
     role: string;
     description: string[];
-    thumbnail: string;
+    birth: string;
+    residence: string;
+    bachelorDegree: string;
   };
   social: Social;
 }

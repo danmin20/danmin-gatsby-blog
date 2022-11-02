@@ -15,11 +15,10 @@ const Bio: React.FC<BioProps> = ({ author }) => {
     <S.Wrapper>
       <S.IntroWrapper>
         <S.AnimatedCircle />
-
         <S.Title>
           안녕하세요!
           <br />
-          <strong className='description'>
+          <strong>
             <ReactRotatingText items={bio.description} />
           </strong>
           <span>를 좋아하는</span>

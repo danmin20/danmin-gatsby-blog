@@ -40,8 +40,8 @@ export const Wrapper = styled.div`
   width: 100%;
   margin-top: 120px;
   margin-bottom: 120px;
-  font-size: 40px;
-  line-height: 1.2;
+  font-family: GmarketSansLight;
+
   .react-rotating-text-cursor {
     animation: ${blinkingCursor} 0.8s cubic-bezier(0.68, 0.01, 0.01, 0.99) 0s infinite;
   }
@@ -52,6 +52,8 @@ export const IntroWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   position: relative;
+  font-size: 40px;
+  line-height: 1.2;
 
   strong {
     display: inline-block;
@@ -60,9 +62,6 @@ export const IntroWrapper = styled.div`
       font-family: GmarketSansLight;
       font-weight: 100;
       font-size: 40px;
-    }
-    &.description {
-      /* font-family: Galmuri14, sans-serif; */
     }
   }
 
