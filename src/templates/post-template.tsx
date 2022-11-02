@@ -8,11 +8,11 @@ import Utterances from '../components/utterances';
 import { Post, SiteMetadata } from '../type';
 import PostClass from '../models/post';
 
-type BlogPostTemplateProps = {
+type PostTemplateProps = {
   data: { prev: Post; next: Post; cur: Post; site: { siteMetadata: SiteMetadata }; markdownRemark: Post };
 };
 
-const BlogPostTemplate: React.FC<BlogPostTemplateProps> = ({ data }) => {
+const PostTemplate: React.FC<PostTemplateProps> = ({ data }) => {
   const curPost = new PostClass(data.cur);
   const prevPost = data.prev && new PostClass(data.prev);
   const nextPost = data.next && new PostClass(data.next);
@@ -42,7 +42,7 @@ const BlogPostTemplate: React.FC<BlogPostTemplateProps> = ({ data }) => {
   );
 };
 
-export default BlogPostTemplate;
+export default PostTemplate;
 
 export const pageQuery = graphql`
   query ($slug: String, $nextSlug: String, $prevSlug: String) {

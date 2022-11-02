@@ -21,7 +21,7 @@ const Utterances: React.FC<UtterancesProps> = ({ repo, path }) => {
       src,
       repo,
       branch,
-      'theme': JSON.parse(storedIsDarkMode) ? 'photon-dark' : 'github-light',
+      'theme': storedIsDarkMode ? 'photon-dark' : 'github-light',
       'label': 'comment',
       'async': true,
       'issue-term': 'pathname',

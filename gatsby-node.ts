@@ -23,27 +23,9 @@ type CreatePagesFuncProps = {
   edges: AllMarkdownRemark['edges'];
 };
 
-const createBlogPages = ({ createPage, edges }: CreatePagesFuncProps) => {
+const createPosts = ({ createPage, edges }: CreatePagesFuncProps) => {
   // Define a template for blog post
-  const blogPost = path.resolve(`./src/templates/blog-post.tsx`);
-
-  edges.forEach(({ node, next, previous }) => {
-    createPage({
-      path: node.fields.slug,
-      component: blogPost,
-      context: {
-        // additional data can be passed via context
-        slug: node.fields.slug,
-        nextSlug: next?.fields.slug ?? '',
-        prevSlug: previous?.fields.slug ?? '',
-      },
-    });
-  });
-};
-
-const createPostsPages = ({ createPage, edges }: CreatePagesFuncProps) => {
-  // Define a template for blog post
-  const blogPost = path.resolve(`./src/templates/blog-post.tsx`);
+  const blogPost = path.resolve(`./src/templates/posts-template.tsx`);
   const categorySet = new Set(['All']);
 
   edges.forEach(({ node }) => {
@@ -67,6 +49,24 @@ const createPostsPages = ({ createPage, edges }: CreatePagesFuncProps) => {
         currentCategory,
         categories,
         edges: edges.filter(({ node }) => node.frontmatter.categories.includes(currentCategory)),
+      },
+    });
+  });
+};
+
+const createPost = ({ createPage, edges }: CreatePagesFuncProps) => {
+  // Define a template for blog post
+  const blogPost = path.resolve(`./src/templates/post-template.tsx`);
+
+  edges.forEach(({ node, next, previous }) => {
+    createPage({
+      path: node.fields.slug,
+      component: blogPost,
+      context: {
+        // additional data can be passed via context
+        slug: node.fields.slug,
+        nextSlug: next?.fields.slug ?? '',
+        prevSlug: previous?.fields.slug ?? '',
       },
     });
   });
@@ -117,8 +117,8 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions,
     return;
   }
 
-  createBlogPages({ createPage, edges: result.data.allMarkdownRemark.edges });
-  createPostsPages({ createPage, edges: result.data.allMarkdownRemark.edges });
+  createPosts({ createPage, edges: result.data.allMarkdownRemark.edges });
+  createPost({ createPage, edges: result.data.allMarkdownRemark.edges });
 };
 
 export const onCreateNode: GatsbyNode['onCreateNode'] = ({ node, actions, getNode }) => {
