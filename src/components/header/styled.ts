@@ -1,5 +1,6 @@
 import { contentMaxWidth } from '../../styles/const';
 import styled from '@emotion/styled';
+import { Link } from 'gatsby';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -14,18 +15,19 @@ export const Header = styled.div`
   justify-content: space-between;
   width: 100%;
   max-width: ${contentMaxWidth};
-
-  .link {
-    font-weight: 700;
-    font-size: 17px;
-  }
+  font-family: GmarketSansBold;
 `;
 
 export const Menu = styled.div`
   display: flex;
+  gap: 10px;
   align-items: center;
+`;
 
-  .link {
-    margin-right: 10px;
+export const MenuLink = styled(Link)`
+  font-size: 17px;
+  &.hover-underline:after {
+    height: 2px;
+    bottom: -2px;
   }
 `;

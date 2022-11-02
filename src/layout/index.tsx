@@ -5,8 +5,7 @@ import * as S from './styled';
 import Header from '../components/header';
 import Footer from '../components/footer';
 
-import './_reset.scss';
-import './_markdown-style.scss';
+import './style.scss';
 
 type LayoutProps = {
   children: React.ReactNode;
