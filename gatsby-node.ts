@@ -56,7 +56,7 @@ const createPosts = ({ createPage, edges }: CreatePagesFuncProps) => {
 
 const createPost = ({ createPage, edges }: CreatePagesFuncProps) => {
   // Define a template for blog post
-  const blogPost = path.resolve(`./src/templates/post-template.tsx`);
+  const blogPost = path.resolve(`./src/templates/post-template/index.tsx`);
 
   edges.forEach(({ node, next, previous }) => {
     createPage({

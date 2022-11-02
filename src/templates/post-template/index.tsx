@@ -1,12 +1,13 @@
 import * as React from 'react';
 import { Link, graphql } from 'gatsby';
-
-import Bio from '../components/bio';
-import Layout from '../layout';
-import Seo from '../components/seo';
-import Utterances from '../components/utterances';
-import { Post, SiteMetadata } from '../type';
-import PostClass from '../models/post';
+import Layout from '../../layout';
+import Seo from '../../components/seo';
+import Utterances from '../../components/utterances';
+import { Post, SiteMetadata } from '../../type';
+import PostClass from '../../models/post';
+import PostHeader from '../../components/postHeader';
+import PostNavigator from '../../components/postNavigator';
+import * as S from './styled';
 
 type PostTemplateProps = {
   data: { prev: Post; next: Post; cur: Post; site: { siteMetadata: SiteMetadata }; markdownRemark: Post };
@@ -34,9 +35,11 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data }) => {
   return (
     <Layout>
       <Seo title={curPost?.title} description={curPost?.excerpt} />
-      {/* <PostHeader post={curPost} />
-      <PostContent html={curPost.html} />
-      <PostNavigator prevPost={prevPost} nextPost={nextPost} /> */}
+      <PostHeader post={curPost} viewCount={0} />
+      <S.PostContent>
+        <div className='markdown' dangerouslySetInnerHTML={{ __html: curPost.html }} />
+      </S.PostContent>
+      <PostNavigator prevPost={prevPost} nextPost={nextPost} />
       {utterancesRepo && <Utterances repo={utterancesRepo} path={curPost.slug} />}
     </Layout>
   );
