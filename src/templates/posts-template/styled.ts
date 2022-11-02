@@ -1,0 +1,27 @@
+import styled from '@emotion/styled';
+
+export const CategoryWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+`;
+
+export const CategoryTitle = styled.div`
+  width: fit-content;
+  padding-bottom: 7px;
+  margin-bottom: 15px;
+  font-size: 40px;
+  font-weight: 700;
+  text-align: center;
+  border-bottom: 3px solid #000;
+`;
+
+export const CategorySubtitle = styled.div`
+  padding-bottom: 10px;
+  font-size: 20px;
+  font-weight: 500;
+  text-align: center;
+`;

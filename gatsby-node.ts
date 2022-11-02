@@ -25,7 +25,7 @@ type CreatePagesFuncProps = {
 
 const createPosts = ({ createPage, edges }: CreatePagesFuncProps) => {
   // Define a template for blog post
-  const blogPost = path.resolve(`./src/templates/posts-template.tsx`);
+  const blogPost = path.resolve(`./src/templates/posts-template/index.tsx`);
   const categorySet = new Set(['All']);
 
   edges.forEach(({ node }) => {
