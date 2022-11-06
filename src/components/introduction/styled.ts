@@ -1,12 +1,29 @@
 import styled from '@emotion/styled';
 
-export const IntroWrapper = styled.div`
+export const Wrapper = styled.div`
   width: 100%;
+  font-family: GmarketSansLight;
+`;
 
-  position: relative;
+export const InfoWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+`;
+
+export const Info = styled.div`
+  strong {
+    font-family: GmarketSansMedium;
+  }
 `;
 
 export const Intro = styled.div`
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   white-space: pre-line;
-  color: #fff;
+  line-height: 50px;
+  font-size: 18px;
+  text-align: center;
 `;
