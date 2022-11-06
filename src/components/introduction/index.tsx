@@ -22,19 +22,6 @@ const Introduction: React.FC<IntroductionProps> = ({ author }) => {
           <strong>Bachelor Degree.</strong> {bachelorDegree}
         </S.Info>
       </S.InfoWrapper>
-
-      <S.Intro>
-        <div>{`Hello, my name is Lee Jeongmin.
-        I’m a junior developer who wants to deeply strengthen the front-end.
-        
-        I’m actively expanding my interest in development regardless of field.`}</div>
-
-        <div>{`“ Do not be a frog in a well. ”
-        “ All I know is not everyting. ”`}</div>
-
-        <div>{`Every time, new plans and challenges have been a great stimulus.
-        I would like to give myself new tasks and create opportunities to continue to grow.`}</div>
-      </S.Intro>
     </S.Wrapper>
   );
 };

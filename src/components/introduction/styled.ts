@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 export const Wrapper = styled.div`
   width: 100%;
   font-family: GmarketSansLight;
+  margin-bottom: 50px;
 `;
 
 export const InfoWrapper = styled.div`

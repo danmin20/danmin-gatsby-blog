@@ -34,15 +34,15 @@ const Header: React.FC<HeaderProps> = ({ location, children }) => {
     <S.Wrapper>
       <S.Header>
         <div>
-          <S.MenuLink to='/' isselected={false}>
+          <S.MenuLink to='/' isselected='false'>
             {children}
           </S.MenuLink>
         </div>
         <S.Menu>
-          <S.MenuLink to='/about' isselected={pathname === '/about'}>
+          <S.MenuLink to='/about' isselected={(pathname === '/about').toString()}>
             about
           </S.MenuLink>
-          <S.MenuLink to='/posts' isselected={pathname === '/posts'}>
+          <S.MenuLink to='/posts' isselected={(pathname === '/posts').toString()}>
             posts
           </S.MenuLink>
           {/* <PostSearch

@@ -11,6 +11,7 @@ export const Wrapper = styled.div`
   top: 0;
   left: 0;
   background-color: ${colors.white100};
+  z-index: 100;
 `;
 
 export const Header = styled.div`
@@ -28,12 +29,12 @@ export const Menu = styled.div`
   align-items: center;
 `;
 
-export const MenuLink = styled(Link)<{ isselected: boolean }>`
+export const MenuLink = styled(Link)<{ isselected: string }>`
   font-size: 17px;
   ${hoverUnderline};
   &:after {
     height: 2px;
     bottom: -2px;
-    transform: ${({ isselected }) => (isselected ? 'scaleX(1)' : 'scaleX(0)')};
+    transform: ${({ isselected }) => (isselected === 'true' ? 'scaleX(1)' : 'scaleX(0)')};
   }
 `;

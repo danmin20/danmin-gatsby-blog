@@ -9,6 +9,7 @@
     "Parens",
     "prismjs",
     "superelse",
-    "superif"
+    "superif",
+    "translatex"
   ]
 }

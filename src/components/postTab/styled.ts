@@ -21,10 +21,10 @@ export const Tabs = styled.div`
   gap: 24px;
 `;
 
-export const Tab = styled.div<{ isselected: boolean }>`
+export const Tab = styled.div<{ isselected: string }>`
   font-size: 17px;
   cursor: pointer;
   ${hoverUnderline};
   line-height: 50px;
-  color: ${({ isselected }) => (isselected ? colors.black100 : colors.gray60)};
+  color: ${({ isselected }) => (isselected === 'true' ? colors.black100 : colors.gray60)};
 `;

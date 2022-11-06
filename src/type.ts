@@ -1,4 +1,4 @@
-export interface SiteMetadata {
+export type SiteMetadata = {
   title: string;
   author: Author;
   siteUrl: string;
@@ -9,9 +9,43 @@ export interface SiteMetadata {
       repo: string;
     };
   };
-}
+  about: {
+    careers: Career[];
+    activities: Activity[];
+    projects: Project[];
+  };
+};
 
-export interface Author {
+export type Career = {
+  date: string;
+  kr: string;
+  en: string;
+  info: string;
+};
+
+export type Activity = {
+  date: string;
+  kr: string;
+  en: string;
+  info: string;
+  link: string;
+};
+
+export type Project = {
+  title: string;
+  description: string;
+  techStack: string[];
+  thumbnailUrl: string;
+  links: {
+    post: string;
+    github: string;
+    googlePlay: string;
+    appStore: string;
+    demo: string;
+  };
+};
+
+export type Author = {
   name: string;
   nickname: string;
   bio: {
@@ -22,43 +56,43 @@ export interface Author {
     bachelorDegree: string;
   };
   social: Social;
-}
+};
 
-export interface Social {
+export type Social = {
   github: string;
   linkedIn: string;
   resume: string;
   email: string;
-}
+};
 
-export interface Post {
+export type Post = {
   id: string;
   excerpt: string;
   html: string;
   frontmatter: Frontmatter;
   fields: Fields;
-}
+};
 
-export interface AllMarkdownRemark {
+export type AllMarkdownRemark = {
   edges: { node: MarkdownRemark; next: { fields: Fields }; previous: { fields: Fields } }[];
-}
+};
 
-export interface MarkdownRemark {
+export type MarkdownRemark = {
   id: string;
   frontmatter: Frontmatter;
   fields: Fields;
   excerpt: string;
   html: string;
-}
+};
 
-export interface Frontmatter {
+export type Frontmatter = {
   title: string;
   author: string;
   date: string;
   emoji: string;
   categories: string;
-}
+};
 
-export interface Fields {
+export type Fields = {
   slug: string;
-}
+};

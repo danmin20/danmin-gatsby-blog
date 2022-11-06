@@ -10,15 +10,14 @@
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
+    "@radix-ui/react-icons": "^1.1.1",
     "gatsby": "^4.24.5",
     "prismjs": "^1.29.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-helmet": "^6.1.0",
     "react-rotating-text": "^1.4.1",
-    "sass": "^1.55.0",
-    "typeface-merriweather": "0.0.72",
-    "typeface-montserrat": "0.0.75"
+    "sass": "^1.55.0"
   },
   "devDependencies": {
     "@types/react-helmet": "^6.1.5",

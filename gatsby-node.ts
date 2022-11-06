@@ -24,8 +24,7 @@ type CreatePagesFuncProps = {
 };
 
 const createPosts = ({ createPage, edges }: CreatePagesFuncProps) => {
-  // Define a template for blog post
-  const blogPost = path.resolve(`./src/templates/posts-template/index.tsx`);
+  const posts = path.resolve(`./src/templates/posts-template/index.tsx`);
   const categorySet = new Set(['All']);
 
   edges.forEach(({ node }) => {
@@ -37,14 +36,14 @@ const createPosts = ({ createPage, edges }: CreatePagesFuncProps) => {
 
   createPage({
     path: `/posts`,
-    component: blogPost,
+    component: posts,
     context: { currentCategory: 'All', edges, categories },
   });
 
   categories.forEach((currentCategory) => {
     createPage({
       path: `/posts/${currentCategory}`,
-      component: blogPost,
+      component: posts,
       context: {
         currentCategory,
         categories,
@@ -55,13 +54,12 @@ const createPosts = ({ createPage, edges }: CreatePagesFuncProps) => {
 };
 
 const createPost = ({ createPage, edges }: CreatePagesFuncProps) => {
-  // Define a template for blog post
-  const blogPost = path.resolve(`./src/templates/post-template/index.tsx`);
+  const post = path.resolve(`./src/templates/post-template/index.tsx`);
 
   edges.forEach(({ node, next, previous }) => {
     createPage({
       path: node.fields.slug,
-      component: blogPost,
+      component: post,
       context: {
         // additional data can be passed via context
         slug: node.fields.slug,

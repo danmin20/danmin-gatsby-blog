@@ -33,43 +33,79 @@ export default {
   about: {
     careers: [
       {
-        date: '',
-        activity: '',
-        links: {
-          github: '',
-          post: '',
-          googlePlay: '',
-          appStore: '',
-          demo: '',
-        },
+        date: '2022.01.04 - NOW',
+        en: 'Woowa Brothers Corp.',
+        kr: '우아한형제들',
+        info: 'Front-end development group',
       },
-    ],
-
-    internships: [
       {
-        date: '',
-        activity: '',
-        links: {
-          github: '',
-          post: '',
-          googlePlay: '',
-          appStore: '',
-          demo: '',
-        },
+        date: '2021.09.27 - 2021.12.26',
+        en: 'Daangn',
+        kr: '당근마켓',
+        info: 'MVP Intership',
+      },
+      {
+        date: '2021.03.02-2021.04.09',
+        en: 'Naver',
+        kr: '네이버',
+        info: 'Glace CIC / smart place service',
+      },
+      {
+        date: '2020.11.02-2021.02.28',
+        en: 'Megazon Cloud',
+        kr: '메가존클라우드',
+        info: 'Cloud Tech Center / CloudOne',
+      },
+      {
+        date: '2020.06.29-2020.10.16',
+        en: 'TwentyOZ',
+        kr: '트웬티온스',
+        info: 'Field training',
       },
     ],
 
     activities: [
       {
-        date: '',
-        activity: '',
-        links: {
-          github: '',
-          post: '',
-          googlePlay: '',
-          appStore: '',
-          demo: '',
-        },
+        date: '2022.11 - NOW',
+        en: 'SIPE',
+        kr: '사이프',
+        info: 'Community for IT workers',
+        link: '',
+      },
+      {
+        date: '2022.09 - NOW',
+        en: 'SOPT makers',
+        kr: '솝트 메이커스',
+        info: 'Organization makes products for SOPT',
+        link: '',
+      },
+      {
+        date: '2020.09 - NOW',
+        en: 'AUSG',
+        kr: '아우쓱',
+        info: 'AWS university student group',
+        link: 'https://ausg.me/',
+      },
+      {
+        date: '2020.07 - 2021.12',
+        en: 'Depromeet',
+        kr: '디프만',
+        info: 'Club with designers and programmers',
+        link: 'https://depromeet.com/',
+      },
+      {
+        date: '2020.03 - 2020.08',
+        en: 'SOPT',
+        kr: '솝트',
+        info: 'College student start-up IT club',
+        link: 'https://sopt.org/',
+      },
+      {
+        date: '2020.03 - 2020.06',
+        en: 'Like Lion',
+        kr: '멋쟁이사자처럼',
+        info: 'College student start-up IT club',
+        link: 'https://www.likelion.net/',
       },
     ],
 

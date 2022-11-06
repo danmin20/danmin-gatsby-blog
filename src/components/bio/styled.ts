@@ -40,7 +40,7 @@ export const Wrapper = styled.div`
   justify-content: space-between;
   width: 100%;
   margin-top: 120px;
-  margin-bottom: 120px;
+  margin-bottom: 80px;
   font-family: GmarketSansLight;
 
   .react-rotating-text-cursor {
