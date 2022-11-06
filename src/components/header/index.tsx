@@ -35,12 +35,8 @@ const Header: React.FC<HeaderProps> = ({ children }) => {
           <S.MenuLink to='/'>{children}</S.MenuLink>
         </div>
         <S.Menu>
-          <S.MenuLink className='hover-underline' to='/about'>
-            about
-          </S.MenuLink>
-          <S.MenuLink className='hover-underline' to='/posts'>
-            posts
-          </S.MenuLink>
+          <S.MenuLink to='/about'>about</S.MenuLink>
+          <S.MenuLink to='/posts'>posts</S.MenuLink>
           {/* <PostSearch
                 posts={data.allMarkdownRemark.edges.map(({ node }) => new PostClass(node, true))}
               /> */}

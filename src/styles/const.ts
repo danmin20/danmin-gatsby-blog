@@ -1,3 +1,5 @@
+import { css } from '@emotion/react';
+
 export const contentMaxWidth = '720px';
 
 export const colors = {
@@ -16,3 +18,25 @@ export const colors = {
   white: '#FCFCFC',
   white100: '#FFFFFF',
 };
+
+export const hoverUnderline = css`
+  display: inline-block;
+  position: relative;
+
+  &:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1px;
+    bottom: -1px;
+    left: 0;
+    background-color: ${colors.black100};
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+  &:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+`;

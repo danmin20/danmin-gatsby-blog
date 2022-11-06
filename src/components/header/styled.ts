@@ -1,4 +1,4 @@
-import { contentMaxWidth } from '../../styles/const';
+import { contentMaxWidth, hoverUnderline } from '../../styles/const';
 import styled from '@emotion/styled';
 import { Link } from 'gatsby';
 
@@ -26,7 +26,8 @@ export const Menu = styled.div`
 
 export const MenuLink = styled(Link)`
   font-size: 17px;
-  &.hover-underline:after {
+  ${hoverUnderline};
+  &:after {
     height: 2px;
     bottom: -2px;
   }
