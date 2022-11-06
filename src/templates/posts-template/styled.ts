@@ -14,10 +14,9 @@ export const CategoryTitle = styled.div`
   width: fit-content;
   padding-bottom: 7px;
   margin-bottom: 15px;
-  font-size: 40px;
-  font-weight: 700;
+  font-size: 30px;
   text-align: center;
-  border-bottom: 3px solid ${colors.black100};
+  border-bottom: 2px solid ${colors.black100};
 `;
 
 export const CategorySubtitle = styled.div`
@@ -25,4 +24,5 @@ export const CategorySubtitle = styled.div`
   font-size: 20px;
   font-weight: 500;
   text-align: center;
+  font-family: GmarketSansLight;
 `;

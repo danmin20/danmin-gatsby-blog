@@ -8,10 +8,11 @@ import Footer from '../components/footer';
 import './style.scss';
 
 type LayoutProps = {
+  location: Location;
   children: React.ReactNode;
 };
 
-const Layout: React.FC<LayoutProps> = ({ children }) => {
+const Layout: React.FC<LayoutProps> = ({ location, children }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -27,7 +28,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     <S.Wrapper>
       <GlobalStyle />
       <S.ContentWrapper>
-        <Header>{title}</Header>
+        {location && <Header location={location}>{title}</Header>}
         <S.Content>{children}</S.Content>
       </S.ContentWrapper>
       <Footer />

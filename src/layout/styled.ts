@@ -14,6 +14,7 @@ export const ContentWrapper = styled.div`
   word-break: keep-all;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  padding-top: 60px;
   padding-left: 15px;
   padding-right: 15px;
   margin-bottom: 61px;

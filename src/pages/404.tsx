@@ -9,13 +9,14 @@ type NotFoundPageProps = {
   data: {
     site: { siteMetadata: SiteMetadata };
   };
+  location: Location;
 };
 
-const NotFoundPage: React.FC<NotFoundPageProps> = ({ data }) => {
+const NotFoundPage: React.FC<NotFoundPageProps> = ({ location, data }) => {
   const siteTitle = data.site.siteMetadata.title;
 
   return (
-    <Layout>
+    <Layout location={location}>
       <h1>404: Not Found</h1>
       <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
     </Layout>

@@ -12,15 +12,18 @@ type BlogIndexProps = {
     site: { siteMetadata: SiteMetadata };
     allMarkdownRemark: AllMarkdownRemark;
   };
+  location: Location;
 };
 
-const BlogIndex: React.FC<BlogIndexProps> = ({ data }) => {
+const BlogIndex: React.FC<BlogIndexProps> = ({ location, data }) => {
   const posts = data.allMarkdownRemark.edges.map(({ node }) => new PostClass(node));
   const featuredPosts = posts.filter((node) => node.categories.findIndex((category) => category === 'featured'));
   const { author, language } = data.site.siteMetadata;
 
+  console.log('location', location.pathname);
+
   return (
-    <Layout>
+    <Layout location={location}>
       <Seo title='개발자 단민' />
       <Bio author={author} />
       <PostColumn posts={featuredPosts} />

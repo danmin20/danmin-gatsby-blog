@@ -1,5 +1,6 @@
-import { contentMaxWidth } from '../../styles/const';
+import { colors, contentMaxWidth, hoverUnderline } from '../../styles/const';
 import styled from '@emotion/styled';
+import { render } from 'sass';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -17,18 +18,13 @@ export const Tabs = styled.div`
   width: 100%;
   max-width: ${contentMaxWidth} + 40px;
   margin-bottom: 12px;
+  gap: 24px;
 `;
 
-export const Tab = styled.div`
-  height: 40px;
-  min-height: auto;
-  min-width: auto;
-  padding: 10px 12px;
-  font-weight: 500;
+export const Tab = styled.div<{ isselected: boolean }>`
   font-size: 17px;
-  transition: all 200ms ease;
-
-  :hover {
-    transition: all 200ms ease;
-  }
+  cursor: pointer;
+  ${hoverUnderline};
+  line-height: 50px;
+  color: ${({ isselected }) => (isselected ? colors.black100 : colors.gray60)};
 `;

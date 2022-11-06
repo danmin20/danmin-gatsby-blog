@@ -3,10 +3,11 @@ import * as S from './styled';
 // import PostSearch from '../post-search';
 
 type HeaderProps = {
+  location: Location;
   children: ReactNode;
 };
 
-const Header: React.FC<HeaderProps> = ({ children }) => {
+const Header: React.FC<HeaderProps> = ({ location, children }) => {
   //   const { data } = useStaticQuery(
   //     graphql`
   //       query {
@@ -27,15 +28,23 @@ const Header: React.FC<HeaderProps> = ({ children }) => {
   //     `,
   //   );
 
+  const { pathname } = location;
+
   return (
     <S.Wrapper>
       <S.Header>
         <div>
-          <S.MenuLink to='/'>{children}</S.MenuLink>
+          <S.MenuLink to='/' isselected={false}>
+            {children}
+          </S.MenuLink>
         </div>
         <S.Menu>
-          <S.MenuLink to='/about'>about</S.MenuLink>
-          <S.MenuLink to='/posts'>posts</S.MenuLink>
+          <S.MenuLink to='/about' isselected={pathname === '/about'}>
+            about
+          </S.MenuLink>
+          <S.MenuLink to='/posts' isselected={pathname === '/posts'}>
+            posts
+          </S.MenuLink>
           {/* <PostSearch
                 posts={data.allMarkdownRemark.edges.map(({ node }) => new PostClass(node, true))}
               /> */}

@@ -9,6 +9,7 @@ import { AllMarkdownRemark } from '../../type';
 import PostTabs from '../../components/postTab';
 
 type PostsTemplateProps = {
+  location: Location;
   pageContext: {
     currentCategory: string;
     categories: string[];
@@ -16,7 +17,7 @@ type PostsTemplateProps = {
   };
 };
 
-const PostsTemplate: React.FC<PostsTemplateProps> = ({ pageContext }) => {
+const PostsTemplate: React.FC<PostsTemplateProps> = ({ location, pageContext }) => {
   const { edges, currentCategory } = pageContext;
   const { categories } = pageContext;
   const currentTabIndex = useMemo(
@@ -31,7 +32,7 @@ const PostsTemplate: React.FC<PostsTemplateProps> = ({ pageContext }) => {
   };
 
   return (
-    <Layout>
+    <Layout location={location}>
       <Seo title='Posts' />
       <S.CategoryWrapper>
         <S.CategoryTitle>{categories[currentTabIndex]}</S.CategoryTitle>

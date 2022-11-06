@@ -10,10 +10,11 @@ import PostNavigator from '../../components/postNavigator';
 import * as S from './styled';
 
 type PostTemplateProps = {
+  location: Location;
   data: { prev: Post; next: Post; cur: Post; site: { siteMetadata: SiteMetadata }; markdownRemark: Post };
 };
 
-const PostTemplate: React.FC<PostTemplateProps> = ({ data }) => {
+const PostTemplate: React.FC<PostTemplateProps> = ({ location, data }) => {
   const curPost = new PostClass(data.cur);
   const prevPost = data.prev && new PostClass(data.prev);
   const nextPost = data.next && new PostClass(data.next);
@@ -33,7 +34,7 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data }) => {
     // });
   }, [siteUrl, curPost.slug]);
   return (
-    <Layout>
+    <Layout location={location}>
       <Seo title={curPost?.title} description={curPost?.excerpt} />
       <PostHeader post={curPost} viewCount={0} />
       <S.PostContent>

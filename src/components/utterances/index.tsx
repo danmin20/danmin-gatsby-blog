@@ -1,7 +1,8 @@
 import React, { createRef, useEffect, useRef } from 'react';
+import * as S from './styled';
 
 const src = 'https://utteranc.es/client.js';
-const branch = 'master';
+const branch = 'main';
 
 type UtterancesProps = {
   repo: string;
@@ -35,7 +36,7 @@ const Utterances: React.FC<UtterancesProps> = ({ repo, path }) => {
     isUtterancesLoaded.current = true;
   }, [repo, rootElm, path]);
 
-  return <div className='utterances' ref={rootElm} />;
+  return <S.Wrapper className='utterances' ref={rootElm} />;
 };
 
 export default Utterances;

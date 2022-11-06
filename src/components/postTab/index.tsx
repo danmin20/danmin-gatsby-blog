@@ -22,7 +22,7 @@ const PostTabs: React.FC<PostTabsProps> = ({ tabIndex, onChange, tabs, posts }) 
     <S.Wrapper>
       <S.Tabs>
         {tabs.map((title, index) => (
-          <S.Tab key={index} onClick={() => onChange(index)}>
+          <S.Tab key={index} isselected={tabIndex === index} onClick={() => onChange(index)}>
             {title}
           </S.Tab>
         ))}

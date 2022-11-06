@@ -5,5 +5,5 @@ export const PostContent = styled.div`
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 `;

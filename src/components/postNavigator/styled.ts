@@ -13,14 +13,15 @@ export const PostCard = styled(Link)`
   display: flex;
   flex-direction: column;
   width: 100%;
-  border: 1px solid ${colors.black100};
+  background-color: ${colors.gray10};
   border-radius: 6px;
   padding: 15px;
 
   cursor: pointer;
-  transition: transform 0.2s;
+  transition: 0.3s;
 
   &:hover {
+    background-color: ${colors.gray20};
     .title {
       text-decoration: underline;
     }
@@ -36,14 +37,11 @@ export const PostCard = styled(Link)`
 `;
 
 export const Direction = styled.div`
-  font-size: 14px;
-  font-weight: 500;
-  margin-bottom: 5px;
+  color: ${colors.gray60};
+  margin-bottom: 10px;
 `;
 
 export const Title = styled.div`
   font-size: 16px;
   font-weight: 600;
-  margin-bottom: 7px;
-  line-height: 1.4;
 `;
