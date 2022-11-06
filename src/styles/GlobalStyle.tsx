@@ -9,7 +9,7 @@ const GlobalStyle: React.FC = () => (
         appearance: none;
       }
       html {
-        font-family: 'GmarketSansLight';
+        font-family: 'GmarketSansMedium';
         width: 100%;
         height: 100%;
         overflow-y: scroll;

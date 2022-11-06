@@ -3,6 +3,7 @@ import PostClass from '@/src/models/post';
 import PostCard from '../postCard';
 import { navigate } from 'gatsby';
 import * as S from './styled';
+import PostColumn from '../postColumn';
 
 type PostTabsProps = {
   tabIndex: number;
@@ -19,10 +20,6 @@ const PostTabs: React.FC<PostTabsProps> = ({ tabIndex, onChange, tabs, posts }) 
 
   const moreUrl = `posts/${tabIndex === 0 ? '' : tabs[tabIndex]}`;
 
-  const onMoreButtonClick = useCallback(() => {
-    navigate(moreUrl);
-  }, [moreUrl]);
-
   return (
     <S.Wrapper>
       <S.Tabs>
@@ -33,13 +30,9 @@ const PostTabs: React.FC<PostTabsProps> = ({ tabIndex, onChange, tabs, posts }) 
         ))}
       </S.Tabs>
 
-      <S.Cards>
-        {posts.map((post, index) => (
-          <PostCard key={index} post={post} />
-        ))}
-        {tabPosts.length > 4 && <S.MoreButton onClick={onMoreButtonClick}>More</S.MoreButton>}
-      </S.Cards>
+      <PostColumn posts={tabPosts.slice(0, 4)} moreUrl={moreUrl} />
     </S.Wrapper>
   );
 };
+
 export default PostTabs;

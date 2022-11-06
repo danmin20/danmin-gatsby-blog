@@ -6,7 +6,7 @@ import Layout from '../../layout';
 import Seo from '../../components/seo';
 import PostClass from '../../models/post';
 import { AllMarkdownRemark } from '../../type';
-import PostTabs from '../../../src/components/postsTab';
+import PostTabs from '../../components/postTab';
 
 type PostsTemplateProps = {
   pageContext: {
