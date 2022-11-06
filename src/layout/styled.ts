@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { contentMaxWidth } from '../styles/const';
+import { colors, contentMaxWidth } from '../styles/const';
 
 export const Wrapper = styled.div`
   overflow-y: scroll;
@@ -17,7 +17,7 @@ export const ContentWrapper = styled.div`
   padding-left: 15px;
   padding-right: 15px;
   margin-bottom: 61px;
-  background-color: #fff;
+  background-color: ${colors.white100};
   box-shadow: 0 0 30px rgb(0 0 0 / 0.1);
 `;
 

@@ -1,4 +1,4 @@
-import { contentMaxWidth } from '../../../src/styles/const';
+import { colors, contentMaxWidth } from '../../../src/styles/const';
 import styled from '@emotion/styled';
 import { Link } from 'gatsby';
 
@@ -15,7 +15,7 @@ export const PostCard = styled(Link)`
   height: 100%;
   width: 100%;
   max-width: ${contentMaxWidth};
-  border: 1px solid #000;
+  border: 1px solid ${colors.gray30};
   border-radius: 6px;
   padding: 15px;
   margin-bottom: 15px;

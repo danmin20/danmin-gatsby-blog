@@ -1,3 +1,4 @@
+import { colors } from '../../../src/styles/const';
 import styled from '@emotion/styled';
 import { Link } from 'gatsby';
 
@@ -12,7 +13,7 @@ export const PostCard = styled(Link)`
   display: flex;
   flex-direction: column;
   width: 100%;
-  border: 1px solid #000;
+  border: 1px solid ${colors.black100};
   border-radius: 6px;
   padding: 15px;
 

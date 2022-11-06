@@ -1,3 +1,4 @@
+import { colors } from '../../../src/styles/const';
 import styled from '@emotion/styled';
 
 export const CategoryWrapper = styled.div`
@@ -16,7 +17,7 @@ export const CategoryTitle = styled.div`
   font-size: 40px;
   font-weight: 700;
   text-align: center;
-  border-bottom: 3px solid #000;
+  border-bottom: 3px solid ${colors.black100};
 `;
 
 export const CategorySubtitle = styled.div`

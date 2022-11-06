@@ -1,3 +1,4 @@
+import { colors } from '../../../src/styles/const';
 import styled from '@emotion/styled';
 import { Link } from 'gatsby';
 
@@ -6,10 +7,8 @@ export const Header = styled.header`
   justify-content: center;
   flex-direction: column;
   width: 100%;
-
   padding-bottom: 10px;
-  border-bottom: 1px solid #000;
-
+  border-bottom: 1px solid ${colors.black100};
   margin-top: 20px;
   margin-bottom: 40px;
   word-break: keep-all;
