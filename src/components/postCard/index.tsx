@@ -11,13 +11,13 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
   return (
     <S.Wrapper>
       <S.PostCard key={id} to={slug}>
-        <S.Title>{title}</S.Title>
+        <S.Title className='title'>{title}</S.Title>
         <S.Description dangerouslySetInnerHTML={{ __html: excerpt }} />
         <S.Info>
-          <S.Date className='date'>{date}</S.Date>
-          <S.Categories className='categories'>
+          <S.Date>{date}</S.Date>
+          <S.Categories>
             {categories.map((category) => (
-              <S.Category className='category' key={category}>
+              <S.Category to={`/posts/${category}`} key={category}>
                 {category}
               </S.Category>
             ))}

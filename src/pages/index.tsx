@@ -24,7 +24,7 @@ const BlogIndex: React.FC<BlogIndexProps> = ({ data }) => {
 
   return (
     <Layout>
-      <Seo title='Home' />
+      <Seo title='개발자 단민' />
       <Bio author={author} />
       <PostColumn posts={featuredPosts} />
     </Layout>
