@@ -51,6 +51,7 @@ export const Info = styled.div`
   font-size: 13px;
   width: 100%;
   color: ${colors.gray60};
+  font-family: GmarketSansLight;
 `;
 
 export const Date = styled.div``;
