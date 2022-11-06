@@ -17,7 +17,9 @@ type BlogIndexProps = {
 
 const BlogIndex: React.FC<BlogIndexProps> = ({ location, data }) => {
   const posts = data.allMarkdownRemark.edges.map(({ node }) => new PostClass(node));
-  const featuredPosts = posts.filter((node) => node.categories.findIndex((category) => category === 'featured'));
+  const featuredPosts = posts.filter((node) =>
+    node.categories.findIndex((category) => category === 'featured') > -1 ? true : false,
+  );
   const { author } = data.site.siteMetadata;
 
   return (

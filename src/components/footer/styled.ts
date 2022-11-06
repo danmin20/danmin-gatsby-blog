@@ -23,7 +23,6 @@ export const Footer = styled.p`
   .link {
     font-weight: 700;
     font-size: 20px;
-    color: var(--primary-text-color);
     margin-right: 20px;
   }
 

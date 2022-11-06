@@ -4,18 +4,37 @@
 @font-face {
     font-family: 'GmarketSansLight';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
-    font-weight: 300;
     font-style: normal;
 }
+
 @font-face {
     font-family: 'GmarketSansMedium';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
-    font-weight: 500;
     font-style: normal;
 }
+
 @font-face {
     font-family: 'GmarketSansBold';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
-    font-weight: 700;
     font-style: normal;
+}
+
+// light mode colors
+html {
+    --secondary-text-color: #9e9e9e;
+    --link-text-color: rgb(55 53 47 / 70%);
+    --markdown-table-even-cell-background-color: #f6f8fa;
+    --markdown-table-border-color: #dfe2e5;
+    --markdown-blockquote-border-color: #dfe2e5;
+    --markdown-border-color: #e1e4e8;
+}
+
+// dark mode colors
+html[data-theme='dark'] {
+    --secondary-text-color: #768390;
+    --link-text-color: #90b0ec;
+    --markdown-table-even-cell-background-color: #2d333b;
+    --markdown-table-border-color: #444c56;
+    --markdown-blockquote-border-color: #4f5864;
+    --markdown-border-color: #e1e4e8;
 }

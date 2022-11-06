@@ -64,7 +64,6 @@ $content-image-max-height: 560px;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   line-height: 1.5;
-  color: var(--content-text-color);
   font-size: 16px;
   font-weight: 500;
   line-height: 1.5;
@@ -252,6 +251,7 @@ $content-image-max-height: 560px;
 .markdown p {
   margin-top: 0;
   margin-bottom: 10px;
+  line-height: 200%;
 }
 
 .markdown blockquote {
@@ -660,7 +660,7 @@ $content-image-max-height: 560px;
 }
 
 .markdown hr {
-  height: 0.25em;
+  height: 1px;
   padding: 0;
   margin: 24px 0;
   background-color: var(--markdown-border-color);
@@ -670,7 +670,7 @@ $content-image-max-height: 560px;
 .markdown blockquote {
   padding: 0 1em;
   color: #6a737d;
-  border-left: 0.25em solid var(--markdown-blockquote-border-color);
+  border-left: 2px solid var(--markdown-blockquote-border-color);
 }
 
 .markdown blockquote> :first-child {
@@ -679,6 +679,10 @@ $content-image-max-height: 560px;
 
 .markdown blockquote> :last-child {
   margin-bottom: 0;
+}
+
+.markdown em {
+  font-style: italic;
 }
 
 .markdown h1,
