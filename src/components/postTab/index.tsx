@@ -1,7 +1,5 @@
-import React, { useCallback, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import PostClass from '@/src/models/post';
-import PostCard from '../postCard';
-import { navigate } from 'gatsby';
 import * as S from './styled';
 import PostColumn from '../postColumn';
 

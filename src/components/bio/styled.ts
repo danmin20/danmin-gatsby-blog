@@ -1,3 +1,4 @@
+import { colors } from '../../../src/styles/const';
 import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
 
@@ -68,23 +69,6 @@ export const IntroWrapper = styled.div`
   .react-rotating-text-cursor {
     animation: ${blinkingCursor} 0.8s cubic-bezier(0.68, 0.01, 0.01, 0.99) 0s infinite;
   }
-`;
-
-export const AnimatedCircle = styled.div`
-  position: absolute;
-  z-index: -1;
-  top: -50px;
-  right: -80px;
-  cursor: pointer;
-  width: 200px;
-  height: 250px;
-  border: 1px solid gray;
-  border-radius: 62% 47% 82% 35% / 45% 45% 80% 66%;
-  will-change: border-radius, transform, opacity;
-  animation: ${sliderShape} 5s linear infinite;
-  display: block;
-  -webkit-animation: ${sliderShape} 5s linear infinite;
-  transition: 0.5s;
 `;
 
 export const Title = styled.p`

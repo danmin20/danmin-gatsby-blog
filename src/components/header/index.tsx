@@ -1,4 +1,3 @@
-import { Link, graphql, useStaticQuery } from 'gatsby';
 import React, { ReactNode } from 'react';
 import * as S from './styled';
 // import PostSearch from '../post-search';

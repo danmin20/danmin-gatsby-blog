@@ -1,12 +1,9 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-
 import Bio from '../components/bio';
 import Layout from '../layout';
 import Seo from '../components/seo';
 import { AllMarkdownRemark, SiteMetadata } from '../type';
-import Introduction from '../components/introduction';
-import PostTabs from '../components/postTab';
 import PostClass from '../models/post';
 import PostColumn from '../components/postColumn';
 

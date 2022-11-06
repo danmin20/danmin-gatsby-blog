@@ -14,7 +14,6 @@ const Bio: React.FC<BioProps> = ({ author }) => {
   return (
     <S.Wrapper>
       <S.IntroWrapper>
-        <S.AnimatedCircle />
         <S.Title>
           안녕하세요!
           <br />

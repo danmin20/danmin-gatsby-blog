@@ -1,5 +1,4 @@
 import PostClass from '@/src/models/post';
-import { Link } from 'gatsby';
 import React from 'react';
 import * as S from './styled';
 

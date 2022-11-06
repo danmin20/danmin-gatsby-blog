@@ -1,8 +1,6 @@
 import * as React from 'react';
 import { Author } from '@/src/type';
 import * as S from './styled';
-import ReactRotatingText from 'react-rotating-text';
-import SocialButton from '../socialButton';
 
 type IntroductionProps = {
   author: Author;

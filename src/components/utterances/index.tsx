@@ -1,4 +1,4 @@
-import React, { createRef, ReactNode, useEffect, useRef } from 'react';
+import React, { createRef, useEffect, useRef } from 'react';
 
 const src = 'https://utteranc.es/client.js';
 const branch = 'master';

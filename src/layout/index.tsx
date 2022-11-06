@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { graphql, Link, useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 import GlobalStyle from '../styles/GlobalStyle';
 import * as S from './styled';
 import Header from '../components/header';
@@ -17,17 +17,11 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       site {
         siteMetadata {
           title
-          author {
-            name
-            social {
-              github
-            }
-          }
         }
       }
     }
   `);
-  const { title, author } = data.site.siteMetadata;
+  const { title } = data.site.siteMetadata;
 
   return (
     <S.Wrapper>
@@ -36,7 +30,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         <Header>{title}</Header>
         <S.Content>{children}</S.Content>
       </S.ContentWrapper>
-      <Footer author={author} />
+      <Footer />
     </S.Wrapper>
   );
 };
