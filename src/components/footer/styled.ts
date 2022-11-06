@@ -8,6 +8,11 @@ export const Wrapper = styled.div`
   width: 100%;
   height: 62px;
   margin-top: auto;
+  position: fixed;
+  bottom: 0;
+  z-index: -1;
+  background-color: #f8f9fa;
+  font-family: GmarketSansLight;
 `;
 
 export const Footer = styled.p`

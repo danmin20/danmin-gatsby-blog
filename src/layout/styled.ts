@@ -2,9 +2,12 @@ import styled from '@emotion/styled';
 import { contentMaxWidth } from '../styles/const';
 
 export const Wrapper = styled.div`
+  overflow-y: scroll;
+`;
+
+export const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   width: 100%;
   min-height: 100vh;
@@ -13,6 +16,9 @@ export const Wrapper = styled.div`
   -moz-osx-font-smoothing: grayscale;
   padding-left: 15px;
   padding-right: 15px;
+  margin-bottom: 61px;
+  background-color: #fff;
+  box-shadow: 0 0 30px rgb(0 0 0 / 0.1);
 `;
 
 export const Content = styled.main`

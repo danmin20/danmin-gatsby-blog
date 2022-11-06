@@ -17,10 +17,7 @@ const Footer: React.FC<FooterProps> = ({ author }) => {
     <S.Wrapper>
       <S.Footer>
         © {new Date().getFullYear()}
-        &nbsp;
-        <a href={github}>{name}</a>
-        &nbsp;powered by
-        <a href={`${github}/danmin-gatsby-blog`}>&nbsp;danmin-gatsby-blog</a>
+        &nbsp;powered by danmin
       </S.Footer>
     </S.Wrapper>
   );

@@ -30,14 +30,14 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   const { title, author } = data.site.siteMetadata;
 
   return (
-    <>
+    <S.Wrapper>
       <GlobalStyle />
-      <S.Wrapper>
+      <S.ContentWrapper>
         <Header>{title}</Header>
         <S.Content>{children}</S.Content>
-        <Footer author={author} />
-      </S.Wrapper>
-    </>
+      </S.ContentWrapper>
+      <Footer author={author} />
+    </S.Wrapper>
   );
 };
 
