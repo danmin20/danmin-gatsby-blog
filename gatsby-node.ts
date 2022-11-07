@@ -29,7 +29,7 @@ const createPosts = ({ createPage, edges }: CreatePagesFuncProps) => {
 
   edges.forEach(({ node }) => {
     const postCategories = node.frontmatter.categories.split(' ');
-    postCategories.forEach((category) => categorySet.add(category));
+    postCategories.forEach((category) => category !== 'featured' && categorySet.add(category));
   });
 
   const categories = [...categorySet];

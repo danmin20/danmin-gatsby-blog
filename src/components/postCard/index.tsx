@@ -16,11 +16,14 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
         <S.Info>
           <S.Date>{date}</S.Date>
           <S.Categories>
-            {categories.map((category) => (
-              <S.Category to={`/posts/${category}`} key={category}>
-                {category}
-              </S.Category>
-            ))}
+            {categories.map((category) => {
+              if (category !== 'featured')
+                return (
+                  <S.Category to={`/posts/${category}`} key={category}>
+                    {category}
+                  </S.Category>
+                );
+            })}
           </S.Categories>
         </S.Info>
       </S.PostCard>

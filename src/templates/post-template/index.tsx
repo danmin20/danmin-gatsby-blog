@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import { Link, graphql } from 'gatsby';
 import Layout from '../../layout';
 import Seo from '../../components/seo';
@@ -15,6 +15,8 @@ type PostTemplateProps = {
 };
 
 const PostTemplate: React.FC<PostTemplateProps> = ({ location, data }) => {
+  const [viewCount, setViewCount] = useState(0);
+
   const curPost = new PostClass(data.cur);
   const prevPost = data.prev && new PostClass(data.prev);
   const nextPost = data.next && new PostClass(data.next);
@@ -26,17 +28,18 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ location, data }) => {
     const namespace = siteUrl.replace(/(^\w+:|^)\/\//, '');
     const key = curPost.slug.replace(/\//g, '');
 
-    // fetch(
-    //   `https://api.countapi.xyz/${process.env.NODE_ENV === 'development' ? 'get' : 'hit'}/${namespace}/${key}`,
-    // ).then(async (result) => {
-    //   const data = await result.json();
-    //   // setViewCount(data.value);
-    // });
+    fetch(
+      `https://api.countapi.xyz/${process.env.NODE_ENV === 'development' ? 'get' : 'hit'}/${namespace}/${key}`,
+    ).then(async (result) => {
+      const data = await result.json();
+      setViewCount(data.value);
+    });
   }, [siteUrl, curPost.slug]);
+
   return (
     <Layout location={location}>
       <Seo title={curPost?.title} description={curPost?.excerpt} />
-      <PostHeader post={curPost} viewCount={0} />
+      <PostHeader post={curPost} viewCount={viewCount} />
       <S.PostContent>
         <div className='markdown' dangerouslySetInnerHTML={{ __html: curPost.html }} />
       </S.PostContent>
