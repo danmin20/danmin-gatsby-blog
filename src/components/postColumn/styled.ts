@@ -9,6 +9,5 @@ export const Wrapper = styled.div`
 
 export const MoreButton = styled.button`
   height: 40px;
-  font-weight: 500;
   font-size: 15px;
 `;

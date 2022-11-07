@@ -28,9 +28,8 @@ export const PostCard = styled(Link)`
 
 export const Title = styled.div`
   font-size: 18px;
-  font-weight: 600;
   margin-bottom: 10px;
-  line-height: 1.4; ;
+  line-height: 1.4;
 `;
 
 export const Description = styled.p`

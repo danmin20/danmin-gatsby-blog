@@ -26,8 +26,6 @@ export const Timestamp = styled.div`
   padding: 10px 0;
   border-left: 1px solid ${colors.gray40};
 
-  font-weight: 400;
-
   &:first-child {
     padding-top: 7px;
   }

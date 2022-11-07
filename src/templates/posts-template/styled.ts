@@ -22,7 +22,6 @@ export const CategoryTitle = styled.div`
 export const CategorySubtitle = styled.div`
   padding-bottom: 10px;
   font-size: 20px;
-  font-weight: 500;
   text-align: center;
   font-family: GmarketSansLight;
 `;

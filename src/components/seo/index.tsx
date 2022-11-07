@@ -9,7 +9,7 @@ type SeoProps = {
   children?: React.ReactNode;
 };
 
-const Seo: React.FC<SeoProps> = ({ description, title, children }) => {
+const Seo: React.FC<SeoProps> = ({ description, title }) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -19,6 +19,7 @@ const Seo: React.FC<SeoProps> = ({ description, title, children }) => {
             description
             author {
               name
+              nickname
             }
             ogImage
           }
@@ -53,6 +54,10 @@ const Seo: React.FC<SeoProps> = ({ description, title, children }) => {
         {
           property: 'og:author',
           content: site.siteMetadata.author.name,
+        },
+        {
+          property: 'og:author',
+          content: site.siteMetadata.author.nickname,
         },
         {
           property: 'og:image',

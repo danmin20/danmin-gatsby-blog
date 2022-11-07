@@ -7,9 +7,9 @@ export const Wrapper = styled.div`
   width: 100%;
   margin-bottom: 32px;
   h2 {
+    font-family: GmarketSansMedium;
     padding-bottom: 5px;
     border-bottom: 2px solid ${colors.black100};
-    font-weight: 700;
     font-size: 30px;
   }
 `;

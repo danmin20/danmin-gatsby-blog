@@ -61,7 +61,6 @@ export const IntroWrapper = styled.div`
     font-family: GmarketSansMedium;
     .react-rotating-text-cursor {
       font-family: GmarketSansLight;
-      font-weight: 100;
       font-size: 40px;
     }
   }

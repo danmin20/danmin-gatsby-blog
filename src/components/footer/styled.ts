@@ -21,7 +21,6 @@ export const Footer = styled.p`
   max-width: ${contentMaxWidth};
 
   .link {
-    font-weight: 700;
     font-size: 20px;
     margin-right: 20px;
   }
