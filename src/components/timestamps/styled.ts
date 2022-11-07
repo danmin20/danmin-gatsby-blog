@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  margin: 50px 0;
+  margin-top: 50px;
   font-family: GmarketSansLight;
   white-space: nowrap;
 `;
