@@ -6,8 +6,3 @@ export const Wrapper = styled.div`
   align-items: center;
   width: 100%;
 `;
-
-export const MoreButton = styled.button`
-  height: 40px;
-  font-size: 15px;
-`;

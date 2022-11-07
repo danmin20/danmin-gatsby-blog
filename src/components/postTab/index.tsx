@@ -16,8 +16,6 @@ const PostTabs: React.FC<PostTabsProps> = ({ tabIndex, onChange, tabs, posts }) 
     return posts.filter((post) => post.categories.includes(tabs[tabIndex]));
   }, [posts, tabs, tabIndex]);
 
-  const moreUrl = `posts/${tabIndex === 0 ? '' : tabs[tabIndex]}`;
-
   return (
     <S.Wrapper>
       <S.Tabs>
@@ -28,7 +26,7 @@ const PostTabs: React.FC<PostTabsProps> = ({ tabIndex, onChange, tabs, posts }) 
         ))}
       </S.Tabs>
 
-      <PostColumn posts={tabPosts.slice(0, 4)} moreUrl={moreUrl} />
+      <PostColumn posts={tabPosts} />
     </S.Wrapper>
   );
 };
