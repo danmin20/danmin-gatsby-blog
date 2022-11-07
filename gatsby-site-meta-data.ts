@@ -52,7 +52,7 @@ export default {
       },
       {
         date: '2020.11.02-2021.02.28',
-        en: 'Megazon Cloud',
+        en: 'Megazone Cloud',
         kr: '메가존클라우드',
         info: 'Cloud Tech Center / CloudOne',
       },
