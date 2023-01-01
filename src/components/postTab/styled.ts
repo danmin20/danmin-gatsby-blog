@@ -1,6 +1,5 @@
 import { colors, contentMaxWidth, hoverUnderline } from '../../styles/const';
 import styled from '@emotion/styled';
-import { render } from 'sass';
 
 export const Wrapper = styled.div`
   display: flex;

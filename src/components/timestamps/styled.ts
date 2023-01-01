@@ -1,4 +1,4 @@
-import { colors } from '../../../src/styles/const';
+import { colors, MOBILE_MEDIA_QUERY } from '../../../src/styles/const';
 import styled from '@emotion/styled';
 
 export const Wrapper = styled.div`
@@ -10,6 +10,10 @@ export const Wrapper = styled.div`
   margin-top: 50px;
   font-family: GmarketSansLight;
   white-space: nowrap;
+
+  @media ${MOBILE_MEDIA_QUERY} {
+    font-size: 15px;
+  }
 `;
 
 export const Content = styled.div`
@@ -20,7 +24,6 @@ export const Content = styled.div`
 export const Timestamp = styled.div`
   display: flex;
   justify-items: center;
-
   width: 100%;
   margin-left: 5px;
   padding: 10px 0;
@@ -54,6 +57,13 @@ export const Date = styled.div`
   width: 200px;
   color: ${colors.gray80};
   align-self: center;
+
+  @media ${MOBILE_MEDIA_QUERY} {
+    width: 100px;
+    min-width: 100px;
+    white-space: pre-line;
+    line-height: 120%;
+  }
 `;
 
 export const Title = styled.div`
@@ -62,18 +72,38 @@ export const Title = styled.div`
   a {
     margin-left: 5px;
   }
+
+  @media ${MOBILE_MEDIA_QUERY} {
+    flex-direction: column;
+  }
 `;
 
 export const TitleEn = styled.div`
   font-family: GmarketSansMedium;
   font-size: 16px;
+  @media ${MOBILE_MEDIA_QUERY} {
+    font-size: 13px;
+  }
 `;
 
 export const TitleKr = styled.div`
   font-size: 13px;
   margin-left: 5px;
+  display: flex;
+
+  @media ${MOBILE_MEDIA_QUERY} {
+    font-size: 10px;
+    margin-left: 0;
+    .link-icon {
+      width: 10px;
+    }
+  }
 `;
 
 export const Info = styled.div`
   margin-top: 5px;
+  @media ${MOBILE_MEDIA_QUERY} {
+    font-size: 10px;
+    margin-top: 3px;
+  }
 `;

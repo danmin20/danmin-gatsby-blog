@@ -1,4 +1,4 @@
-import { colors } from '../../../src/styles/const';
+import { MOBILE_MEDIA_QUERY } from '../../../src/styles/const';
 import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
 
@@ -16,24 +16,6 @@ const blinkingCursor = keyframes`
   }
 `;
 
-const sliderShape = keyframes`
-  0%,100%{
-    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
-    transform: translate3d(0,0,0) rotateZ(0.01deg);
-  }
-  34%{
-    border-radius: 70% 30% 46% 54% / 30% 29% 71% 70%;
-    transform:  translate3d(0,5px,0) rotateZ(0.01deg);
-  }
-  50%{
-    transform: translate3d(0,0,0) rotateZ(0.01deg);
-  }
-  67%{
-    border-radius: 100% 60% 60% 100% / 100% 100% 60% 60% ;
-    transform: translate3d(0,-3px,0) rotateZ(0.01deg);
-  }
-`;
-
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -46,6 +28,11 @@ export const Wrapper = styled.div`
   .react-rotating-text-cursor {
     animation: ${blinkingCursor} 0.8s cubic-bezier(0.68, 0.01, 0.01, 0.99) 0s infinite;
   }
+
+  @media ${MOBILE_MEDIA_QUERY} {
+    margin: 80px 0;
+    padding: 0 10px;
+  }
 `;
 
 export const IntroWrapper = styled.div`
@@ -56,12 +43,20 @@ export const IntroWrapper = styled.div`
   font-size: 40px;
   line-height: 1.2;
 
+  @media ${MOBILE_MEDIA_QUERY} {
+    flex-direction: column;
+  }
+
   strong {
     display: inline-block;
     font-family: GmarketSansMedium;
     .react-rotating-text-cursor {
       font-family: GmarketSansLight;
       font-size: 40px;
+
+      @media ${MOBILE_MEDIA_QUERY} {
+        font-size: 27px;
+      }
     }
   }
 
@@ -76,6 +71,15 @@ export const Title = styled.p`
     font-size: 50px;
     line-height: 35px;
   }
+
+  @media ${MOBILE_MEDIA_QUERY} {
+    font-size: 27px;
+
+    .react-rotating-text-cursor {
+      font-size: 27px;
+      line-height: 27px;
+    }
+  }
 `;
 
 export const SocialWrapper = styled.div`
@@ -84,4 +88,12 @@ export const SocialWrapper = styled.div`
   justify-content: space-between;
   gap: 5px;
   align-items: flex-end;
+
+  @media ${MOBILE_MEDIA_QUERY} {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 15px;
+    margin-top: 10px;
+  }
 `;

@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { colors, contentMaxWidth } from '../styles/const';
+import { colors, contentMaxWidth, MOBILE_MEDIA_QUERY } from '../styles/const';
 
 export const Wrapper = styled.div`
   overflow-y: scroll;
@@ -18,6 +18,10 @@ export const ContentWrapper = styled.div`
   margin-bottom: 61px;
   background-color: ${colors.white100};
   box-shadow: 0 0 30px rgb(0 0 0 / 0.1);
+
+  @media ${MOBILE_MEDIA_QUERY} {
+    margin-bottom: 39px;
+  }
 `;
 
 export const Content = styled.main`

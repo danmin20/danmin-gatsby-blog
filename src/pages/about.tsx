@@ -22,7 +22,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ location, data }) => {
 
   return (
     <Layout location={location}>
-      <Seo title='About' />
+      <Seo title='개발자 단민 | About' />
       <Bio author={author} />
       <Introduction author={author} />
       <Timestamps title='Careers' timestamps={careers} />

@@ -1,4 +1,4 @@
-import React, { useMemo, useCallback } from 'react';
+import React, { useMemo } from 'react';
 import { navigate } from 'gatsby';
 import * as S from './styled';
 
@@ -7,6 +7,7 @@ import Seo from '../../components/seo';
 import PostClass from '../../models/post';
 import { AllMarkdownRemark } from '../../type';
 import PostTabs from '../../components/postTab';
+import PostSearch from '../../../src/components/postSearch';
 
 type PostsTemplateProps = {
   location: Location;
@@ -33,10 +34,11 @@ const PostsTemplate: React.FC<PostsTemplateProps> = ({ location, pageContext }) 
 
   return (
     <Layout location={location}>
-      <Seo title='Posts' />
+      <Seo title='개발자 단민 | Posts' />
       <S.CategoryWrapper>
         <S.CategoryTitle>{categories[currentTabIndex]}</S.CategoryTitle>
         <S.CategorySubtitle>{`${posts.length} post${posts.length < 2 ? '' : 's'}`}</S.CategorySubtitle>
+        <PostSearch posts={edges.map(({ node }) => new PostClass(node))} />
       </S.CategoryWrapper>
       <PostTabs posts={posts} onChange={onTabIndexChange} tabs={categories} tabIndex={currentTabIndex} />
     </Layout>

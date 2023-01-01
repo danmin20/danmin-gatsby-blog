@@ -22,12 +22,14 @@ const Timestamps: React.FC<TimestampsProps> = ({ title, timestamps }) => {
             <div>
               <S.Title>
                 <S.TitleEn>{timestamp.en}</S.TitleEn>
-                <S.TitleKr>{timestamp.kr}</S.TitleKr>
-                {'link' in timestamp && timestamp.link && (
-                  <a href={timestamp.link}>
-                    <Link2Icon />
-                  </a>
-                )}
+                <S.TitleKr>
+                  {timestamp.kr}
+                  {'link' in timestamp && timestamp.link && (
+                    <a href={timestamp.link}>
+                      <Link2Icon className='link-icon' />
+                    </a>
+                  )}
+                </S.TitleKr>
               </S.Title>
               <S.Info>{timestamp.info}</S.Info>
             </div>

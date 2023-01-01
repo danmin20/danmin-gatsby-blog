@@ -38,8 +38,8 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ location, data }) => {
 
   return (
     <Layout location={location}>
-      <Seo title={curPost?.title} description={curPost?.excerpt} />
-      <PostHeader post={curPost} viewCount={viewCount} />
+      <Seo title={`개발자 단민 | ${curPost?.title}`} description={curPost?.excerpt} />
+      <PostHeader post={curPost} viewCount={viewCount ?? 0} />
       <S.PostContent>
         <div className='markdown' dangerouslySetInnerHTML={{ __html: curPost.html }} />
       </S.PostContent>
