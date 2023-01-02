@@ -72,14 +72,14 @@ export default {
 
     activities: [
       {
-        date: '2022.11 - NOW',
+        date: '2022.11',
         en: 'SIPE',
         kr: '사이프',
         info: 'Community for IT workers',
         link: '',
       },
       {
-        date: '2022.09 - NOW',
+        date: '2022.09 - 2023-.01',
         en: 'SOPT makers',
         kr: '솝트 메이커스',
         info: 'Organization makes products for SOPT',

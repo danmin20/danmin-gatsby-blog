@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { graphql } from 'gatsby';
 import Bio from '../components/bio';
 import Layout from '../layout';
 import Seo from '../components/seo';
 import { AllMarkdownRemark, SiteMetadata } from '../type';
 import PostClass from '../models/post';
-import PostColumn from '../components/postColumn';
 import FeaturedPostColumn from '../components/featuredPostColumn';
 import styled from '@emotion/styled';
 import { colors } from '../styles/const';
@@ -71,6 +70,7 @@ export const pageQuery = graphql`
 
     site {
       siteMetadata {
+        siteUrl
         language
         author {
           name
