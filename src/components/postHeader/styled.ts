@@ -1,4 +1,4 @@
-import { colors, hoverUnderline } from '../../../src/styles/const';
+import { colors, hoverUnderline, MOBILE_MEDIA_QUERY } from '../../../src/styles/const';
 import styled from '@emotion/styled';
 import { Link } from 'gatsby';
 
@@ -43,4 +43,8 @@ export const Title = styled.h1`
   font-size: 32px;
   margin-bottom: 6px;
   line-height: 1.3;
+
+  @media ${MOBILE_MEDIA_QUERY} {
+    font-size: 25px;
+  }
 `;

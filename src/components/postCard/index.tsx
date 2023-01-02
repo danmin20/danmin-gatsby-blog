@@ -8,6 +8,7 @@ type PostCardProps = {
 
 const PostCard: React.FC<PostCardProps> = ({ post }) => {
   const { id, slug, title, excerpt, date, categories } = post;
+
   return (
     <S.Wrapper>
       <S.PostCard key={id} to={slug}>

@@ -83,7 +83,7 @@ export default {
         en: 'SOPT makers',
         kr: '솝트 메이커스',
         info: 'Organization makes products for SOPT',
-        link: '',
+        link: 'https://sopt-makers.oopy.io/',
       },
       {
         date: '2020.09 - NOW',

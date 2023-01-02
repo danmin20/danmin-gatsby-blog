@@ -1,6 +1,4 @@
 import PostClass from '../../../src/models/post';
-import { navigate } from 'gatsby';
-import { useCallback } from 'react';
 import PostCard from '../postCard';
 import * as S from './styled';
 

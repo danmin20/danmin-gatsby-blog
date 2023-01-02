@@ -6,6 +6,7 @@ import Seo from '../components/seo';
 import { AllMarkdownRemark, SiteMetadata } from '../type';
 import PostClass from '../models/post';
 import PostColumn from '../components/postColumn';
+import FeaturedPostColumn from '../components/featuredPostColumn';
 
 type BlogIndexProps = {
   data: {
@@ -17,16 +18,20 @@ type BlogIndexProps = {
 
 const BlogIndex: React.FC<BlogIndexProps> = ({ location, data }) => {
   const posts = data.allMarkdownRemark.edges.map(({ node }) => new PostClass(node));
-  const featuredPosts = posts.filter((node) =>
-    node.categories.findIndex((category) => category === 'featured') > -1 ? true : false,
-  );
+  const featuredPosts = posts.filter((node) => node.categories.find((category) => category === 'featured'));
   const { author } = data.site.siteMetadata;
+
+  const internPosts = featuredPosts.filter((post) => post.categories.find((category) => category === '인턴회고'));
+  const livePosts = featuredPosts.filter((post) => post.categories.find((category) => category === '회고'));
+  const experiencePosts = featuredPosts.filter((post) => post.categories.find((category) => category === 'Experience'));
 
   return (
     <Layout location={location}>
       <Seo title='개발자 단민' />
       <Bio author={author} />
-      <PostColumn posts={featuredPosts} />
+      <FeaturedPostColumn title='인턴만 다섯 번을 한 사람이 있다?' posts={internPosts} />
+      <FeaturedPostColumn title='LIFE' posts={livePosts} />
+      <FeaturedPostColumn title='EXPERIENCE' posts={experiencePosts} />
     </Layout>
   );
 };
@@ -43,6 +48,7 @@ export const pageQuery = graphql`
           frontmatter {
             categories
             title
+            emoji
             date(formatString: "YYYY.MM.DD")
           }
           fields {
