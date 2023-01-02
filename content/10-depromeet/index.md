@@ -1,5 +1,5 @@
 ---
-emoji: 💗
+emoji: 💙
 title: 'DEPROMEET(디프만) 후기: 고인물을 지나 썩은물이 되어서야 써보는 IT 동아리 회고 글'
 date: '2022-06-14'
 author: 단민
