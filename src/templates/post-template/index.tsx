@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link, graphql } from 'gatsby';
 import Layout from '../../layout';
 import Seo from '../../components/seo';
@@ -8,6 +8,7 @@ import PostClass from '../../models/post';
 import PostHeader from '../../components/postHeader';
 import PostNavigator from '../../components/postNavigator';
 import * as S from './styled';
+import { useViewCount } from '../../../src/hooks/useViewCount';
 
 type PostTemplateProps = {
   location: Location;
@@ -15,26 +16,14 @@ type PostTemplateProps = {
 };
 
 const PostTemplate: React.FC<PostTemplateProps> = ({ location, data }) => {
-  const [viewCount, setViewCount] = useState(0);
-
   const curPost = new PostClass(data.cur);
   const prevPost = data.prev && new PostClass(data.prev);
   const nextPost = data.next && new PostClass(data.next);
   const { siteUrl, comments } = data.site?.siteMetadata;
   const utterancesRepo = comments?.utterances?.repo;
 
-  React.useEffect(() => {
-    if (!siteUrl) return;
-    const namespace = siteUrl.replace(/(^\w+:|^)\/\//, '');
-    const key = curPost.slug.replace(/\//g, '');
-
-    fetch(
-      `https://api.countapi.xyz/${process.env.NODE_ENV === 'development' ? 'get' : 'hit'}/${namespace}/${key}`,
-    ).then(async (result) => {
-      const data = await result.json();
-      setViewCount(data.value);
-    });
-  }, [siteUrl, curPost.slug]);
+  const key = curPost.slug.replace(/\//g, '');
+  const { viewCount } = useViewCount(siteUrl, key);
 
   return (
     <Layout location={location}>
