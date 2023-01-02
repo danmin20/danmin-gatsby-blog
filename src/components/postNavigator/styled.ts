@@ -16,6 +16,7 @@ export const PostCard = styled(Link)`
   background-color: ${colors.gray10};
   border-radius: 6px;
   padding: 15px;
+  height: 105px;
 
   cursor: pointer;
   transition: 0.3s;
@@ -44,4 +45,10 @@ export const Direction = styled.div`
 export const Title = styled.div`
   font-size: 16px;
   line-height: 150%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 `;
