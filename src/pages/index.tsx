@@ -98,7 +98,7 @@ const HitCount = styled.div`
   color: ${colors.white100};
   font-size: 12px;
   position: absolute;
-  left: 45px;
+  left: 0;
   top: 70px;
   & > div {
     width: fit-content;
@@ -109,7 +109,7 @@ const HitCount = styled.div`
   }
 
   @media ${MOBILE_MEDIA_QUERY} {
-    left: 25px;
-    top: 100px;
+    left: 10px;
+    top: 40px;
   }
 `;
