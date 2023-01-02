@@ -41,5 +41,8 @@ export const hoverUnderline = css`
   &:hover:after {
     transform: scaleX(1);
     transform-origin: bottom left;
+    @media ${MOBILE_MEDIA_QUERY} {
+      transform: scaleX(0);
+    }
   }
 `;

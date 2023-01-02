@@ -9,7 +9,6 @@ export const Wrapper = styled.div`
   h2 {
     font-family: GmarketSansMedium;
     padding-bottom: 5px;
-    border-bottom: 2px solid ${colors.black100};
     font-size: 30px;
 
     @media ${MOBILE_MEDIA_QUERY} {

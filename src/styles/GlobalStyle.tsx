@@ -22,6 +22,15 @@ const GlobalStyle: React.FC = () => (
           text-decoration: none;
         }
       }
+
+      body {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+
+      ::-webkit-scrollbar {
+        display: none;
+      }
     `}
   />
 );
