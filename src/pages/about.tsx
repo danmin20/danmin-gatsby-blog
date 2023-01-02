@@ -16,7 +16,6 @@ type AboutPageProps = {
 
 const AboutPage: React.FC<AboutPageProps> = ({ location, data }) => {
   const metaData = data.site.siteMetadata;
-  console.log('metaData', metaData);
   const { author, about } = metaData;
   const { careers, activities } = about;
 

@@ -5,8 +5,7 @@ import { Link } from 'gatsby';
 export const Wrapper = styled.div`
   min-height: 150px;
   width: 100%;
-  display: flex;
-  justify-content: center;
+  position: relative;
 `;
 
 export const PostCard = styled(Link)`
@@ -49,8 +48,11 @@ export const Info = styled.div`
   justify-content: space-between;
   font-size: 13px;
   width: 100%;
+  padding: 0 15px;
   color: ${colors.gray60};
   font-family: GmarketSansLight;
+  position: absolute;
+  bottom: 25px;
 `;
 
 export const Date = styled.div``;

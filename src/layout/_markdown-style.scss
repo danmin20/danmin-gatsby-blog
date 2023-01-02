@@ -634,7 +634,7 @@ $content-image-max-height: 560px;
   clear: both;
 }
 
-.markdown> :first-child {
+.markdown> :first-of-type {
   margin-top: 0 !important;
 }
 
@@ -673,7 +673,7 @@ $content-image-max-height: 560px;
   border-left: 2px solid var(--markdown-blockquote-border-color);
 }
 
-.markdown blockquote> :first-child {
+.markdown blockquote> :first-of-type {
   margin-top: 0;
 }
 

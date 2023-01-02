@@ -29,7 +29,7 @@ export const Timestamp = styled.div`
   padding: 10px 0;
   border-left: 1px solid ${colors.gray40};
 
-  &:first-child {
+  &:first-of-type {
     padding-top: 7px;
   }
 

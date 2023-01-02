@@ -8,7 +8,6 @@ type FeaturedPostCardProps = {
 
 const FeaturedPostCard: React.FC<FeaturedPostCardProps> = ({ post }) => {
   const { id, slug, title, date, emoji } = post;
-  console.log(post);
 
   return (
     <S.Wrapper>
