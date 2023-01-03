@@ -1,4 +1,4 @@
-import { colors, MOBILE_MEDIA_QUERY } from '../../../src/styles/const';
+import { MOBILE_MEDIA_QUERY } from '../../../src/styles/const';
 import styled from '@emotion/styled';
 
 export const Wrapper = styled.div`
@@ -27,7 +27,7 @@ export const Timestamp = styled.div`
   width: 100%;
   margin-left: 5px;
   padding: 10px 0;
-  border-left: 1px solid ${colors.gray40};
+  border-left: 1px solid ${({ theme }) => theme.color.gray40};
 
   &:first-of-type {
     padding-top: 7px;
@@ -44,10 +44,10 @@ export const Timestamp = styled.div`
     align-self: center;
     width: 5px;
     height: 5px;
-    background-color: ${colors.white100};
+    background-color: ${({ theme }) => theme.color.white100};
     border-radius: 5px;
     transform: translatex(-50%);
-    border: 1px solid ${colors.gray40};
+    border: 1px solid ${({ theme }) => theme.color.gray40};
   }
 `;
 
@@ -55,7 +55,7 @@ export const Date = styled.div`
   margin-left: 5px;
   margin-right: 5px;
   width: 200px;
-  color: ${colors.gray80};
+  color: ${({ theme }) => theme.color.gray80};
   align-self: center;
 
   @media ${MOBILE_MEDIA_QUERY} {

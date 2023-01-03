@@ -1,4 +1,4 @@
-import { colors, hoverUnderline, MOBILE_MEDIA_QUERY } from '../../../src/styles/const';
+import { hoverUnderline, MOBILE_MEDIA_QUERY } from '../../../src/styles/const';
 import styled from '@emotion/styled';
 import { Link } from 'gatsby';
 
@@ -8,7 +8,7 @@ export const Header = styled.header`
   flex-direction: column;
   width: 100%;
   padding-bottom: 40px;
-  border-bottom: 1px solid ${colors.gray20};
+  border-bottom: 1px solid ${({ theme }) => theme.color.gray20};
   margin: 40px 0;
   word-break: keep-all;
 `;
@@ -21,7 +21,7 @@ export const Emoji = styled.div`
 export const Info = styled.div`
   display: flex;
   font-size: 15px;
-  color: ${colors.gray80};
+  color: ${({ theme }) => theme.color.gray80};
   font-family: GmarketSansLight;
 `;
 
@@ -32,10 +32,10 @@ export const Categories = styled.div`
 
 export const Category = styled(Link)`
   margin-right: 4px;
-  color: ${colors.gray60};
-  ${hoverUnderline};
+  color: ${({ theme }) => theme.color.gray60};
+  ${({ theme }) => hoverUnderline(theme)};
   &:after {
-    background-color: ${colors.gray60};
+    background-color: ${({ theme }) => theme.color.gray60};
   }
 `;
 

@@ -1,4 +1,3 @@
-import { colors } from '../../../src/styles/const';
 import styled from '@emotion/styled';
 import { Link } from 'gatsby';
 
@@ -13,7 +12,7 @@ export const PostCard = styled(Link)`
   display: flex;
   flex-direction: column;
   width: 100%;
-  background-color: ${colors.gray10};
+  background-color: ${({ theme }) => theme.color.gray10};
   border-radius: 6px;
   padding: 15px;
   height: 105px;
@@ -22,7 +21,7 @@ export const PostCard = styled(Link)`
   transition: 0.3s;
 
   &:hover {
-    background-color: ${colors.gray20};
+    background-color: ${({ theme }) => theme.color.gray20};
     .title {
       text-decoration: underline;
     }
@@ -38,7 +37,7 @@ export const PostCard = styled(Link)`
 `;
 
 export const Direction = styled.div`
-  color: ${colors.gray60};
+  color: ${({ theme }) => theme.color.gray60};
   margin-bottom: 10px;
 `;
 

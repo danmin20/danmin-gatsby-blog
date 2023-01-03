@@ -7,7 +7,6 @@ import { AllMarkdownRemark, SiteMetadata } from '../type';
 import PostClass from '../models/post';
 import FeaturedPostColumn from '../components/featuredPostColumn';
 import styled from '@emotion/styled';
-import { colors } from '../styles/const';
 import { MOBILE_MEDIA_QUERY } from '../styles/mediaQuery';
 import { useViewCount } from '../hooks/useViewCount';
 
@@ -95,14 +94,14 @@ export const pageQuery = graphql`
 `;
 
 const HitCount = styled.div`
-  color: ${colors.white100};
+  color: ${({ theme }) => theme.color.white100};
   font-size: 12px;
   position: absolute;
   left: 0;
   top: 70px;
   & > div {
     width: fit-content;
-    background-color: ${colors.black40};
+    background-color: ${({ theme }) => theme.color.black40};
     padding: 5px 8px;
     padding-top: 6px;
     border-radius: 20px;

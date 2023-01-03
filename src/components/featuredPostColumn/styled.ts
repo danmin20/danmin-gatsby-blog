@@ -1,4 +1,4 @@
-import { colors, MOBILE_MEDIA_QUERY } from '../../../src/styles/const';
+import { MOBILE_MEDIA_QUERY } from '../../../src/styles/const';
 import styled from '@emotion/styled';
 
 export const Wrapper = styled.div`
@@ -12,8 +12,8 @@ export const Title = styled.div`
   font-size: 20px;
   width: fit-content;
   padding: 10px;
-  background-color: ${colors.black40};
-  color: ${colors.white100};
+  background-color: ${({ theme }) => theme.color.black40};
+  color: ${({ theme }) => theme.color.white100};
   margin-bottom: 25px;
 
   @media ${MOBILE_MEDIA_QUERY} {

@@ -1,4 +1,4 @@
-import { colors, MOBILE_MEDIA_QUERY } from '../../../src/styles/const';
+import { MOBILE_MEDIA_QUERY } from '../../../src/styles/const';
 import styled from '@emotion/styled';
 
 export const Wrapper = styled.div`

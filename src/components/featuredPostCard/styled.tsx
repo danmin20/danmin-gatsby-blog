@@ -1,4 +1,4 @@
-import { colors, contentMaxWidth, MOBILE_MEDIA_QUERY } from '../../../src/styles/const';
+import { contentMaxWidth, MOBILE_MEDIA_QUERY } from '../../../src/styles/const';
 import styled from '@emotion/styled';
 import { Link } from 'gatsby';
 
@@ -22,7 +22,7 @@ export const PostCard = styled(Link)`
   align-items: center;
 
   &:hover {
-    background-color: ${colors.gray10};
+    background-color: ${({ theme }) => theme.color.gray10};
   }
 
   @media ${MOBILE_MEDIA_QUERY} {
@@ -32,7 +32,7 @@ export const PostCard = styled(Link)`
 
 export const Emoji = styled.div`
   font-size: 40px;
-  background-color: ${colors.gray10};
+  background-color: ${({ theme }) => theme.color.gray10};
   border-radius: 50%;
   padding: 10px;
 
@@ -51,7 +51,7 @@ export const Title = styled.div`
 
 export const Date = styled.div`
   font-size: 13px;
-  color: ${colors.gray60};
+  color: ${({ theme }) => theme.color.gray60};
   font-family: GmarketSansLight;
   margin-top: 3px;
 
