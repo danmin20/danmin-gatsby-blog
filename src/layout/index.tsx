@@ -4,12 +4,11 @@ import GlobalStyle from '../styles/GlobalStyle';
 import * as S from './styled';
 import Header from '../components/header';
 import Footer from '../components/footer';
-
 import './style.scss';
 import { ThemeProvider } from '@emotion/react';
-import styled from '@emotion/styled';
 import { darkTheme, lightTheme } from '../styles/const';
 import { getValueFromLocalStorage, setValueToLocalStorage } from '../utils/localStorage';
+import ThemeToggle from '../components/themeToggle';
 
 type LayoutProps = {
   location: Location;
@@ -46,9 +45,7 @@ const Layout: React.FC<LayoutProps> = ({ location, children }) => {
     <S.Wrapper>
       <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
         <GlobalStyle />
-        <ThemeToggle onClick={handleTheme} isDark={theme === 'dark'}>
-          {theme === 'dark' ? 'LIGHT MODE' : 'DARK MODE'}
-        </ThemeToggle>
+        <ThemeToggle handleTheme={handleTheme} isDark={theme === 'dark'} />
 
         <S.ContentWrapper>
           {location && <Header location={location}>{title}</Header>}
@@ -59,20 +56,5 @@ const Layout: React.FC<LayoutProps> = ({ location, children }) => {
     </S.Wrapper>
   );
 };
-
-const ThemeToggle = styled.div<{ isDark: boolean }>`
-  cursor: pointer;
-  font-size: 1.5rem;
-  position: fixed;
-  z-index: 1000;
-  top: 0;
-  right: 0;
-  background-color: red;
-  transition: 0.3s;
-  &:hover {
-    transition: 0.3s;
-    color: ${({ theme }) => theme.color.black100};
-  }
-`;
 
 export default Layout;

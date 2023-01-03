@@ -7,8 +7,8 @@ import { AllMarkdownRemark, SiteMetadata } from '../type';
 import PostClass from '../models/post';
 import FeaturedPostColumn from '../components/featuredPostColumn';
 import styled from '@emotion/styled';
-import { MOBILE_MEDIA_QUERY } from '../styles/mediaQuery';
 import { useViewCount } from '../hooks/useViewCount';
+import { MOBILE_MEDIA_QUERY } from '../styles/const';
 
 type BlogIndexProps = {
   data: {
