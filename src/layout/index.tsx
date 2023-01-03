@@ -16,19 +16,13 @@ type LayoutProps = {
 };
 
 const Layout: React.FC<LayoutProps> = ({ location, children }) => {
-  const storedTheme: 'light' | 'dark' = getValueFromLocalStorage('theme') ?? 'light';
+  const storedTheme: string = getValueFromLocalStorage('theme');
 
-  const [theme, setTheme] = React.useState(storedTheme);
+  const [isDark, setIsDark] = React.useState(storedTheme === 'light');
 
-  const handleTheme = () => {
-    if (storedTheme === 'light') {
-      setTheme('dark');
-      setValueToLocalStorage('theme', 'dark');
-    } else {
-      setTheme('light');
-      setValueToLocalStorage('theme', 'light');
-    }
-  };
+  React.useEffect(() => {
+    setValueToLocalStorage('theme', isDark ? 'light' : 'dark');
+  }, [isDark]);
 
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -43,9 +37,9 @@ const Layout: React.FC<LayoutProps> = ({ location, children }) => {
 
   return (
     <S.Wrapper>
-      <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+      <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
         <GlobalStyle />
-        <ThemeToggle handleTheme={handleTheme} isDark={theme === 'dark'} />
+        <ThemeToggle handleTheme={() => setIsDark((isDark) => !isDark)} isDark={isDark} />
 
         <S.ContentWrapper>
           {location && <Header location={location}>{title}</Header>}
