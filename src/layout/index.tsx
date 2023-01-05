@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import GlobalStyle from '../styles/GlobalStyle';
 import * as S from './styled';
@@ -9,6 +8,7 @@ import { ThemeProvider } from '@emotion/react';
 import { darkTheme, lightTheme } from '../styles/const';
 import { getValueFromLocalStorage, setValueToLocalStorage } from '../utils/localStorage';
 import ThemeToggle from '../components/themeToggle';
+import { useEffect, useState } from 'react';
 
 type LayoutProps = {
   location: Location;
@@ -16,13 +16,15 @@ type LayoutProps = {
 };
 
 const Layout: React.FC<LayoutProps> = ({ location, children }) => {
-  const storedTheme: string = getValueFromLocalStorage('theme');
+  const [theme, setTheme] = useState<'light' | 'dark'>(getValueFromLocalStorage('theme')) ?? 'light';
 
-  const [isDark, setIsDark] = React.useState(storedTheme === 'light');
+  const handleTheme = () => {
+    setTheme((theme) => (theme === 'light' ? 'dark' : 'light'));
+  };
 
-  React.useEffect(() => {
-    setValueToLocalStorage('theme', isDark ? 'light' : 'dark');
-  }, [isDark]);
+  useEffect(() => {
+    setValueToLocalStorage('theme', theme);
+  }, [theme]);
 
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -37,9 +39,9 @@ const Layout: React.FC<LayoutProps> = ({ location, children }) => {
 
   return (
     <S.Wrapper>
-      <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
+      <ThemeProvider theme={theme === 'dark' ? darkTheme : lightTheme}>
         <GlobalStyle />
-        <ThemeToggle handleTheme={() => setIsDark((isDark) => !isDark)} isDark={isDark} />
+        <ThemeToggle handleTheme={handleTheme} isDark={theme === 'dark'} />
 
         <S.ContentWrapper>
           {location && <Header location={location}>{title}</Header>}
