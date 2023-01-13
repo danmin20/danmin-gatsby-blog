@@ -5,7 +5,7 @@ export const contentMaxWidth = '720px';
 const MOBILE_MAX_WIDTH = 768;
 export const MOBILE_MEDIA_QUERY = `screen and (max-width: ${MOBILE_MAX_WIDTH}px)`;
 
-export const darkTheme: Theme = {
+export const lightTheme: Theme = {
   color: {
     black100: '#0F1010',
     black60: '#2C2D2E',
@@ -18,7 +18,7 @@ export const darkTheme: Theme = {
     white100: '#FFFFFF',
   },
 };
-export const lightTheme: Theme = {
+export const darkTheme: Theme = {
   color: {
     black100: '#e6e6e6',
     black60: '#F7F8FA',
