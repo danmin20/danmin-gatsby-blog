@@ -117,16 +117,42 @@ export default {
 
     projects: [
       {
-        title: '',
-        description: '',
-        techStack: ['', ''],
+        title: 'first portfolio website',
+        description: '첫번째 만든 포폴 사이트',
+        techStack: ['React', 'Next.js', 'TS'],
         thumbnailUrl: '',
         links: {
           post: '',
-          github: '',
+          github: 'https://github.com/danmin20/LeeJeongMin',
+          demo: 'https://first-portfolio.jeong-min.com/',
           googlePlay: '',
           appStore: '',
-          demo: '',
+        },
+      },
+      {
+        title: 'second portfolio website',
+        description: '두번째 만든 포폴 사이트',
+        techStack: ['React', 'Next.js', 'TS'],
+        thumbnailUrl: '',
+        links: {
+          post: '',
+          github: 'https://github.com/danmin20/danmin',
+          demo: 'https://second-portfolio.jeong-min.com/',
+          googlePlay: '',
+          appStore: '',
+        },
+      },
+      {
+        title: 'dynamic blob',
+        description: 'a dynamic, sticky blob',
+        techStack: ['React', 'Vite', 'TS'],
+        thumbnailUrl: '',
+        links: {
+          post: '',
+          github: 'https://github.com/danmin20/dynamic-blob',
+          demo: 'https://dynamic-blob.jeong-min.com/',
+          googlePlay: '',
+          appStore: '',
         },
       },
     ],

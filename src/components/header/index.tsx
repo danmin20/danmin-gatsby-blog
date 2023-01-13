@@ -24,6 +24,9 @@ const Header: React.FC<HeaderProps> = ({ location, children }) => {
           <S.MenuLink to='/about' isselected={(pathname === '/about').toString()}>
             about
           </S.MenuLink>
+          <S.MenuLink to='/playground' isselected={(pathname === '/playground').toString()}>
+            playground
+          </S.MenuLink>
         </S.Menu>
       </S.Header>
     </S.Wrapper>

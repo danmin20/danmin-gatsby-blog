@@ -69,20 +69,6 @@ export const pageQuery = graphql`
             info
             link
           }
-
-          projects {
-            title
-            description
-            techStack
-            thumbnailUrl
-            links {
-              post
-              github
-              demo
-              googlePlay
-              appStore
-            }
-          }
         }
       }
     }
