@@ -146,7 +146,7 @@ export default {
         title: 'dynamic blob',
         description: 'a dynamic, sticky blob',
         techStack: ['React', 'Vite', 'TS'],
-        thumbnailUrl: '',
+        thumbnailUrl: 'dynamic-blob.png',
         links: {
           post: '',
           github: 'https://github.com/danmin20/dynamic-blob',
