@@ -1,4 +1,4 @@
-import { MOBILE_MEDIA_QUERY } from '../../../src/styles/const';
+import { hoverUnderline, MOBILE_MEDIA_QUERY } from '../../../src/styles/const';
 import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
 
@@ -96,4 +96,10 @@ export const SocialWrapper = styled.div`
     gap: 15px;
     margin-top: 10px;
   }
+`;
+
+export const SocialButton = styled.a`
+  color: ${({ theme }) => theme.color.black100};
+  font-size: 16px;
+  ${({ theme }) => hoverUnderline(theme)};
 `;

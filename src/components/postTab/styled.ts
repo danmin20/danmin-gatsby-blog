@@ -1,6 +1,5 @@
 import { contentMaxWidth, hoverUnderline, MOBILE_MEDIA_QUERY } from '../../styles/const';
 import styled from '@emotion/styled';
-import { Theme } from '@emotion/react';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -31,4 +30,11 @@ export const Tab = styled.div<any>`
   ${({ theme }) => hoverUnderline(theme)};
   line-height: 50px;
   color: ${({ isselected, theme }) => (isselected === 'true' ? theme.color.black100 : theme.color.gray60)};
+`;
+
+export const PostCardsWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 `;

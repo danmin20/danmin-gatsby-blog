@@ -1,8 +1,7 @@
 import * as React from 'react';
 import { Author } from '@/src/type';
-import * as S from './styled';
 import ReactRotatingText from 'react-rotating-text';
-import SocialButton from '../socialButton';
+import * as S from './styled';
 
 type BioProps = {
   author: Author;
@@ -29,10 +28,17 @@ const Bio: React.FC<BioProps> = ({ author }) => {
           입니다.
         </S.Title>
         <S.SocialWrapper>
-          <SocialButton name='github' link={social.github} />
-          <SocialButton name='linkedIn' link={social.linkedIn} />
-          <SocialButton name='resume' link={social.resume} />
-          <SocialButton name='email' link={social.email} />
+          {Object.keys(social).map(
+            (link, index) =>
+              social[link as keyof typeof social] && (
+                <S.SocialButton
+                  key={index}
+                  href={`${link === 'email' ? `mailto:` : ``}${social[link as keyof typeof social]}`}
+                >
+                  {link}
+                </S.SocialButton>
+              ),
+          )}
         </S.SocialWrapper>
       </S.IntroWrapper>
     </S.Wrapper>

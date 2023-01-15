@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import PostClass from '@/src/models/post';
 import * as S from './styled';
-import PostColumn from '../postColumn';
+import PostCard from '../postCard';
 
 type PostTabsProps = {
   tabIndex: number;
@@ -26,7 +26,11 @@ const PostTabs: React.FC<PostTabsProps> = ({ tabIndex, onChange, tabs, posts }) 
         ))}
       </S.Tabs>
 
-      <PostColumn posts={tabPosts} />
+      <S.PostCardsWrapper>
+        {tabPosts.map((post, index) => (
+          <PostCard key={index} post={post} />
+        ))}
+      </S.PostCardsWrapper>
     </S.Wrapper>
   );
 };
