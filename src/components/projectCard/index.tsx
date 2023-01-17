@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from '../image';
 import { Project } from '../../type';
 import * as S from './styled';
 
@@ -14,21 +13,23 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         <S.StyledImage src={project.thumbnailUrl} />
       </S.ImageSection>
 
-      <S.Title>{project.title}</S.Title>
-      <S.Description>{project.description}</S.Description>
+      <S.Content>
+        <S.Title>{project.title}</S.Title>
+        <S.Description>{project.description}</S.Description>
 
-      {Object.keys(project.links).map(
-        (link, index) =>
-          project.links[link as keyof typeof project.links] && (
-            <S.ProjectLinkButton key={index} href={link}>
-              {link}
-            </S.ProjectLinkButton>
-          ),
-      )}
+        {Object.keys(project.links).map(
+          (link, index) =>
+            project.links[link as keyof typeof project.links] && (
+              <S.ProjectLinkButton key={index} href={link}>
+                {link}
+              </S.ProjectLinkButton>
+            ),
+        )}
 
-      {project.techStack.map((tech, index) => (
-        <S.TechStack>{tech}</S.TechStack>
-      ))}
+        {project.techStack.map((tech, index) => (
+          <S.TechStack>{tech}</S.TechStack>
+        ))}
+      </S.Content>
     </S.Wrapper>
   );
 };

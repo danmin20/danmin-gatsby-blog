@@ -1,6 +1,5 @@
 import { hoverUnderline, MOBILE_MEDIA_QUERY } from '../../../src/styles/const';
 import styled from '@emotion/styled';
-import Image from '../image';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -35,10 +34,11 @@ export const ImageSection = styled.div`
   }
 `;
 
-export const StyledImage = styled(Image)`
+export const StyledImage = styled.img`
   border-radius: 24px 24px 0 0;
   width: 100%;
   height: 100%;
+  object-fit: cover;
   @media ${MOBILE_MEDIA_QUERY} {
     border-radius: 20px 20px 0 0;
   }
