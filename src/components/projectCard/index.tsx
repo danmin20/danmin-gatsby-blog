@@ -10,25 +10,29 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   return (
     <S.Wrapper>
       <S.ImageSection>
-        <S.StyledImage src={project.thumbnailUrl} />
+        <S.StyledImage className='image' src={project.thumbnailUrl} />
       </S.ImageSection>
 
       <S.Content>
+        <S.TechList>
+          {project.techStack.map((tech, index) => (
+            <S.Tech key={index}>{tech}</S.Tech>
+          ))}
+        </S.TechList>
+
         <S.Title>{project.title}</S.Title>
         <S.Description>{project.description}</S.Description>
 
-        {Object.keys(project.links).map(
-          (link, index) =>
-            project.links[link as keyof typeof project.links] && (
-              <S.ProjectLinkButton key={index} href={link}>
-                {link}
-              </S.ProjectLinkButton>
-            ),
-        )}
-
-        {project.techStack.map((tech, index) => (
-          <S.TechStack>{tech}</S.TechStack>
-        ))}
+        <S.ProjectLinkList>
+          {Object.keys(project.links).map(
+            (link, index) =>
+              project.links[link as keyof typeof project.links] && (
+                <S.ProjectLink key={index} href={link}>
+                  {link}
+                </S.ProjectLink>
+              ),
+          )}
+        </S.ProjectLinkList>
       </S.Content>
     </S.Wrapper>
   );

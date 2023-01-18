@@ -24,7 +24,9 @@ const AboutPage: React.FC<AboutPageProps> = ({ location, data }) => {
       <Seo title='개발자 단민 | Playground' />
       <Title>Enjoying making fun things</Title>
       <ProjectCardsWrapper>
-        {projects.map((project, index) => (index === 0 ? null : <ProjectCard project={project} />))}
+        {projects.map((project, index) => (
+          <ProjectCard key={index} project={project} />
+        ))}
       </ProjectCardsWrapper>
     </Layout>
   );
@@ -56,7 +58,11 @@ export const pageQuery = graphql`
   }
 `;
 
-const Title = styled.div``;
+const Title = styled.div`
+  font-size: 20px;
+  margin-top: 50px;
+  font-weight: 800;
+`;
 
 const ProjectCardsWrapper = styled.div`
   display: grid;

@@ -72,7 +72,7 @@ export default {
 
     activities: [
       {
-        date: '2022.11',
+        date: '2022.11 - NOW',
         en: 'SIPE',
         kr: '사이프',
         info: 'Community for IT workers',
@@ -118,9 +118,9 @@ export default {
     projects: [
       {
         title: 'first portfolio website',
-        description: '첫번째 만든 포폴 사이트',
+        description: '첫번째 포폴 사이트',
         techStack: ['React', 'Next.js', 'TS'],
-        thumbnailUrl: '',
+        thumbnailUrl: 'first-portfolio.png',
         links: {
           post: '',
           github: 'https://github.com/danmin20/LeeJeongMin',
@@ -131,9 +131,9 @@ export default {
       },
       {
         title: 'second portfolio website',
-        description: '두번째 만든 포폴 사이트',
+        description: '두번째 포폴 사이트',
         techStack: ['React', 'Next.js', 'TS'],
-        thumbnailUrl: '',
+        thumbnailUrl: 'second-portfolio.png',
         links: {
           post: '',
           github: 'https://github.com/danmin20/danmin',

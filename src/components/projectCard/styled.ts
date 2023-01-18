@@ -5,21 +5,16 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   border-radius: 24px;
-  /* background-color:  */
-  cursor: pointer;
+  background-color: ${({ theme }) => theme.color.gray10};
   width: 381px;
   height: 317px;
+  transition: 0.3s;
+
   @media ${MOBILE_MEDIA_QUERY} {
     border-radius: 20px;
-    width: 100%;
-    height: 277px;
+    width: 300px;
+    height: 250px;
   }
-`;
-
-export const ProjectLinkButton = styled.a`
-  color: ${({ theme }) => theme.color.black100};
-  font-size: 16px;
-  ${({ theme }) => hoverUnderline(theme)};
 `;
 
 export const ImageSection = styled.div`
@@ -27,6 +22,9 @@ export const ImageSection = styled.div`
   position: relative;
   flex-direction: column;
   align-items: center;
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px 24px 0 0;
   width: 100%;
   height: 216px;
   @media ${MOBILE_MEDIA_QUERY} {
@@ -35,7 +33,6 @@ export const ImageSection = styled.div`
 `;
 
 export const StyledImage = styled.img`
-  border-radius: 24px 24px 0 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -49,7 +46,7 @@ export const Content = styled.div`
   flex: 1;
   flex-direction: column;
   justify-content: space-between;
-  padding: 25px 18px 28px 19px;
+  padding: 20px;
   @media ${MOBILE_MEDIA_QUERY} {
     padding: 21.4px 19.89px 24.02px 20.77px;
   }
@@ -59,17 +56,37 @@ export const Title = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  font-size: 16px;
+  margin-top: 10px;
+  font-weight: 600;
 `;
 
 export const Description = styled.div`
-  margin-top: 14px;
-  line-height: 100%;
-  letter-spacing: -0.01em;
-  font-size: 14px;
-  font-weight: 500;
-  @media ${MOBILE_MEDIA_QUERY} {
-    margin-top: 12.83px;
-  }
+  margin-top: 5px;
 `;
 
-export const TechStack = styled.div``;
+export const ProjectLinkList = styled.div`
+  display: flex;
+  margin-left: auto;
+  gap: 10px;
+  margin-top: 5px;
+`;
+
+export const ProjectLink = styled.a`
+  font-size: 12px;
+  ${({ theme }) => hoverUnderline(theme)};
+`;
+
+export const TechList = styled.div`
+  display: flex;
+  gap: 5px;
+`;
+
+export const Tech = styled.div`
+  font-size: 10px;
+  color: ${({ theme }) => theme.color.white100};
+  background-color: ${({ theme }) => theme.color.black60};
+  padding: 3px 8px;
+  border-radius: 5px;
+  margin-top: -10px;
+`;
