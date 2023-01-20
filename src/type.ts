@@ -12,6 +12,8 @@ export type SiteMetadata = {
   about: {
     careers: Career[];
     activities: Activity[];
+  };
+  playground: {
     projects: Project[];
   };
 };

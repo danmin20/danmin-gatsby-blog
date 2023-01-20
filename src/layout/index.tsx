@@ -16,7 +16,7 @@ type LayoutProps = {
 };
 
 const Layout: React.FC<LayoutProps> = ({ location, children }) => {
-  const [theme, setTheme] = useState<'light' | 'dark'>(getValueFromLocalStorage('theme' ?? 'light'));
+  const [theme, setTheme] = useState<'light' | 'dark'>(getValueFromLocalStorage('theme') ?? 'light');
 
   const handleTheme = () => {
     if (theme === 'dark') setTheme('light');

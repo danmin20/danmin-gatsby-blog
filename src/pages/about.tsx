@@ -7,14 +7,14 @@ import { SiteMetadata } from '../type';
 import Introduction from '../components/introduction';
 import Timestamps from '../components/timestamps';
 
-type AboutPageProps = {
+type AboutProps = {
   data: {
     site: { siteMetadata: SiteMetadata };
   };
   location: Location;
 };
 
-const AboutPage: React.FC<AboutPageProps> = ({ location, data }) => {
+const About: React.FC<AboutProps> = ({ location, data }) => {
   const metaData = data.site.siteMetadata;
   const { author, about } = metaData;
   const { careers, activities } = about;
@@ -30,7 +30,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ location, data }) => {
   );
 };
 
-export default AboutPage;
+export default About;
 
 export const pageQuery = graphql`
   query {

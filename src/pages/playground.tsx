@@ -7,17 +7,18 @@ import styled from '@emotion/styled';
 import ProjectCard from '../components/projectCard';
 import { MOBILE_MEDIA_QUERY } from '../styles/const';
 
-type AboutPageProps = {
+type PlaygroundProps = {
   data: {
     site: { siteMetadata: SiteMetadata };
   };
   location: Location;
 };
 
-const AboutPage: React.FC<AboutPageProps> = ({ location, data }) => {
+const Playground: React.FC<PlaygroundProps> = ({ location, data }) => {
   const metaData = data.site.siteMetadata;
-  const { about } = metaData;
-  const { projects } = about;
+  const {
+    playground: { projects },
+  } = metaData;
 
   return (
     <Layout location={location}>
@@ -32,13 +33,13 @@ const AboutPage: React.FC<AboutPageProps> = ({ location, data }) => {
   );
 };
 
-export default AboutPage;
+export default Playground;
 
 export const pageQuery = graphql`
   query {
     site {
       siteMetadata {
-        about {
+        playground {
           projects {
             title
             description

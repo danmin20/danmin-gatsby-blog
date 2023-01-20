@@ -114,7 +114,10 @@ export default {
         link: 'https://www.likelion.net/',
       },
     ],
+  },
 
+  // metadata for Playground Page
+  playground: {
     projects: [
       {
         title: 'first portfolio website',

@@ -10,7 +10,7 @@ import styled from '@emotion/styled';
 import { useViewCount } from '../hooks/useViewCount';
 import { MOBILE_MEDIA_QUERY } from '../styles/const';
 
-type BlogIndexProps = {
+type HomeProps = {
   data: {
     site: { siteMetadata: SiteMetadata };
     allMarkdownRemark: AllMarkdownRemark;
@@ -18,7 +18,7 @@ type BlogIndexProps = {
   location: Location;
 };
 
-const BlogIndex: React.FC<BlogIndexProps> = ({ location, data }) => {
+const Home: React.FC<HomeProps> = ({ location, data }) => {
   const posts = data.allMarkdownRemark.edges.map(({ node }) => new PostClass(node));
   const featuredPosts = posts.filter((node) => node.categories.find((category) => category === 'featured'));
   const { siteUrl, author } = data.site.siteMetadata;
@@ -45,7 +45,7 @@ const BlogIndex: React.FC<BlogIndexProps> = ({ location, data }) => {
   );
 };
 
-export default BlogIndex;
+export default Home;
 
 export const pageQuery = graphql`
   query {
