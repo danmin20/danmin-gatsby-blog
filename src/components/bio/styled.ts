@@ -21,8 +21,7 @@ export const Wrapper = styled.div`
   flex-direction: column;
   justify-content: space-between;
   width: 100%;
-  margin-top: 120px;
-  margin-bottom: 80px;
+  margin: 130px 0;
   font-family: GmarketSansLight;
 
   .react-rotating-text-cursor {
@@ -32,6 +31,19 @@ export const Wrapper = styled.div`
   @media ${MOBILE_MEDIA_QUERY} {
     margin: 80px 0;
     padding: 0 10px;
+  }
+
+  .gatsby-image-wrapper {
+    position: absolute;
+    right: 30px;
+    top: -100px;
+    width: 300px;
+    @media ${MOBILE_MEDIA_QUERY} {
+      position: absolute;
+      right: 0;
+      top: -20px;
+      width: 100px;
+    }
   }
 `;
 
@@ -67,6 +79,7 @@ export const IntroWrapper = styled.div`
 
 export const Title = styled.p`
   width: 100%;
+
   .react-rotating-text-cursor {
     font-size: 50px;
     line-height: 35px;

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Project } from '../../type';
+import Image from '../Image';
 import * as S from './styled';
 
 type ProjectCardProps = {
@@ -7,11 +8,10 @@ type ProjectCardProps = {
 };
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
-  console.log('project.links', project.links);
   return (
     <S.Wrapper>
       <S.ImageSection>
-        <S.StyledImage className='image' src={project.thumbnailUrl} />
+        <Image alt='project-image' src={`${project.thumbnailUrl}`} />
       </S.ImageSection>
 
       <S.Content>

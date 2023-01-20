@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Author } from '@/src/type';
 import ReactRotatingText from 'react-rotating-text';
 import * as S from './styled';
+import Image from '../Image';
 
 type BioProps = {
   author: Author;
@@ -27,6 +28,7 @@ const Bio: React.FC<BioProps> = ({ author }) => {
           </strong>
           입니다.
         </S.Title>
+        <Image alt='thumbnail' src='thumbnail.png' />
         <S.SocialWrapper>
           {Object.keys(social).map(
             (link, index) =>
