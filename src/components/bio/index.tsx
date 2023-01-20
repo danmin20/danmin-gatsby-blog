@@ -33,6 +33,7 @@ const Bio: React.FC<BioProps> = ({ author }) => {
               social[link as keyof typeof social] && (
                 <S.SocialButton
                   key={index}
+                  target='_blank'
                   href={`${link === 'email' ? `mailto:` : ``}${social[link as keyof typeof social]}`}
                 >
                   {link}

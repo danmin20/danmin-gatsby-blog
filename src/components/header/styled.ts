@@ -43,6 +43,6 @@ export const MenuLink = styled(Link)<{ isselected: string }>`
   }
 
   @media ${MOBILE_MEDIA_QUERY} {
-    font-size: 15px;
+    font-size: 13px;
   }
 `;

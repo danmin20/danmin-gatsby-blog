@@ -7,6 +7,7 @@ type ProjectCardProps = {
 };
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
+  console.log('project.links', project.links);
   return (
     <S.Wrapper>
       <S.ImageSection>
@@ -27,7 +28,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           {Object.keys(project.links).map(
             (link, index) =>
               project.links[link as keyof typeof project.links] && (
-                <S.ProjectLink key={index} href={link}>
+                <S.ProjectLink key={index} target='_blank' href={project.links[link as keyof typeof project.links]}>
                   {link}
                 </S.ProjectLink>
               ),
