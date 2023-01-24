@@ -158,6 +158,19 @@ export default {
           appStore: '',
         },
       },
+      {
+        title: 'venom controller',
+        description: 'a dynamic, sticky venom',
+        techStack: ['React', 'Vite', 'TS', 'Three.js'],
+        thumbnailUrl: 'venom-controller.png',
+        links: {
+          post: '',
+          github: 'https://github.com/danmin20/venom-controller',
+          demo: 'https://venom-controller.jeong-min.com/',
+          googlePlay: '',
+          appStore: '',
+        },
+      },
     ],
   },
 };
