@@ -1,3 +1,4 @@
+import { getValueFromLocalStorage } from '../../../src/utils/localStorage';
 import React, { createRef, useEffect, useRef } from 'react';
 import * as S from './styled';
 
@@ -15,14 +16,14 @@ const Utterances: React.FC<UtterancesProps> = ({ repo, path }) => {
 
   useEffect(() => {
     if (!rootElm.current || isUtterancesLoaded.current) return;
-    const storedIsDarkMode = localStorage.getItem('isDarkMode') ?? '';
+    const theme = getValueFromLocalStorage('theme');
 
     const utterances = document.createElement('script');
     const utterancesConfig: { [key: string]: unknown } = {
       src,
       repo,
       branch,
-      'theme': storedIsDarkMode ? 'photon-dark' : 'github-light',
+      'theme': theme === 'dark' ? 'photon-dark' : 'github-light',
       'label': 'comment',
       'async': true,
       'issue-term': 'pathname',
