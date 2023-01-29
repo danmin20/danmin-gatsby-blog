@@ -2,7 +2,6 @@
 emoji: 👩🏻‍💻
 title: '스타트업에서의 5개월'
 date: '2020-10-30'
-author: 단민
 categories: featured 인턴회고
 ---
 

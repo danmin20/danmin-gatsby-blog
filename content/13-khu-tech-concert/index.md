@@ -2,7 +2,6 @@
 emoji: 🦁
 title: '경희대학교 테크 콘서트 강연에 서다'
 date: '2022-08-30'
-author: 단민
 categories: featured Experience
 ---
 

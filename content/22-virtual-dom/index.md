@@ -2,7 +2,6 @@
 emoji: 🌲
 title: 'SPA의 가상돔(virtual DOM)이란? 리액트의 휴리스틱 디핑 알고리즘'
 date: '2022-03-29'
-author: 단민
 categories: Dev
 ---
 

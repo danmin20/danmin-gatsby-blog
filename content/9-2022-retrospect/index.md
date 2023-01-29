@@ -2,7 +2,6 @@
 emoji: ✨
 title: '2022년 한 해 되돌아보기'
 date: '2023-01-01'
-author: 단민
 categories: featured 회고
 ---
 

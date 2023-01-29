@@ -2,7 +2,6 @@
 emoji: ☁️
 title: '메가존클라우드에서의 4개월'
 date: '2021-02-22'
-author: 단민
 categories: featured 인턴회고
 ---
 

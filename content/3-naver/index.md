@@ -2,7 +2,6 @@
 emoji: 🍀
 title: '네이버 전환형 인턴 후기'
 date: '2022-02-20'
-author: 단민
 categories: featured 인턴회고
 ---
 

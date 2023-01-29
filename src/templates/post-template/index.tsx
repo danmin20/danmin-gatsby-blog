@@ -50,7 +50,6 @@ export const pageQuery = graphql`
         date(formatString: "YYYY.MM.DD")
         title
         categories
-        author
         emoji
       }
       fields {
@@ -65,7 +64,6 @@ export const pageQuery = graphql`
         date(formatString: "YYYY.MM.DD")
         title
         categories
-        author
         emoji
       }
       fields {
@@ -80,7 +78,6 @@ export const pageQuery = graphql`
         date(formatString: "YYYY.MM.DD")
         title
         categories
-        author
         emoji
       }
       fields {

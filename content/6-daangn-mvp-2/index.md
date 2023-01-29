@@ -2,7 +2,6 @@
 emoji: 🥕
 title: '당근마켓 MVP 인턴십 (2) - 당신 근처 장소를 모아'
 date: '2022-02-23'
-author: 단민
 categories: 인턴회고 당근마켓시리즈
 ---
 

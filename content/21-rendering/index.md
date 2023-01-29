@@ -2,7 +2,6 @@
 emoji: ➰
 title: '브라우저 렌더링 과정 및 사이드 이펙트(리플로우, 리페인트) 살펴보기'
 date: '2022-03-28'
-author: 단민
 categories: Dev
 ---
 

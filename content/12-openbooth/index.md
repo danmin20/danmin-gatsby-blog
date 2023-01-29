@@ -2,7 +2,6 @@
 emoji: 📢
 title: '컨퍼런스에서 연사로 서다'
 date: '2022-02-22'
-author: 단민
 categories: featured Experience
 ---
 

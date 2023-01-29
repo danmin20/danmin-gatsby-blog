@@ -2,7 +2,6 @@
 emoji: 🧡
 title: 'AUSG(아우쓱) 후기: 두 기수를 지내며 써보는 IT 동아리 회고 글'
 date: '2022-06-14'
-author: 단민
 categories: featured Experience
 ---
 
