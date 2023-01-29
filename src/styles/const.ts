@@ -48,6 +48,7 @@ export const hoverUnderline = (theme: Theme) => css`
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
   }
+
   &:hover:after {
     transform: scaleX(1);
     transform-origin: bottom left;

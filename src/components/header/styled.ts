@@ -42,6 +42,12 @@ export const MenuLink = styled(Link)<{ isselected: string }>`
     transform: ${({ isselected }) => (isselected === 'true' ? 'scaleX(1)' : 'scaleX(0)')};
   }
 
+  &:hover:after {
+    @media ${MOBILE_MEDIA_QUERY} {
+      transform: ${({ isselected }) => (isselected === 'true' ? 'scaleX(1)' : 'scaleX(0)')};
+    }
+  }
+
   @media ${MOBILE_MEDIA_QUERY} {
     font-size: 13px;
   }
