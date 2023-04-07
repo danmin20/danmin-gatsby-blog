@@ -65,6 +65,8 @@ export const Title = styled.div`
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
+    word-break: break-word;
+    line-height: 120%;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
   }
