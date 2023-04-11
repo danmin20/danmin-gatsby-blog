@@ -1,209 +1,263 @@
 ---
 emoji: 🍦
-title: '바닐라JS(TS)로 리액트 SPA 구현하기 | (2) 클래스로 컴포넌트 구현'
-date: '2022-04-12'
+title: '바닐라JS(TS)로 리액트 SPA 구현하기 | (3) 클래스로 HashRouter 구현'
+date: '2022-05-15'
 categories: Dev React만들어보기
 ---
 
-리액트 컴포넌트와 유사한 구조를 class로 만들어 봅시다!
+라우터를 구현하는 대표적인 방법에는 두 가지가 있습니다. 바로 BrowserRouter와 HashRouter인데요, 이 둘의 차이에 대해 잘 모르신다면 아래의 글을 먼저 읽어주세요!  
+[BrowserRouter와 HashRouter, 뭐가 다를까? (feat. React Router)]
+
+HashRouter와 BrowserRouter를 모두 구현해 볼 텐데요, 이번 글에서는 HashRouter에 대해 먼저 다루어보도록 하겠습니다.
 
 &nbsp;
 
-## 1. Component 구조
+## 1. Route 타입 정의
 
 ```ts
-export interface PropsType {}
-export interface StateType {}
+export type Route = {
+  path: string;
+  page: typeof Component;
+};
+```
+라우트는 path와 해당 path에 해당하는 컴포넌트를 가지는 객체입니다.
 
-export default class Component<P extends PropsType, S extends StateType> {
-  target: Element;
-  props: P;
-  state: S;
+&nbsp;
+
+## 2. Router 구조
+
+```ts
+class Router {
+  $app: HTMLElement;
+  routes: {
+    [key: string]: typeof Component;
+  } = {};
+  fallback: string = "/";
+
+  constructor() {}         // 생성자
+
+  initEvent() {}           // hash가 변경되었을 때의 이벤트 init
   
-  constructor() {} // 생성자
-  
-  setup() {}       // 기본적인 선언 및 할당
-  template() {     // element 반환
-    return ""
-  }    
-  render() {}
-  mount() {}
-  update() {}
+  onHashChangeHandler() {} // hash가 변경되었을 때의 이벤트 핸들러
 
-  // 생명주기 메서드
-  didMount() {}
-  didUpdate() {}
-  
-  setState() {}    // state 업데이트
-  
-  // event 등록
-  setEvent() {}    
-  addEvent() {}
+  hasRoute() {}            // 올바른 라우트인지 검증
+
+  getRoute() {}            // 해당 라우트 가져오기
+
+  renderPage() {}          // 페이지 렌더링
+
+  push() {}                // 라우터 push
 }
 ```
-
-target으로는 해당 컴포넌트가 들어갈 Element를 받게 됩니다. 컴포넌트는 부모로부터 받은 props와 스스로 관리하는 state를 가집니다. 컴포넌트 생명주기와 관련된 메서드, 첫 렌더링과 이후 상태가 변경되었을 때의 리렌더링을 위한 메서드, 상태 업데이트와 이벤트 등록과 관련된 메서드를 적어주었습니다. template 메서드에서는 실제 엘리먼트를 그리게 됩니다. 기본값으로는 빈 스트링을 반환하도록 해주었습니다.
+SPA의 최상단 엘리먼트 객체와 정의된 라우트들을 필수적으로 받게 됩니다. 그리고 이벤트와 라우트를 다루는 여러 메서드를 통해 라우팅을 하게 됩니다.
 
 &nbsp;
 
-## 2. Class 초기화
+## 3. Class 초기화
 
-우선, 컴포넌트 객체가 인스턴스화될 때ㄴ의 설정을 생성자에서 해주어야겠죠.
-
-```ts
-constructor(target: Element, props: P) {
-  this.target = target;
-  this.props = props;
-  this.state = {} as S;
-  this.setup();
-  this.mount();
-  this.setEvent();
-}
-```
-컴포넌트가 들어갈 Element를 받아 등록하고, props도 받아서 등록해줍니다. state는 빈 객체를 할당합니다. setup 메서드에서는 state 초깃값 선언, api 호출 등 컴포넌트가 렌더링되기 전에 일어나야 할 일들을 처리하는 용도입니다. 그 후 컴포넌트를 마운트하고, 이벤트를 할당해주게 됩니다.
-
-&nbsp;
-
-## 3. 생명주기
-
-리액트의 생명주기는 다음과 같습니다.
-
-### 마운트 시
-```ts
-constructor()
-static getDerivedStateFromProps()
-render()
-componentDidMount()
-```
-가 순서대로 호출됩니다.
-
-### 업데이트 시
+우선, 라우터 객체가 인스턴스화될 때의 설정을 생성자에서 해주어야겠죠.
 
 ```ts
-static getDerivedStateFromProps()
-shoudComponentUpdate()
-render()
-componentDidUpdate()
-```
-가 순서대로 호출됩니다.
+constructor({
+  $app,
+  routes,
+  fallback = "/",
+}: {
+  $app: HTMLElement;
+  routes: Route[];
+  fallback?: string;
+}) {
+  this.$app = $app;
+  this.fallback = fallback;
 
-마운트에 해당하는 메서드를 mount(), 업데이트에 해당하는 메서드를 update()로 두었습니다.
-
-```ts
-render() {
-  const template = this.template();
-  if (template) {
-    this.target.innerHTML = template;
-  }
-}
-mount() {
-  this.render();
-  this.didMount();
-}
-
-update(): void {
-  this.render();
-  this.didUpdate();
-}
-```
-render에서 innerHTML에 작성한 템플릿을 넣어주고, mount 내에서는 render 호출 후 didMount 호출을, update 내에서는 render 호출 후 didUpdate 호출을 하게 됩니다.
-
-&nbsp;
-
-## 4. 상태 업데이트
-
-```ts
-setState(newState: Partial<S>) {
-  const nextState = { ...this.state, ...newState };
-  if (JSON.stringify(this.state) === JSON.stringify(nextState)) {
-    return;
-  }
-  this.state = nextState;
-  this.update();
-}
-```
-컴포넌트 내 상태는 객체로 관리하게 됩니다. 변한 요소만 업데이트하고 다른 요소들은 그대로 가져갈 수 있게끔 nextState를 선언해줍시다. 그 후 상태가 정말로 바뀌었다면 state를 바꿔주고, update를 호출하게 됩니다.
-
-&nbsp;
-
-## 5. 이벤트 등록
-
-```ts
-addEvent(eventType: string, selector: string, callback: Function) {
-  const children: Element[] = [...this.target.querySelectorAll(selector)];
-  const isTarget = (target: Element) =>
-    children.includes(target) || target.closest(selector);
-  this.target.addEventListener(eventType, (event: any) => {
-    if (!isTarget(event.target)) return false;
-    callback(event);
+  routes.forEach((route: Route) => {
+    this.routes[route.path] = route.page;
   });
+
+  this.initEvent();
 }
 ```
-이벤트 타입(click, scroll 등)과 엘리먼트 요소, 콜백을 받습니다. 이벤트의 타겟이 요소와 일치하게 되면 콜백을 실행하게 됩니다.
+최상단 엘리먼트 객체, fallback url, 라우트들을 초기화해주고, `initEvent`를 실행합니다.
+
+&nbsp;
+
+## 4. hash가 변경될 때의 이벤트 처리
+
+`initEvent`에서 window 객체의 이벤트 리스너에 핸들러를 등록해줍시다.
+
+```ts
+initEvent() {
+  window.addEventListener("hashchange", () => this.onHashChangeHandler());
+}
+  
+onHashChangeHandler() {
+  this.$app.innerHTML = "";
+
+  const hash = window.location.hash;
+  let path = hash.substring(1);
+
+  this.renderComponent(path);
+}
+```
+`onHashChangeHandler`에서는 app을 빈 스트링으로 초기화해주고, hash값을 파싱하여 해당하는 페이지를 렌더링하게 됩니다.
+
+&nbsp;
+
+## 5. 해당하는 페이지 렌더링
+
+```ts
+hasRoute(path: string) {
+  return typeof this.routes[path] !== "undefined";
+}
+
+getRoute(path: string) {
+  return this.routes[path];
+}
+
+renderPage(path: string) {
+  let route;
+
+  /* 동적 라우팅 처리 */
+  const regex = /\w{1,}$/; // 동적 라우팅으로 전달되는 :id 는 모두 [문자열 + 숫자] 조합으로 간주
+
+  if (this.hasRoute(path)) {
+    route = this.getRoute(path);
+  } else if (regex.test(path)) {
+    // 주소가 없는 경우를 동적 라우팅으로 간주하고 이를 :id 로 치환
+    route = this.getRoute(path.replace(regex, ":id"));
+  } else {
+    // 그 외 입력되지 않은 모든 주소에 대해서는 fallback 실행
+    route = this.getRoute(this.fallback);
+  }
+
+    new route(this.$app, {});
+  }
+
+push(path: string) {
+  window.location.hash = path;
+}
+```
+존재하는 라우터인지 검증하고, 아닐 경우 fallback이 렌더링되도록 해주었습니다.
+
+동적 라우팅도 처리해주어야겠죠? 동적 라우팅의 경우 hasRoute를 통과하지 못할 것입니다. 이에 대해 정규식으로 처리하여 동적 라우팅을 처리해줍시다.
+
+&nbsp;
+
+## 6. 라우터 export
+
+push 메서드를 사용할 수 있도록 router를 export 해주고, index.ts에서 라우터를 초기화할 수 있도록 `initRouter`를 export 해줍시다.
+
+```ts
+export let router: {
+  push: (path: string) => void;
+};
+
+export function initRouter(options: { $app: HTMLElement; routes: Route[] }) {
+  const routerObj = new Router(options);
+
+  router = {
+    push: (path) => routerObj.push(path),
+  };
+
+  routerObj.onHashChangeHandler();
+}
+```
 
 &nbsp;
 
 ## 전체 코드
 
-`/src/core/Component.ts`
+`/src/core/HashRouter.ts`
 ```ts
-export interface PropsType {}
-export interface StateType {}
+import Component from "./Component";
 
-export default class Component<P extends PropsType, S extends StateType> {
-  target: Element;
-  props: P;
-  state: S;
+type Route = {
+  path: string;
+  page: typeof Component;
+};
 
-  constructor(target: Element, props: P) {
-    this.target = target;
-    this.props = props;
-    this.state = {} as S;
-    this.setup();
-    this.mount();
-    this.setEvent();
-  }
+class Router {
+  $app: HTMLElement;
+  routes: {
+    [key: string]: typeof Component;
+  } = {};
+  fallback: string = "/";
 
-  setup() {}
-  template() {
-    return "";
-  }
-  render() {
-    const template = this.template();
-    if (template) {
-      this.target.innerHTML = template;
-    }
-  }
-  mount() {
-    this.render();
-    this.didMount();
-  }
-  update(): void {
-    this.render();
-    this.didUpdate();
-  }
+  constructor({
+    $app,
+    routes,
+    fallback = "/",
+  }: {
+    $app: HTMLElement;
+    routes: Route[];
+    fallback?: string;
+  }) {
+    this.$app = $app;
+    this.fallback = fallback;
 
-  didMount() {}
-  didUpdate() {}
-
-  setState(newState: Partial<S>) {
-    const nextState = { ...this.state, ...newState };
-    if (JSON.stringify(this.state) === JSON.stringify(nextState)) {
-      return;
-    }
-    this.state = nextState;
-    this.update();
-  }
-
-  setEvent() {}
-  addEvent(eventType: string, selector: string, callback: Function) {
-    const children: Element[] = [...this.target.querySelectorAll(selector)];
-    const isTarget = (target: Element) =>
-      children.includes(target) || target.closest(selector);
-    this.target.addEventListener(eventType, (event: any) => {
-      if (!isTarget(event.target)) return false;
-      callback(event);
+    routes.forEach((route: Route) => {
+      this.routes[route.path] = route.page;
     });
+
+    this.initEvent();
   }
+
+  initEvent() {
+    window.addEventListener("hashchange", () => this.onHashChangeHandler());
+  }
+
+  onHashChangeHandler() {
+    this.$app.innerHTML = "";
+
+    const hash = window.location.hash;
+    let path = hash.substring(1);
+
+    this.renderPage(path);
+  }
+
+  hasRoute(path: string) {
+    return typeof this.routes[path] !== "undefined";
+  }
+
+  getRoute(path: string) {
+    return this.routes[path];
+  }
+
+  renderPage(path: string) {
+    let route;
+
+    /* 동적 라우팅 처리 */
+    const regex = /\w{1,}$/; // 동적 라우팅으로 전달되는 :id 는 모두 [문자열 + 숫자] 조합으로 간주
+
+    if (this.hasRoute(path)) {
+      route = this.getRoute(path);
+    } else if (regex.test(path)) {
+      // 주소가 없는 경우를 동적 라우팅으로 간주하고 이를 :id 로 치환
+      route = this.getRoute(path.replace(regex, ":id"));
+    } else {
+      // 그 외 입력되지 않은 모든 주소에 대해서는 fallback 실행
+      route = this.getRoute(this.fallback);
+    }
+
+    new route(this.$app, {});
+  }
+
+  push(path: string) {
+    window.location.hash = path;
+  }
+}
+
+export let router: {
+  push: (path: string) => void;
+};
+
+export function initRouter(options: { $app: HTMLElement; routes: Route[] }) {
+  const routerObj = new Router(options);
+
+  router = {
+    push: (path) => routerObj.push(path),
+  };
+
+  routerObj.onHashChangeHandler();
 }
 ```
