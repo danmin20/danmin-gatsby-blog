@@ -13,7 +13,6 @@ const style = (theme: Theme) => css`
     overflow-y: scroll;
     font-size: 14px;
     color: ${theme.color.black100};
-    transition: 0.3s;
     background-color: ${theme.color.gray10};
 
     a {

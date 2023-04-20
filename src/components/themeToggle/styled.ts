@@ -16,7 +16,6 @@ export const Wrapper = styled.div<{ isDark: boolean }>`
   justify-content: center;
   top: 20px;
   right: 20px;
-  transition: 0.3s;
 
   .theme-icon {
     color: ${({ theme }) => theme.color.white100};

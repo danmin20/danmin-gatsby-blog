@@ -19,7 +19,6 @@ export const PostCard = styled(Link)`
   padding: 15px;
   margin-bottom: 15px;
   cursor: pointer;
-  transition: 0.3s;
   &:hover {
     background-color: ${({ theme }) => theme.color.gray10};
   }

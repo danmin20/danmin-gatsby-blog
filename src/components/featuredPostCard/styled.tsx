@@ -16,7 +16,6 @@ export const PostCard = styled(Link)`
   max-width: ${contentMaxWidth};
   border-radius: 10px;
   cursor: pointer;
-  transition: 0.3s;
   gap: 15px;
   align-items: center;
   padding-right: 15px;

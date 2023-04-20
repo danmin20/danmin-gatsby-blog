@@ -8,7 +8,6 @@ export const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.color.gray10};
   width: 381px;
   height: 317px;
-  transition: 0.3s;
 
   @media ${MOBILE_MEDIA_QUERY} {
     border-radius: 20px;
@@ -24,6 +23,7 @@ export const ImageSection = styled.div`
   align-items: center;
   position: relative;
   overflow: hidden;
+  isolation: isolate;
   border-radius: 24px 24px 0 0;
   width: 100%;
   height: 216px;
