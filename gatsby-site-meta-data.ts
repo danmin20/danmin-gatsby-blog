@@ -9,7 +9,7 @@ export default {
       repo: `danmin20/danmin-gatsby-blog`,
     },
   },
-  ga: '0', // Google Analytics Tracking ID
+  ga: 'G-W7X8818JTT', // Google Analytics Tracking ID
 
   author: {
     name: `이정민`,

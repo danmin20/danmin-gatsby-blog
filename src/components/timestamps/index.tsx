@@ -25,7 +25,7 @@ const Timestamps: React.FC<TimestampsProps> = ({ title, timestamps }) => {
                 <S.TitleKr>
                   {timestamp.kr}
                   {'link' in timestamp && timestamp.link && (
-                    <a href={timestamp.link}>
+                    <a href={timestamp.link} target='_blank'>
                       <Link2Icon className='link-icon' />
                     </a>
                   )}
