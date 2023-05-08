@@ -13,8 +13,6 @@ type NotFoundPageProps = {
 };
 
 const NotFoundPage: React.FC<NotFoundPageProps> = ({ location, data }) => {
-  const siteTitle = data.site.siteMetadata.title;
-
   return (
     <Layout location={location}>
       <h1>404: Not Found</h1>

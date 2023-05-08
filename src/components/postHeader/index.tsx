@@ -4,10 +4,10 @@ import * as S from './styled';
 
 type PostHeaderProps = {
   post: PostClass;
-  viewCount: number;
+  // viewCount: number;
 };
 
-const PostHeader: React.FC<PostHeaderProps> = ({ post, viewCount }) => {
+const PostHeader: React.FC<PostHeaderProps> = ({ post }) => {
   return (
     <S.Header>
       {post.emoji && <S.Emoji>{post.emoji}</S.Emoji>}
@@ -22,7 +22,7 @@ const PostHeader: React.FC<PostHeaderProps> = ({ post, viewCount }) => {
       <S.Title>{post.title}</S.Title>
       <S.Info>
         {post.date}
-        {` · ${viewCount} views`}
+        {/* {` · ${viewCount} views`} */}
       </S.Info>
     </S.Header>
   );

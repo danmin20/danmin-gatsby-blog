@@ -1,4 +1,4 @@
-import { MarkdownRemark, Post } from '../type';
+import { MarkdownRemark } from '../type';
 
 export default class PostClass {
   id;

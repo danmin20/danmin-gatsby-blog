@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
 import Layout from '../../layout';
 import Seo from '../../components/seo';
 import Utterances from '../../components/utterances';
@@ -8,7 +8,7 @@ import PostClass from '../../models/post';
 import PostHeader from '../../components/postHeader';
 import PostNavigator from '../../components/postNavigator';
 import * as S from './styled';
-import { useViewCount } from '../../../src/hooks/useViewCount';
+// import { useViewCount } from '../../../src/hooks/useViewCount';
 
 type PostTemplateProps = {
   location: Location;
@@ -19,16 +19,17 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ location, data }) => {
   const curPost = new PostClass(data.cur);
   const prevPost = data.prev && new PostClass(data.prev);
   const nextPost = data.next && new PostClass(data.next);
-  const { siteUrl, comments } = data.site?.siteMetadata;
+  const { comments } = data.site?.siteMetadata;
   const utterancesRepo = comments?.utterances?.repo;
 
-  const key = curPost.slug.replace(/\//g, '');
-  const { viewCount } = useViewCount(siteUrl, key);
+  // const key = curPost.slug.replace(/\//g, '');
+  // const { viewCount } = useViewCount(siteUrl, key);
 
   return (
     <Layout location={location}>
       <Seo title={`개발자 단민 | ${curPost?.title}`} description={curPost?.excerpt} />
-      <PostHeader post={curPost} viewCount={viewCount ?? 0} />
+      {/* <PostHeader post={curPost} viewCount={viewCount ?? 0} /> */}
+      <PostHeader post={curPost} />
       <S.PostContent>
         <div className='markdown' dangerouslySetInnerHTML={{ __html: curPost.html }} />
       </S.PostContent>
