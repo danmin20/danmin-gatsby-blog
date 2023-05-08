@@ -6,7 +6,7 @@ import Seo from '../components/seo';
 import { AllMarkdownRemark, SiteMetadata } from '../type';
 import PostClass from '../models/post';
 import FeaturedPostColumn from '../components/featuredPostColumn';
-import HitCount from '../components/hitCount';
+// import HitCount from '../components/hitCount';
 
 type HomeProps = {
   data: {
@@ -19,7 +19,7 @@ type HomeProps = {
 const Home: React.FC<HomeProps> = ({ location, data }) => {
   const posts = data.allMarkdownRemark.edges.map(({ node }) => new PostClass(node));
   const featuredPosts = posts.filter((node) => node.categories.find((category) => category === 'featured'));
-  const { siteUrl, author } = data.site.siteMetadata;
+  const { author } = data.site.siteMetadata;
 
   const internPosts = featuredPosts.filter((post) => post.categories.find((category) => category === '인턴회고'));
   const livePosts = featuredPosts.filter((post) => post.categories.find((category) => category === '회고'));
@@ -29,7 +29,7 @@ const Home: React.FC<HomeProps> = ({ location, data }) => {
     <Layout location={location}>
       <Seo title='개발자 단민' />
 
-      <HitCount siteUrl={siteUrl} />
+      {/* <HitCount siteUrl={siteUrl} /> */}
       <Bio author={author} />
 
       <FeaturedPostColumn title='인턴만 다섯 번을 한 사람이 있다?' posts={internPosts} />
