@@ -5,12 +5,13 @@ import * as S from './styled';
 type FeaturedPostColumnProps = {
   title: string;
   posts: PostClass[];
+  fill?: boolean;
 };
 
-const FeaturedPostColumn: React.FC<FeaturedPostColumnProps> = ({ title, posts }) => {
+const FeaturedPostColumn: React.FC<FeaturedPostColumnProps> = ({ title, posts, fill = true }) => {
   return (
     <S.Wrapper>
-      <S.Title>{title}</S.Title>
+      <S.Title fill={fill}>{title}</S.Title>
       {posts.map((post, index) => (
         <FeaturedPostCard key={index} post={post} />
       ))}
