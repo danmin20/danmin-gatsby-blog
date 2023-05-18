@@ -6,6 +6,7 @@ import Seo from '../components/seo';
 import { AllMarkdownRemark, SiteMetadata } from '../type';
 import PostClass from '../models/post';
 import FeaturedPostColumn from '../components/featuredPostColumn';
+import BuyMeACoffee from '../components/buyMeACoffee';
 // import HitCount from '../components/hitCount';
 
 type HomeProps = {
@@ -32,6 +33,8 @@ const Home: React.FC<HomeProps> = ({ location, data }) => {
       <Seo title='개발자 단민' />
       {/* <HitCount siteUrl={siteUrl} /> */}
       <Bio author={author} />
+
+      <BuyMeACoffee />
 
       <FeaturedPostColumn title='Recent Posts' posts={recentPosts} fill={false} />
       <FeaturedPostColumn title='인턴만 다섯 번을 한 사람이 있다?' posts={internPosts} />

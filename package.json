@@ -11,14 +11,17 @@
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@radix-ui/react-icons": "^1.1.1",
+    "@svgr/webpack": "^8.0.1",
     "eslint-plugin-react": "^7.32.2",
     "gatsby": "^4.24.5",
+    "gatsby-plugin-svgr": "^3.0.0-beta.0",
     "prismjs": "^1.29.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-helmet": "^6.1.0",
     "react-rotating-text": "^1.4.1",
-    "sass": "^1.55.0"
+    "sass": "^1.55.0",
+    "usehooks-ts": "^2.9.1"
   },
   "devDependencies": {
     "@babel/eslint-plugin": "^7.19.1",

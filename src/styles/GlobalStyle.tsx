@@ -1,5 +1,6 @@
 import React from 'react';
 import { css, Global, Theme } from '@emotion/react';
+import { MOBILE_MEDIA_QUERY } from './const';
 
 const style = (theme: Theme) => css`
   * {
@@ -28,6 +29,20 @@ const style = (theme: Theme) => css`
 
   ::-webkit-scrollbar {
     display: none;
+  }
+
+  .pc-only {
+    display: block;
+    @media ${MOBILE_MEDIA_QUERY} {
+      display: none;
+    }
+  }
+
+  .mobile-only {
+    display: none;
+    @media ${MOBILE_MEDIA_QUERY} {
+      display: block;
+    }
   }
 `;
 

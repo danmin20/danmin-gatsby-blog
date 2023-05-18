@@ -1,6 +1,5 @@
 import type { GatsbyConfig } from 'gatsby';
 import siteMetadata from './gatsby-site-meta-data';
-import path from 'path';
 
 const config: GatsbyConfig = {
   siteMetadata,
@@ -14,6 +13,7 @@ const config: GatsbyConfig = {
     `gatsby-plugin-sass`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-svgr`,
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {

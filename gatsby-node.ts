@@ -1,7 +1,7 @@
 import path from 'path';
 import { createFilePath } from 'gatsby-source-filesystem';
 import type { Actions, GatsbyNode } from 'gatsby';
-import { AllMarkdownRemark, MarkdownRemark } from './src/type';
+import { AllMarkdownRemark } from './src/type';
 
 export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({ getConfig, actions }) => {
   const output = getConfig().output || {};
