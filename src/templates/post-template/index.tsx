@@ -8,6 +8,7 @@ import PostClass from '../../models/post';
 import PostHeader from '../../components/postHeader';
 import PostNavigator from '../../components/postNavigator';
 import * as S from './styled';
+import BuyMeACoffee from '../../components/buyMeACoffee';
 // import { useViewCount } from '../../../src/hooks/useViewCount';
 
 type PostTemplateProps = {
@@ -33,6 +34,10 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ location, data }) => {
       <S.PostContent>
         <div className='markdown' dangerouslySetInnerHTML={{ __html: curPost.html }} />
       </S.PostContent>
+      <S.BuyMeACoffeeWrapper>
+        <div>👇 도움이 되셨다면 👇</div>
+        <BuyMeACoffee />
+      </S.BuyMeACoffeeWrapper>
       <PostNavigator prevPost={prevPost} nextPost={nextPost} />
       {utterancesRepo && <Utterances repo={utterancesRepo} path={curPost.slug} />}
     </Layout>

@@ -34,7 +34,9 @@ const Home: React.FC<HomeProps> = ({ location, data }) => {
       {/* <HitCount siteUrl={siteUrl} /> */}
       <Bio author={author} />
 
-      <BuyMeACoffee />
+      <div style={{ position: 'absolute', top: '280px' }}>
+        <BuyMeACoffee />
+      </div>
 
       <FeaturedPostColumn title='Recent Posts' posts={recentPosts} fill={false} />
       <FeaturedPostColumn title='인턴만 다섯 번을 한 사람이 있다?' posts={internPosts} />

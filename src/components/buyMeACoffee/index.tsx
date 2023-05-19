@@ -24,7 +24,36 @@ const BuyMeACoffee: React.FC = () => {
 
   return (
     <S.Wrapper>
-      <S.Button onClick={openModal}>Buy Me A Coffee</S.Button>
+      <S.Center>
+        <S.Circle>
+          <S.Logo>$</S.Logo>
+          <S.Text>
+            <svg x='0' y='0' viewBox='0 0 300 300' enable-background='new 0 0 300 300' xmlSpace='preserve'>
+              <defs>
+                <path
+                  id='circlePath'
+                  d='
+                    M 150, 150
+                    m -120, 0
+                    a 120,120 0 0,1 240,0
+                    a 120,120 0 0,1 -240,0
+                    '
+                />
+              </defs>
+              <g>
+                <text>
+                  <textPath xlinkHref='#circlePath'>
+                    Buy Me A
+                    Coffee!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    Buy Me A Coffee!
+                  </textPath>
+                </text>
+              </g>
+            </svg>
+          </S.Text>
+          <S.Button onClick={openModal}>CLICK</S.Button>
+        </S.Circle>
+      </S.Center>
 
       {isModalOpened && (
         <S.ModalBackground onClick={closeModal}>
