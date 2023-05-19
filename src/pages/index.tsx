@@ -7,6 +7,9 @@ import { AllMarkdownRemark, SiteMetadata } from '../type';
 import PostClass from '../models/post';
 import FeaturedPostColumn from '../components/featuredPostColumn';
 import BuyMeACoffee from '../components/buyMeACoffee';
+import styled from '@emotion/styled';
+import { MOBILE_MEDIA_QUERY } from '../styles/const';
+import useDeviceType from '../hooks/useDeviceType';
 // import HitCount from '../components/hitCount';
 
 type HomeProps = {
@@ -28,15 +31,17 @@ const Home: React.FC<HomeProps> = ({ location, data }) => {
   const livePosts = featuredPosts.filter((post) => post.categories.find((category) => category === '회고'));
   const experiencePosts = featuredPosts.filter((post) => post.categories.find((category) => category === 'Experience'));
 
+  const { isMobile } = useDeviceType();
+
   return (
     <Layout location={location}>
       <Seo title='개발자 단민' />
       {/* <HitCount siteUrl={siteUrl} /> */}
       <Bio author={author} />
 
-      <div style={{ position: 'absolute', top: '280px' }}>
-        <BuyMeACoffee />
-      </div>
+      <BuyMeACoffeeWrapper>
+        <BuyMeACoffee isMobile={isMobile} />
+      </BuyMeACoffeeWrapper>
 
       <FeaturedPostColumn title='Recent Posts' posts={recentPosts} fill={false} />
       <FeaturedPostColumn title='인턴만 다섯 번을 한 사람이 있다?' posts={internPosts} />
@@ -47,6 +52,16 @@ const Home: React.FC<HomeProps> = ({ location, data }) => {
 };
 
 export default Home;
+
+const BuyMeACoffeeWrapper = styled.div`
+  position: absolute;
+  top: 280px;
+
+  @media ${MOBILE_MEDIA_QUERY} {
+    top: 220px;
+    right: 30px;
+  }
+`;
 
 export const pageQuery = graphql`
   query {

@@ -4,7 +4,7 @@ import { useIsomorphicLayoutEffect } from 'usehooks-ts';
 
 type UseLockedBodyOutput = [boolean, (locked: boolean) => void];
 
-function useLockedBody(initialLocked = false, rootId = '___gatsby'): UseLockedBodyOutput {
+const useLockedBody = (initialLocked = false, rootId = '___gatsby'): UseLockedBodyOutput => {
   const [locked, setLocked] = useState(initialLocked);
   const [scrollY, setScrollY] = useState(0);
 
@@ -58,6 +58,6 @@ function useLockedBody(initialLocked = false, rootId = '___gatsby'): UseLockedBo
   }, []);
 
   return [locked, setLocked];
-}
+};
 
 export default useLockedBody;

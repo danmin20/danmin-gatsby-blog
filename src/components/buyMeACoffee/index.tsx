@@ -5,9 +5,14 @@ import kakaoIcon from '../../../assets/kakao_icon.svg';
 import tossIcon from '../../../assets/toss_icon.svg';
 import kakaoQr from '../../../assets/kakao_qr.svg';
 import tossQr from '../../../assets/toss_qr.svg';
+import Button from './Button';
 
-const BuyMeACoffee: React.FC = () => {
-  const [locked, setLocked] = useLockedBody();
+type BuyMeACoffeeProps = {
+  isMobile?: boolean;
+};
+
+const BuyMeACoffee: React.FC<BuyMeACoffeeProps> = ({ isMobile = false }) => {
+  const [, setLocked] = useLockedBody();
   const [isModalOpened, setIsModalOpened] = useState(false);
 
   const openModal = () => {
@@ -20,41 +25,9 @@ const BuyMeACoffee: React.FC = () => {
     setLocked(false);
   };
 
-  console.log(`locked,locked'`, locked);
-
   return (
     <S.Wrapper>
-      <S.Center>
-        <S.Circle>
-          <S.Logo>$</S.Logo>
-          <S.Text>
-            <svg x='0' y='0' viewBox='0 0 300 300' enable-background='new 0 0 300 300' xmlSpace='preserve'>
-              <defs>
-                <path
-                  id='circlePath'
-                  d='
-                    M 150, 150
-                    m -120, 0
-                    a 120,120 0 0,1 240,0
-                    a 120,120 0 0,1 -240,0
-                    '
-                />
-              </defs>
-              <g>
-                <text>
-                  <textPath xlinkHref='#circlePath'>
-                    Buy Me A
-                    Coffee!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    Buy Me A Coffee!
-                  </textPath>
-                </text>
-              </g>
-            </svg>
-          </S.Text>
-          <S.Button onClick={openModal}>CLICK</S.Button>
-        </S.Circle>
-      </S.Center>
-
+      <Button onClick={openModal} isMobile={isMobile} />
       {isModalOpened && (
         <S.ModalBackground onClick={closeModal}>
           <S.Modal>
