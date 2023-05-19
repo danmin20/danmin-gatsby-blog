@@ -9,86 +9,6 @@ export const Wrapper = styled.div`
   transition: 0.3s;
 `;
 
-export const Center = styled.div`
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  filter: drop-shadow(0.25em 0.7em 0.95em rgba(0, 0, 0, 0.5));
-`;
-
-export const Circle = styled.div`
-  position: relative;
-  width: 150px;
-  height: 150px;
-  color: #fff;
-  background: #2c2d2e;
-  border-radius: 50%;
-  border: 1px solid;
-`;
-
-export const Logo = styled.div`
-  font-size: 100px;
-  line-height: 150px;
-  vertical-align: middle;
-`;
-
-const slide = keyframes`
-  0% {
-    transform: translateX(10px)
-  }
-  50% {
-    transform: translateX(-10px)
-  }
-  100% {
-    transform: translateX(10px)
-  }
-`;
-
-const rotate = keyframes`
-  from { 
-    transform: rotate(0); 
-  }
-  to { 
-    transform: rotate(360deg); 
-  }
-`;
-
-export const Button = styled.div`
-  position: absolute;
-  bottom: 20px;
-  left: 10px;
-  right: 0;
-  padding: 6px;
-  font-weight: bold;
-  text-transform: uppercase;
-  background: #2c2d2e;
-  border: 1px solid;
-  animation: ${slide} 1.4s ease-in-out infinite;
-  border-radius: 5px;
-  cursor: pointer;
-  rotate: calc(-5deg);
-  &:hover {
-    color: #2c2d2e;
-    background: #fff;
-    border-color: #fff;
-  }
-`;
-
-export const Text = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  font-size: 24px;
-  font-weight: bold;
-  text-transform: uppercase;
-  animation: ${rotate} 14s linear infinite;
-  fill: #fff;
-`;
-
 const fadeIn = keyframes`
   from {
     opacity: 0;
@@ -144,7 +64,7 @@ export const List = styled.div`
   width: 210px;
 
   & > a {
-    text-decoration: underline;
+    color: #1b64da;
   }
 
   & > div:first-child {

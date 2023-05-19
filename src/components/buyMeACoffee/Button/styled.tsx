@@ -79,4 +79,5 @@ export const Text = styled.div`
   text-transform: uppercase;
   animation: ${rotate} 14s linear infinite;
   fill: #fff;
+  font-size: 24px;
 `;
