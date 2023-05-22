@@ -58,6 +58,7 @@ export const Text = styled.div`
 
   @media ${MOBILE_MEDIA_QUERY} {
     font-size: 20px;
+    top: 11px;
   }
 
   p {

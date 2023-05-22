@@ -1,9 +1,13 @@
 import * as S from './styled';
 
-const Button: React.FC = () => {
+type ButtonProps = {
+  onClick: () => void;
+};
+
+const Button: React.FC<ButtonProps> = ({ onClick }) => {
   return (
     <S.Wrapper>
-      <S.Button>
+      <S.Button onClick={onClick}>
         <S.Text>
           {'BuyMeACoffee'.split('').map((char, index) => (
             <p key={index}>{char}</p>

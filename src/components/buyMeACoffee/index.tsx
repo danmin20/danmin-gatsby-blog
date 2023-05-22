@@ -28,7 +28,7 @@ const BuyMeACoffee: React.FC<BuyMeACoffeeProps> = ({ isMobile = false }) => {
 
   return (
     <S.Wrapper>
-      <Button onClick={openModal} isMobile={isMobile} />
+      <Button onClick={openModal} />
       {isModalOpened && (
         <S.ModalBackground onClick={closeModal}>
           <S.Modal>
