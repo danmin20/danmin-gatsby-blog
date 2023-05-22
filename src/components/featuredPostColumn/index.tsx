@@ -11,7 +11,7 @@ type FeaturedPostColumnProps = {
 const FeaturedPostColumn: React.FC<FeaturedPostColumnProps> = ({ title, posts, fill = true }) => {
   return (
     <S.Wrapper>
-      <S.Title fill={fill}>{title}</S.Title>
+      <S.Title fill={fill ? 'true' : 'false'}>{title}</S.Title>
       {posts.map((post, index) => (
         <FeaturedPostCard key={index} post={post} />
       ))}
