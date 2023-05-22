@@ -44,6 +44,10 @@ const style = (theme: Theme) => css`
       display: block;
     }
   }
+
+  .markdown {
+    font-family: 'Noto Sans KR', sans-serif;
+  }
 `;
 
 const GlobalStyle: React.FC = () => <Global styles={(theme) => style(theme)} />;

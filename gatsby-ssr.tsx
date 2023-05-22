@@ -1,7 +1,7 @@
 import { RenderBodyArgs } from 'gatsby';
 
 export const onRenderBody = ({ setHtmlAttributes, setHeadComponents }: RenderBodyArgs) => {
-  setHtmlAttributes({ lang: `en` });
+  setHtmlAttributes({ lang: `kr` });
   setHeadComponents([
     <link
       rel='preload'

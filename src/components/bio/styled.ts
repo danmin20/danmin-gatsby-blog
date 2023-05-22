@@ -29,8 +29,9 @@ export const Wrapper = styled.div`
   }
 
   @media ${MOBILE_MEDIA_QUERY} {
-    margin: 80px 0;
     padding: 0 10px;
+    margin-top: 80px;
+    margin-bottom: 100px;
   }
 
   .gatsby-image-wrapper {
