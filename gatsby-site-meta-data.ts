@@ -14,17 +14,15 @@ export default {
   author: {
     name: `이정민`,
     nickname: `단민`,
+    stack: ['Frontend', 'React', 'Typescript'],
     bio: {
-      role: `개발자`,
-      description: ['Frontend', 'React', 'Typescript'],
-      birth: '1999.11.08',
+      email: `ljm991108@gmail.com`,
       residence: 'Seoul, South Korea',
       bachelorDegree: 'Kyunghee Univ. Computer Engineering (2018.03-2022.02)',
     },
     social: {
       github: `https://github.com/danmin20`,
       linkedIn: `https://www.linkedin.com/in/jeonming-lee/`,
-      email: `ljm991108@gmail.com`,
       resume: `https://www.figma.com/file/dtkCl6G7G5DVe18DN2LWny/%EC%9D%B4%EC%A0%95%EB%AF%BC-%EC%9D%B4%EB%A0%A5%EC%84%9C?node-id=0%3A1`,
     },
   },
@@ -72,14 +70,14 @@ export default {
 
     activities: [
       {
-        date: '2022.11 - NOW',
+        date: '2022.07 - NOW',
         en: 'SIPE',
         kr: '사이프',
         info: 'Community for IT workers',
-        link: '',
+        link: 'https://sipe.team/',
       },
       {
-        date: '2022.09 - 2023-.01',
+        date: '2022.09 - 2023.01',
         en: 'SOPT makers',
         kr: '솝트 메이커스',
         info: 'Organization makes products for SOPT',

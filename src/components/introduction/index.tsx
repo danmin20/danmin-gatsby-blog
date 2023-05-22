@@ -1,28 +1,24 @@
 import * as React from 'react';
 
-import { Author } from '@/src/type';
+import { Bio } from '@/src/type';
 
 import * as S from './styled';
 
 type IntroductionProps = {
-  author: Author;
+  bio: Bio;
 };
 
-const Introduction: React.FC<IntroductionProps> = ({ author }) => {
-  const { birth, residence, bachelorDegree } = author.bio;
+const Introduction: React.FC<IntroductionProps> = ({ bio }) => {
+  const capitalize = (str: string) => str.charAt(0).toUpperCase() + str.slice(1);
 
   return (
     <S.Wrapper>
       <S.InfoWrapper>
-        <S.Info>
-          <strong>Birth.</strong> {birth}
-        </S.Info>
-        <S.Info>
-          <strong>Residence.</strong> {residence}
-        </S.Info>
-        <S.Info>
-          <strong>Bachelor Degree.</strong> {bachelorDegree}
-        </S.Info>
+        {Object.entries(bio).map(([key, value]) => (
+          <S.Info key={key}>
+            <strong>{capitalize(key)}.</strong> {value}
+          </S.Info>
+        ))}
       </S.InfoWrapper>
     </S.Wrapper>
   );

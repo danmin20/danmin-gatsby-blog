@@ -24,7 +24,7 @@ const About: React.FC<AboutProps> = ({ location, data }) => {
     <Layout location={location}>
       <Seo title='개발자 단민 | About' />
       <Bio author={author} />
-      <Introduction author={author} />
+      <Introduction bio={author.bio} />
       <Timestamps title='Careers' timestamps={careers} />
       <Timestamps title='Activities' timestamps={activities} />
     </Layout>
@@ -41,17 +41,15 @@ export const pageQuery = graphql`
         author {
           name
           nickname
+          stack
           bio {
-            role
-            description
-            birth
+            email
             residence
             bachelorDegree
           }
           social {
             github
             linkedIn
-            email
             resume
           }
         }

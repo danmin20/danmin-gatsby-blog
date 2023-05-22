@@ -8,11 +8,7 @@ import useLockedBody from '../../hooks/usdLockedBody';
 import Button from './Button';
 import * as S from './styled';
 
-type BuyMeACoffeeProps = {
-  isMobile?: boolean;
-};
-
-const BuyMeACoffee: React.FC<BuyMeACoffeeProps> = ({ isMobile = false }) => {
+const BuyMeACoffee: React.FC = () => {
   const [, setLocked] = useLockedBody();
   const [isModalOpened, setIsModalOpened] = useState(false);
 

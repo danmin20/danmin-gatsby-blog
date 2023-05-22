@@ -1,14 +1,11 @@
-import styled from '@emotion/styled';
 import { graphql } from 'gatsby';
 import React from 'react';
 
 import Bio from '../components/bio';
-import BuyMeACoffee from '../components/buyMeACoffee';
 import FeaturedPostColumn from '../components/featuredPostColumn';
 import Seo from '../components/seo';
 import Layout from '../layout';
 import PostClass from '../models/post';
-import { MOBILE_MEDIA_QUERY } from '../styles/const';
 import { AllMarkdownRemark, SiteMetadata } from '../type';
 // import HitCount from '../components/hitCount';
 
@@ -37,10 +34,6 @@ const Home: React.FC<HomeProps> = ({ location, data }) => {
       {/* <HitCount siteUrl={siteUrl} /> */}
       <Bio author={author} />
 
-      <BuyMeACoffeeWrapper>
-        <BuyMeACoffee />
-      </BuyMeACoffeeWrapper>
-
       <FeaturedPostColumn title='Recent Posts' posts={recentPosts} fill={false} />
       <FeaturedPostColumn title='인턴만 다섯 번을 한 사람이 있다?' posts={internPosts} />
       <FeaturedPostColumn title='LIFE' posts={livePosts} />
@@ -50,17 +43,6 @@ const Home: React.FC<HomeProps> = ({ location, data }) => {
 };
 
 export default Home;
-
-const BuyMeACoffeeWrapper = styled.div`
-  position: absolute;
-  top: 300px;
-  left: 0;
-
-  @media ${MOBILE_MEDIA_QUERY} {
-    top: 220px;
-    right: 0px;
-  }
-`;
 
 export const pageQuery = graphql`
   query {
@@ -89,10 +71,9 @@ export const pageQuery = graphql`
         author {
           name
           nickname
+          stack
           bio {
-            role
-            description
-            birth
+            email
             residence
             bachelorDegree
           }
@@ -100,7 +81,6 @@ export const pageQuery = graphql`
             github
             linkedIn
             resume
-            email
           }
         }
       }

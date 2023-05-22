@@ -101,7 +101,6 @@ export const SocialWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 5px;
   align-items: flex-end;
 
   @media ${MOBILE_MEDIA_QUERY} {
@@ -115,6 +114,17 @@ export const SocialWrapper = styled.div`
 
 export const SocialButton = styled.a`
   color: ${({ theme }) => theme.color.black100};
-  font-size: 16px;
+  font-size: 20px;
   ${({ theme }) => hoverUnderline(theme)};
+`;
+
+export const BuyMeACoffeeWrapper = styled.div`
+  position: absolute;
+  top: 300px;
+  left: 0;
+
+  @media ${MOBILE_MEDIA_QUERY} {
+    top: 220px;
+    right: 0px;
+  }
 `;

@@ -50,21 +50,21 @@ export type Project = {
 export type Author = {
   name: string;
   nickname: string;
-  bio: {
-    role: string;
-    description: string[];
-    birth: string;
-    residence: string;
-    bachelorDegree: string;
-  };
+  stack: string[];
+  bio: Bio;
   social: Social;
+};
+
+export type Bio = {
+  email: string;
+  residence: string;
+  bachelorDegree: string;
 };
 
 export type Social = {
   github: string;
   linkedIn: string;
   resume: string;
-  email: string;
 };
 
 export type Post = {
