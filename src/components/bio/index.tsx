@@ -1,8 +1,10 @@
 import * as React from 'react';
-import { Author } from '@/src/type';
 import ReactRotatingText from 'react-rotating-text';
-import * as S from './styled';
+
+import { Author } from '@/src/type';
+
 import Image from '../Image';
+import * as S from './styled';
 
 type BioProps = {
   author: Author;

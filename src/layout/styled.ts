@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+
 import { contentMaxWidth, MOBILE_MEDIA_QUERY } from '../styles/const';
 
 export const Wrapper = styled.div`

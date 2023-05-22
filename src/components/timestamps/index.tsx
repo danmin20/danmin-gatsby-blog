@@ -1,7 +1,9 @@
-import React from 'react';
-import AboutTitle from '../aboutTitle';
-import { Activity, Career } from '@/src/type';
 import { Link2Icon } from '@radix-ui/react-icons';
+import React from 'react';
+
+import { Activity, Career } from '@/src/type';
+
+import AboutTitle from '../aboutTitle';
 import * as S from './styled';
 
 type TimestampsProps = {

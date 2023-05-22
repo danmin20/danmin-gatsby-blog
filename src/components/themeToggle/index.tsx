@@ -1,5 +1,6 @@
+import { MoonIcon, SunIcon } from '@radix-ui/react-icons';
+
 import * as S from './styled';
-import { SunIcon, MoonIcon } from '@radix-ui/react-icons';
 
 type ThemeToggleProps = {
   handleTheme: () => void;

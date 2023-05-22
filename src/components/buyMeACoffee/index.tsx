@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import * as S from './styled';
-import useLockedBody from '../../hooks/usdLockedBody';
+
 import kakaoIcon from '../../../assets/kakao_icon.svg';
-import tossIcon from '../../../assets/toss_icon.svg';
 import kakaoQr from '../../../assets/kakao_qr.svg';
+import tossIcon from '../../../assets/toss_icon.svg';
 import tossQr from '../../../assets/toss_qr.svg';
+import useLockedBody from '../../hooks/usdLockedBody';
 import Button from './Button';
+import * as S from './styled';
 
 type BuyMeACoffeeProps = {
   isMobile?: boolean;

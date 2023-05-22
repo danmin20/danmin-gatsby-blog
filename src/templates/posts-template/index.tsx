@@ -1,12 +1,12 @@
-import React, { useMemo } from 'react';
 import { navigate } from 'gatsby';
-import * as S from './styled';
+import React, { useMemo } from 'react';
 
-import Layout from '../../layout';
+import PostTabs from '../../components/postTab';
 import Seo from '../../components/seo';
+import Layout from '../../layout';
 import PostClass from '../../models/post';
 import { AllMarkdownRemark } from '../../type';
-import PostTabs from '../../components/postTab';
+import * as S from './styled';
 
 type PostsTemplateProps = {
   location: Location;

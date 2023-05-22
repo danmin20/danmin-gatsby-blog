@@ -1,8 +1,8 @@
-import * as React from 'react';
 import { graphql } from 'gatsby';
+import * as React from 'react';
 
-import Layout from '../layout';
 import Seo from '../components/seo';
+import Layout from '../layout';
 import { SiteMetadata } from '../type';
 
 type NotFoundPageProps = {
@@ -12,7 +12,7 @@ type NotFoundPageProps = {
   location: Location;
 };
 
-const NotFoundPage: React.FC<NotFoundPageProps> = ({ location, data }) => {
+const NotFoundPage: React.FC<NotFoundPageProps> = ({ location }) => {
   return (
     <Layout location={location}>
       <h1>404: Not Found</h1>

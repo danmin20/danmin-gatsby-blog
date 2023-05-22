@@ -1,14 +1,15 @@
-import React from 'react';
 import { graphql } from 'gatsby';
-import Layout from '../../layout';
-import Seo from '../../components/seo';
-import Utterances from '../../components/utterances';
-import { Post, SiteMetadata } from '../../type';
-import PostClass from '../../models/post';
+import React from 'react';
+
+import BuyMeACoffee from '../../components/buyMeACoffee';
 import PostHeader from '../../components/postHeader';
 import PostNavigator from '../../components/postNavigator';
+import Seo from '../../components/seo';
+import Utterances from '../../components/utterances';
+import Layout from '../../layout';
+import PostClass from '../../models/post';
+import { Post, SiteMetadata } from '../../type';
 import * as S from './styled';
-import BuyMeACoffee from '../../components/buyMeACoffee';
 // import { useViewCount } from '../../../src/hooks/useViewCount';
 
 type PostTemplateProps = {
@@ -20,7 +21,7 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ location, data }) => {
   const curPost = new PostClass(data.cur);
   const prevPost = data.prev && new PostClass(data.prev);
   const nextPost = data.next && new PostClass(data.next);
-  const { comments } = data.site?.siteMetadata;
+  const { comments } = data.site?.siteMetadata ?? null;
   const utterancesRepo = comments?.utterances?.repo;
 
   // const key = curPost.slug.replace(/\//g, '');

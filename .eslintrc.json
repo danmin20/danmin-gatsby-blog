@@ -7,9 +7,11 @@
       "jsx": true
     }
   },
-  "plugins": ["react", "@typescript-eslint"],
+  "plugins": ["react", "@typescript-eslint", "simple-import-sort"],
+  "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended", "plugin:prettier/recommended"],
   "rules": {
     "@typescript-eslint/no-explicit-any": 1,
-    "@typescript-eslint/no-unused-vars": 1
+    "simple-import-sort/imports": 1,
+    "simple-import-sort/exports": 1
   }
 }

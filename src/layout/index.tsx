@@ -1,14 +1,16 @@
-import { graphql, useStaticQuery } from 'gatsby';
-import GlobalStyle from '../styles/GlobalStyle';
-import * as S from './styled';
-import Header from '../components/header';
-import Footer from '../components/footer';
 import './style.scss';
+
 import { ThemeProvider } from '@emotion/react';
-import { darkTheme, lightTheme } from '../styles/const';
-import { getValueFromLocalStorage, setValueToLocalStorage } from '../utils/localStorage';
-import ThemeToggle from '../components/themeToggle';
+import { graphql, useStaticQuery } from 'gatsby';
 import { useEffect, useState } from 'react';
+
+import Footer from '../components/footer';
+import Header from '../components/header';
+import ThemeToggle from '../components/themeToggle';
+import { darkTheme, lightTheme } from '../styles/const';
+import GlobalStyle from '../styles/GlobalStyle';
+import { getValueFromLocalStorage, setValueToLocalStorage } from '../utils/localStorage';
+import * as S from './styled';
 
 type LayoutProps = {
   location: Location;

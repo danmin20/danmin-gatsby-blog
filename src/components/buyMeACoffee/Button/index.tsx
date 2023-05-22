@@ -1,6 +1,6 @@
 import * as S from './styled';
 
-const Button: React.FC<Props> = () => {
+const Button: React.FC = () => {
   return (
     <S.Wrapper>
       <S.Button>

@@ -1,5 +1,6 @@
-import { contentMaxWidth, hoverUnderline, MOBILE_MEDIA_QUERY } from '../../styles/const';
 import styled from '@emotion/styled';
+
+import { contentMaxWidth, hoverUnderline, MOBILE_MEDIA_QUERY } from '../../styles/const';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -24,12 +25,12 @@ export const Tabs = styled.div`
   padding: 0 15px;
 `;
 
-export const Tab = styled.div<any>`
+export const Tab = styled.div<{ isSelected: 'true' | 'false' }>`
   font-size: 17px;
   cursor: pointer;
   ${({ theme }) => hoverUnderline(theme)};
   line-height: 50px;
-  color: ${({ isselected, theme }) => (isselected === 'true' ? theme.color.black100 : theme.color.gray60)};
+  color: ${({ isSelected, theme }) => (isSelected === 'true' ? theme.color.black100 : theme.color.gray60)};
 `;
 
 export const PostCardsWrapper = styled.div`

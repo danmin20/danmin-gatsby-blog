@@ -1,6 +1,7 @@
-import { MOBILE_MEDIA_QUERY } from '../../../../src/styles/const';
 import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
+
+import { MOBILE_MEDIA_QUERY } from '../../../../src/styles/const';
 
 const shake = keyframes`
   0% {

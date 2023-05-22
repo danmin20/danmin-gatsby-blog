@@ -1,4 +1,5 @@
 import { useMediaQuery } from 'react-responsive';
+
 import { MOBILE_MAX_WIDTH } from '../styles/const';
 
 const useDeviceType = () => {

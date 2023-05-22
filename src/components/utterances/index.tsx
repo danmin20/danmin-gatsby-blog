@@ -1,5 +1,6 @@
-import { getValueFromLocalStorage } from '../../../src/utils/localStorage';
 import React, { createRef, useEffect, useRef } from 'react';
+
+import { getValueFromLocalStorage } from '../../../src/utils/localStorage';
 import * as S from './styled';
 
 const src = 'https://utteranc.es/client.js';

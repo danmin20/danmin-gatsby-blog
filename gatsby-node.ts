@@ -1,6 +1,7 @@
-import path from 'path';
-import { createFilePath } from 'gatsby-source-filesystem';
 import type { Actions, GatsbyNode } from 'gatsby';
+import { createFilePath } from 'gatsby-source-filesystem';
+import path from 'path';
+
 import { AllMarkdownRemark } from './src/type';
 
 export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({ getConfig, actions }) => {
@@ -75,6 +76,7 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions,
 
   // Get all markdown blog posts sorted by date
   const result: {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     errors?: any;
     data?: {
       allMarkdownRemark: AllMarkdownRemark;

@@ -1,5 +1,7 @@
 import * as React from 'react';
+
 import { Author } from '@/src/type';
+
 import * as S from './styled';
 
 type IntroductionProps = {

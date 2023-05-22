@@ -1,4 +1,5 @@
 import type { GatsbyConfig } from 'gatsby';
+
 import siteMetadata from './gatsby-site-meta-data';
 
 const config: GatsbyConfig = {

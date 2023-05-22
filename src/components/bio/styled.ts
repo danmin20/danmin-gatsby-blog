@@ -1,6 +1,7 @@
-import { hoverUnderline, MOBILE_MEDIA_QUERY } from '../../../src/styles/const';
 import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
+
+import { hoverUnderline, MOBILE_MEDIA_QUERY } from '../../../src/styles/const';
 
 const blinkingCursor = keyframes`
   0% {

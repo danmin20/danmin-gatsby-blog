@@ -1,6 +1,7 @@
-import { hoverUnderline, MOBILE_MEDIA_QUERY } from '../../../src/styles/const';
 import styled from '@emotion/styled';
 import { Link } from 'gatsby';
+
+import { hoverUnderline, MOBILE_MEDIA_QUERY } from '../../../src/styles/const';
 
 export const Header = styled.header`
   display: flex;

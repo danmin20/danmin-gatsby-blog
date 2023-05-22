@@ -1,6 +1,6 @@
-import React, { useMemo } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
+import React, { useMemo } from 'react';
 
 type ImageNode = {
   childImageSharp: {

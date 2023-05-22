@@ -1,11 +1,12 @@
-import React from 'react';
 import { graphql } from 'gatsby';
-import Layout from '../layout';
-import Seo from '../components/seo';
+import React from 'react';
+
 import Bio from '../components/bio';
-import { SiteMetadata } from '../type';
 import Introduction from '../components/introduction';
+import Seo from '../components/seo';
 import Timestamps from '../components/timestamps';
+import Layout from '../layout';
+import { SiteMetadata } from '../type';
 
 type AboutProps = {
   data: {

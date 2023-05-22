@@ -1,5 +1,6 @@
-import { MOBILE_MEDIA_QUERY } from '../../../src/styles/const';
 import styled from '@emotion/styled';
+
+import { MOBILE_MEDIA_QUERY } from '../../../src/styles/const';
 
 export const CategoryWrapper = styled.div`
   display: flex;

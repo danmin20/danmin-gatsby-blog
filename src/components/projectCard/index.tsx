@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Project } from '../../type';
 import Image from '../Image';
 import * as S from './styled';

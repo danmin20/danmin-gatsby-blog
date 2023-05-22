@@ -1,5 +1,6 @@
-import React from 'react';
 import { css, Global, Theme } from '@emotion/react';
+import React from 'react';
+
 import { MOBILE_MEDIA_QUERY } from './const';
 
 const style = (theme: Theme) => css`

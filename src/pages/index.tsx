@@ -1,14 +1,15 @@
-import React from 'react';
-import { graphql } from 'gatsby';
-import Bio from '../components/bio';
-import Layout from '../layout';
-import Seo from '../components/seo';
-import { AllMarkdownRemark, SiteMetadata } from '../type';
-import PostClass from '../models/post';
-import FeaturedPostColumn from '../components/featuredPostColumn';
-import BuyMeACoffee from '../components/buyMeACoffee';
 import styled from '@emotion/styled';
+import { graphql } from 'gatsby';
+import React from 'react';
+
+import Bio from '../components/bio';
+import BuyMeACoffee from '../components/buyMeACoffee';
+import FeaturedPostColumn from '../components/featuredPostColumn';
+import Seo from '../components/seo';
+import Layout from '../layout';
+import PostClass from '../models/post';
 import { MOBILE_MEDIA_QUERY } from '../styles/const';
+import { AllMarkdownRemark, SiteMetadata } from '../type';
 // import HitCount from '../components/hitCount';
 
 type HomeProps = {

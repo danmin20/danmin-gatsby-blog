@@ -1,6 +1,7 @@
-import { contentMaxWidth, MOBILE_MEDIA_QUERY } from '../../../src/styles/const';
 import styled from '@emotion/styled';
 import { Link } from 'gatsby';
+
+import { contentMaxWidth, MOBILE_MEDIA_QUERY } from '../../../src/styles/const';
 
 export const Wrapper = styled.div`
   width: 100%;

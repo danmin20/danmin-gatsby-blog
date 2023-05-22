@@ -30,6 +30,9 @@
     "@typescript-eslint/eslint-plugin": "^5.59.2",
     "@typescript-eslint/parser": "^5.59.2",
     "eslint": "^8.40.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
     "gatsby-plugin-advanced-sitemap": "^2.0.0",
     "gatsby-plugin-emotion": "^7.24.0",
     "gatsby-plugin-feed": "^4.24.0",
@@ -52,7 +55,7 @@
     "gatsby-source-filesystem": "^4.24.0",
     "gatsby-transformer-remark": "^5.24.0",
     "gatsby-transformer-sharp": "^4.24.0",
-    "prettier": "^2.7.1",
+    "prettier": "^2.8.8",
     "typescript": "^4.8.4"
   },
   "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
