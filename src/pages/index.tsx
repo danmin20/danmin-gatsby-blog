@@ -9,7 +9,6 @@ import FeaturedPostColumn from '../components/featuredPostColumn';
 import BuyMeACoffee from '../components/buyMeACoffee';
 import styled from '@emotion/styled';
 import { MOBILE_MEDIA_QUERY } from '../styles/const';
-import useDeviceType from '../hooks/useDeviceType';
 // import HitCount from '../components/hitCount';
 
 type HomeProps = {
@@ -31,8 +30,6 @@ const Home: React.FC<HomeProps> = ({ location, data }) => {
   const livePosts = featuredPosts.filter((post) => post.categories.find((category) => category === '회고'));
   const experiencePosts = featuredPosts.filter((post) => post.categories.find((category) => category === 'Experience'));
 
-  const { isMobile } = useDeviceType();
-
   return (
     <Layout location={location}>
       <Seo title='개발자 단민' />
@@ -40,7 +37,7 @@ const Home: React.FC<HomeProps> = ({ location, data }) => {
       <Bio author={author} />
 
       <BuyMeACoffeeWrapper>
-        <BuyMeACoffee isMobile={isMobile} />
+        <BuyMeACoffee />
       </BuyMeACoffeeWrapper>
 
       <FeaturedPostColumn title='Recent Posts' posts={recentPosts} fill={false} />
@@ -55,11 +52,12 @@ export default Home;
 
 const BuyMeACoffeeWrapper = styled.div`
   position: absolute;
-  top: 280px;
+  top: 300px;
+  left: 0;
 
   @media ${MOBILE_MEDIA_QUERY} {
     top: 220px;
-    right: 30px;
+    right: 0px;
   }
 `;
 

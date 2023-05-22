@@ -12,9 +12,6 @@ export const BuyMeACoffeeWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 40px;
-  padding-bottom: 30px;
-  & > div {
-    padding-bottom: 10px;
-  }
+  padding: 40px 0;
+  gap: 20px;
 `;

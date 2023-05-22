@@ -1,83 +1,82 @@
+import { MOBILE_MEDIA_QUERY } from '../../../../src/styles/const';
 import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
 
-const slide = keyframes`
+const shake = keyframes`
   0% {
-    transform: translateX(10px)
+    transform: translateX(0) rotate(8deg);
   }
   50% {
-    transform: translateX(-10px)
+    transform: translateX(4px) rotate(-3deg);
   }
+
   100% {
-    transform: translateX(10px)
+    transform: translateX(0) rotate(6deg);
   }
 `;
 
-const rotate = keyframes`
-  from { 
-    transform: rotate(0); 
-  }
-  to { 
-    transform: rotate(360deg); 
+export const Wrapper = styled.div`
+  position: relative;
+  width: 230px;
+  height: 50px;
+  border-radius: 10px;
+  @media ${MOBILE_MEDIA_QUERY} {
+    width: 160px;
+    height: 40px;
   }
 `;
 
-export const Center = styled.div`
+export const Button = styled.div`
+  cursor: pointer;
+  width: 100%;
   height: 100%;
   display: flex;
-  align-items: center;
   justify-content: center;
-  text-align: center;
-  filter: drop-shadow(0.25em 0.7em 0.95em rgba(0, 0, 0, 0.5));
-`;
-
-export const Circle = styled.div<{ isMobile: boolean }>`
-  position: relative;
-  width: ${({ isMobile }) => (isMobile ? 100 : 150)}px;
-  height: ${({ isMobile }) => (isMobile ? 100 : 150)}px;
-  color: #fff;
-  background: #2c2d2e;
-  border-radius: 50%;
-  border: 1px solid;
-`;
-
-export const Logo = styled.div<{ isMobile: boolean }>`
-  font-size: ${({ isMobile }) => (isMobile ? 70 : 100)}px;
-  line-height: ${({ isMobile }) => (isMobile ? 110 : 150)}px;
-  vertical-align: middle;
-`;
-
-export const Button = styled.div<{ isMobile: boolean }>`
-  position: absolute;
-  bottom: 20px;
-  left: 0px;
-  right: 0;
-  padding: 6px;
-  font-weight: bold;
-  text-transform: uppercase;
-  background: #2c2d2e;
-  border: 1px solid;
-  animation: ${slide} 1.4s ease-in-out infinite;
+  align-items: flex-start;
+  background-color: #3c3d40;
   border-radius: 5px;
-  cursor: pointer;
-  rotate: calc(-5deg);
+  outline: none;
+  transition: 0.5s;
   &:hover {
-    color: #2c2d2e;
-    background: #fff;
-    border-color: #fff;
+    width: 105%;
+    height: 105%;
+    div {
+      top: 13px;
+    }
   }
-  font-size: ${({ isMobile }) => (isMobile ? 14 : 18)}px;
 `;
 
 export const Text = styled.div`
+  display: flex;
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  font-weight: bold;
-  text-transform: uppercase;
-  animation: ${rotate} 14s linear infinite;
-  fill: #fff;
-  font-size: 24px;
+  font-size: 30px;
+  text-shadow: 2px 2px black;
+  font-family: 'Anton', sans-serif;
+  font-weight: 800;
+  top: 12px;
+
+  @media ${MOBILE_MEDIA_QUERY} {
+    font-size: 20px;
+  }
+
+  p {
+    &:nth-of-type(1n) {
+      transform: rotate(8deg);
+      animation: ${shake} 0.5s ease infinite;
+      color: #f7ea25;
+    }
+    &:nth-of-type(2n) {
+      transform: rotate(5deg);
+      animation: ${shake} 0.5s ease-out infinite reverse;
+      color: #fff;
+    }
+    &:nth-of-type(3n) {
+      transform: rotate(-2deg);
+      animation: ${shake} 0.5s 0.1s ease infinite;
+    }
+    &:nth-of-type(4n) {
+      transform: rotate(-5deg);
+      animation: ${shake} 0.5s ease-in infinite reverse;
+    }
+  }
 `;
