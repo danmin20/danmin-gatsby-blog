@@ -27,7 +27,7 @@ const About: React.FC<AboutProps> = ({ location, data }) => {
       <MainBanner author={author} />
       <Bio bio={author.bio} />
 
-      <Information legacyBlog={author.legacyBlog} />
+      <Information />
 
       <Timestamps title='Careers' timestamps={careers} />
       <Timestamps title='Activities' timestamps={activities} />
@@ -57,8 +57,8 @@ export const pageQuery = graphql`
             resume
           }
           legacyBlog {
-            tistory
             velog
+            tistory
             brunch
           }
         }

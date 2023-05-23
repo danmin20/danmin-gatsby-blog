@@ -82,6 +82,11 @@ export const pageQuery = graphql`
             linkedIn
             resume
           }
+          legacyBlog {
+            velog
+            tistory
+            brunch
+          }
         }
       }
     }
