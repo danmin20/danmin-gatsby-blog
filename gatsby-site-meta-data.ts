@@ -25,6 +25,11 @@ export default {
       linkedIn: `https://www.linkedin.com/in/jeonming-lee/`,
       resume: `https://www.figma.com/file/dtkCl6G7G5DVe18DN2LWny/%EC%9D%B4%EC%A0%95%EB%AF%BC-%EC%9D%B4%EB%A0%A5%EC%84%9C?node-id=0%3A1`,
     },
+    legacyBlog: {
+      tistory: 'https://danminblog.tistory.com/',
+      velog: 'https://velog.io/@danmin20',
+      brunch: 'https://brunch.co.kr/@danmin',
+    },
   },
 
   // metadata for About Page

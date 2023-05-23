@@ -53,6 +53,7 @@ export type Author = {
   stack: string[];
   bio: Bio;
   social: Social;
+  legacyBlog: LegacyBlog;
 };
 
 export type Bio = {
@@ -65,6 +66,12 @@ export type Social = {
   github: string;
   linkedIn: string;
   resume: string;
+};
+
+export type LegacyBlog = {
+  tistory: string;
+  velog: string;
+  brunch: string;
 };
 
 export type Post = {

@@ -2,7 +2,8 @@ import { graphql } from 'gatsby';
 import React from 'react';
 
 import Bio from '../components/bio';
-import Introduction from '../components/introduction';
+import Information from '../components/information';
+import MainBanner from '../components/mainBanner';
 import Seo from '../components/seo';
 import Timestamps from '../components/timestamps';
 import Layout from '../layout';
@@ -23,8 +24,11 @@ const About: React.FC<AboutProps> = ({ location, data }) => {
   return (
     <Layout location={location}>
       <Seo title='개발자 단민 | About' />
-      <Bio author={author} />
-      <Introduction bio={author.bio} />
+      <MainBanner author={author} />
+      <Bio bio={author.bio} />
+
+      <Information legacyBlog={author.legacyBlog} />
+
       <Timestamps title='Careers' timestamps={careers} />
       <Timestamps title='Activities' timestamps={activities} />
     </Layout>
@@ -51,6 +55,11 @@ export const pageQuery = graphql`
             github
             linkedIn
             resume
+          }
+          legacyBlog {
+            tistory
+            velog
+            brunch
           }
         }
 

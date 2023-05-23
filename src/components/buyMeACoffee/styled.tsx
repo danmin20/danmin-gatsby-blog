@@ -1,13 +1,7 @@
 import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
 
-export const Wrapper = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin-bottom: 15px;
-  transition: 0.3s;
-`;
+export const Wrapper = styled.div``;
 
 const fadeIn = keyframes`
   from {
