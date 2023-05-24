@@ -14,8 +14,8 @@ const fadeIn = keyframes`
 
 export const ModalBackground = styled.div`
   width: 100%;
-  height: 100vh;
-  background-color: ${({ theme }) => theme.color.white100}, 0.4;
+  height: 100%;
+  background: ${({ theme }) => theme.color.white100}, 0.4;
   position: fixed;
   top: 0;
   left: 0;
@@ -23,7 +23,6 @@ export const ModalBackground = styled.div`
   align-items: center;
   justify-content: center;
   z-index: 100;
-  overflow: hidden;
   animation: ${fadeIn} 0.5s ease both;
   backdrop-filter: blur(5px);
 `;
