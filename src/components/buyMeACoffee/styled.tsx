@@ -1,6 +1,8 @@
 import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
 
+import { MOBILE_MEDIA_QUERY } from '../../../src/styles/const';
+
 export const Wrapper = styled.div``;
 
 const fadeIn = keyframes`
@@ -9,6 +11,78 @@ const fadeIn = keyframes`
   }
   to {
     opacity: 1;
+  }
+`;
+
+const shake = keyframes`
+  0% {
+    transform: translateX(0) rotate(8deg);
+  }
+  50% {
+    transform: translateX(4px) rotate(-3deg);
+  }
+
+  100% {
+    transform: translateX(0) rotate(6deg);
+  }
+`;
+
+export const Button = styled.div`
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: #3c3d40;
+  border-radius: 5px;
+  position: relative;
+  width: 230px;
+  height: 50px;
+  border-radius: 10px;
+  &:hover {
+    opacity: 0.9;
+  }
+  &:active {
+    opacity: 0.9;
+  }
+  @media ${MOBILE_MEDIA_QUERY} {
+    width: 160px;
+    height: 40px;
+  }
+`;
+
+export const Text = styled.div`
+  display: flex;
+  position: absolute;
+  font-size: 30px;
+  text-shadow: 2px 2px black;
+  font-family: 'Anton', sans-serif;
+  font-weight: 800;
+  top: 12px;
+
+  @media ${MOBILE_MEDIA_QUERY} {
+    font-size: 20px;
+    top: 11px;
+  }
+
+  p {
+    &:nth-of-type(1n) {
+      transform: rotate(8deg);
+      animation: ${shake} 0.5s ease infinite;
+      color: #f7ea25;
+    }
+    &:nth-of-type(2n) {
+      transform: rotate(5deg);
+      animation: ${shake} 0.5s ease-out infinite reverse;
+      color: #fff;
+    }
+    &:nth-of-type(3n) {
+      transform: rotate(-2deg);
+      animation: ${shake} 0.5s 0.1s ease infinite;
+    }
+    &:nth-of-type(4n) {
+      transform: rotate(-5deg);
+      animation: ${shake} 0.5s ease-in infinite reverse;
+    }
   }
 `;
 
@@ -22,7 +96,7 @@ export const ModalBackground = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 100;
+  z-index: 10000;
   animation: ${fadeIn} 0.5s ease both;
   backdrop-filter: blur(5px);
 `;
