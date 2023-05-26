@@ -1,9 +1,11 @@
 ---
 emoji: 🪟
-title: 'React에서 모달 한번 잘 만들어보기'
+title: 'React에서 모달 한번 잘 만들어보자 (feat. createPortal & ref)'
 date: '2023-05-26'
 categories: Dev
 ---
+
+~삐까뻔쩍 나도 한번 잘살아보자🎵~
 
 웹사이트를 만들다 보면 피할 수 없는 그것... 바로
 ### 모달 창 만들기..!
