@@ -3,6 +3,9 @@ import type { GatsbyConfig } from 'gatsby';
 import siteMetadata from './gatsby-site-meta-data';
 
 const config: GatsbyConfig = {
+  flags: {
+    DEV_SSR: true,
+  },
   siteMetadata,
   plugins: [
     `gatsby-plugin-typescript`,

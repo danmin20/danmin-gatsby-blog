@@ -232,5 +232,14 @@ const BuyMeACoffee: React.FC = () => {
 };
 ```
 
+> Gatsby에서는 document에 바로 접근할 경우 SSR로 인해 빌드 에러가 발생한다. 따라서 다음과 같은 코드로 작성해주었다.
+```ts
+const [html, setHtml] = useState<HTMLHtmlElement | null>(null);
+
+useEffect(() => {
+  setHtml(document.querySelector('html'));
+}, []);
+```
+
 이제 원하는 대로 동작하는 모달을 완성했다!
 ![](4.jpeg)
