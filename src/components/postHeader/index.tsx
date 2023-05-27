@@ -6,7 +6,6 @@ import * as S from './styled';
 
 type PostHeaderProps = {
   post: PostClass;
-  // viewCount: number;
 };
 
 const PostHeader: React.FC<PostHeaderProps> = ({ post }) => {
@@ -22,10 +21,7 @@ const PostHeader: React.FC<PostHeaderProps> = ({ post }) => {
       </S.Categories>
 
       <S.Title>{post.title}</S.Title>
-      <S.Info>
-        {post.date}
-        {/* {` · ${viewCount} views`} */}
-      </S.Info>
+      <S.Info>{post.date}</S.Info>
     </S.Header>
   );
 };

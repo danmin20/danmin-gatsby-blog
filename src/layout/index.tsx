@@ -46,7 +46,7 @@ const Layout: React.FC<LayoutProps> = ({ location, children }) => {
       <S.Wrapper>
         <ThemeToggle handleTheme={handleTheme} isDark={theme === 'dark'} />
         <S.ContentWrapper>
-          {location && <Header location={location}>{title}</Header>}
+          {location && <Header location={location} title={title} />}
           <S.Content>{children}</S.Content>
         </S.ContentWrapper>
         <Footer />

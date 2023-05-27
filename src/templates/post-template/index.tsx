@@ -10,7 +10,6 @@ import Layout from '../../layout';
 import PostClass from '../../models/post';
 import { Post, SiteMetadata } from '../../type';
 import * as S from './styled';
-// import { useViewCount } from '../../../src/hooks/useViewCount';
 
 type PostTemplateProps = {
   location: Location;
@@ -21,16 +20,11 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ location, data }) => {
   const curPost = new PostClass(data.cur);
   const prevPost = data.prev && new PostClass(data.prev);
   const nextPost = data.next && new PostClass(data.next);
-  const { comments } = data.site?.siteMetadata ?? null;
-  const utterancesRepo = comments?.utterances?.repo;
-
-  // const key = curPost.slug.replace(/\//g, '');
-  // const { viewCount } = useViewCount(siteUrl, key);
+  const utterancesRepo = data.site.siteMetadata.comments.utterances.repo;
 
   return (
     <Layout location={location}>
       <Seo title={`개발자 단민 | ${curPost?.title}`} description={curPost?.excerpt} />
-      {/* <PostHeader post={curPost} viewCount={viewCount ?? 0} /> */}
       <PostHeader post={curPost} />
       <S.PostContent>
         <div className='markdown' dangerouslySetInnerHTML={{ __html: curPost.html }} />
@@ -40,7 +34,7 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ location, data }) => {
         <BuyMeACoffee />
       </S.BuyMeACoffeeWrapper>
       <PostNavigator prevPost={prevPost} nextPost={nextPost} />
-      {utterancesRepo && <Utterances repo={utterancesRepo} path={curPost.slug} />}
+      <Utterances repo={utterancesRepo} path={curPost.slug} />
     </Layout>
   );
 };

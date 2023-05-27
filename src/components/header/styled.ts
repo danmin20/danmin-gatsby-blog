@@ -26,6 +26,23 @@ export const Header = styled.div`
   width: 100%;
   max-width: ${contentMaxWidth};
   font-family: GmarketSansBold;
+
+  .mobile-logo {
+    @media ${MOBILE_MEDIA_QUERY} {
+      background-color: ${({ theme }) => theme.color.black100};
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: Montserrat;
+      font-weight: 800;
+      a {
+        color: ${({ theme }) => theme.color.white100};
+      }
+    }
+  }
 `;
 
 export const Menu = styled.div`

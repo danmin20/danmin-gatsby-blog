@@ -29,6 +29,7 @@ const Seo: React.FC<SeoProps> = ({ description, title }) => {
   );
 
   const metaDescription = description || site.siteMetadata.description;
+
   return (
     <Helmet
       htmlAttributes={{ lang: 'en' }}
