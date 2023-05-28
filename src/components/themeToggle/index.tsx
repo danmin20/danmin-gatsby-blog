@@ -1,16 +1,15 @@
 import { MoonIcon, SunIcon } from '@radix-ui/react-icons';
+import { ThemeManagerContext } from 'gatsby-emotion-dark-mode';
+import { useContext } from 'react';
 
 import * as S from './styled';
 
-type ThemeToggleProps = {
-  handleTheme: () => void;
-  isDark: boolean;
-};
+const ThemeToggle: React.FC = () => {
+  const theme = useContext(ThemeManagerContext);
 
-const ThemeToggle: React.FC<ThemeToggleProps> = ({ handleTheme, isDark }) => {
   return (
-    <S.Wrapper onClick={handleTheme} isDark={isDark}>
-      {isDark ? <SunIcon className='theme-icon' /> : <MoonIcon className='theme-icon' />}
+    <S.Wrapper onClick={() => theme.toggleDark()} isDark={theme.isDark}>
+      {theme.isDark ? <SunIcon className='theme-icon' /> : <MoonIcon className='theme-icon' />}
     </S.Wrapper>
   );
 };

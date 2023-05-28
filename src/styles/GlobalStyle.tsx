@@ -56,6 +56,6 @@ const style = (theme: Theme) => css`
   }
 `;
 
-const GlobalStyle: React.FC = () => <Global styles={(theme) => style(theme)} />;
+const GlobalStyle: React.FC = () => <Global styles={style} />;
 
 export default GlobalStyle;

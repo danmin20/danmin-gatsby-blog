@@ -2,14 +2,14 @@ import './style.scss';
 
 import { ThemeProvider } from '@emotion/react';
 import { graphql, useStaticQuery } from 'gatsby';
-import { useEffect, useState } from 'react';
+import { ThemeManagerContext } from 'gatsby-emotion-dark-mode';
+import { useContext } from 'react';
 
 import Footer from '../components/footer';
 import Header from '../components/header';
 import ThemeToggle from '../components/themeToggle';
 import { darkTheme, lightTheme } from '../styles/const';
 import GlobalStyle from '../styles/GlobalStyle';
-import { getValueFromLocalStorage, setValueToLocalStorage } from '../utils/localStorage';
 import * as S from './styled';
 
 type LayoutProps = {
@@ -18,16 +18,7 @@ type LayoutProps = {
 };
 
 const Layout: React.FC<LayoutProps> = ({ location, children }) => {
-  const [theme, setTheme] = useState<'light' | 'dark'>(getValueFromLocalStorage('theme') ?? 'light');
-
-  const handleTheme = () => {
-    if (theme === 'dark') setTheme('light');
-    else setTheme('dark');
-  };
-
-  useEffect(() => {
-    setValueToLocalStorage('theme', theme);
-  }, [theme]);
+  const theme = useContext(ThemeManagerContext);
 
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -41,10 +32,10 @@ const Layout: React.FC<LayoutProps> = ({ location, children }) => {
   const { title } = data.site.siteMetadata;
 
   return (
-    <ThemeProvider theme={theme === 'dark' ? darkTheme : lightTheme}>
+    <ThemeProvider theme={theme.isDark ? darkTheme : lightTheme}>
       <GlobalStyle />
       <S.Wrapper>
-        <ThemeToggle handleTheme={handleTheme} isDark={theme === 'dark'} />
+        <ThemeToggle />
         <S.ContentWrapper>
           {location && <Header location={location} title={title} />}
           <S.Content>{children}</S.Content>

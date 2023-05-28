@@ -75,7 +75,7 @@ export default {
 
     activities: [
       {
-        date: '2022.07 - NOW',
+        date: '2023.07 - NOW',
         en: 'SIPE',
         kr: '사이프',
         info: 'Community for IT workers',

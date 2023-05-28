@@ -7,7 +7,6 @@ import Seo from '../components/seo';
 import Layout from '../layout';
 import PostClass from '../models/post';
 import { AllMarkdownRemark, SiteMetadata } from '../type';
-// import HitCount from '../components/hitCount';
 
 type HomeProps = {
   data: {
@@ -31,7 +30,6 @@ const Home: React.FC<HomeProps> = ({ location, data }) => {
   return (
     <Layout location={location}>
       <Seo title='개발자 단민' />
-      {/* <HitCount siteUrl={siteUrl} /> */}
       <MainBanner author={author} />
 
       <FeaturedPostColumn title='Recent Posts' posts={recentPosts} fill={false} />
