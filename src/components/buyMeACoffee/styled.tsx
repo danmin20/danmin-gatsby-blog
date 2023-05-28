@@ -40,6 +40,9 @@ export const Button = styled.div`
   border-radius: 10px;
   &:hover {
     opacity: 0.9;
+    @media ${MOBILE_MEDIA_QUERY} {
+      opacity: 1;
+    }
   }
   &:active {
     opacity: 0.9;

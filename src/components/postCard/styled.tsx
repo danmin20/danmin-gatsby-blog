@@ -22,6 +22,9 @@ export const PostCard = styled(Link)`
   cursor: pointer;
   &:hover {
     background-color: ${({ theme }) => theme.color.gray10};
+    @media ${MOBILE_MEDIA_QUERY} {
+      background-color: transparent;
+    }
   }
   @media ${MOBILE_MEDIA_QUERY} {
     &:active {

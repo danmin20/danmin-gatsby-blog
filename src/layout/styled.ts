@@ -22,7 +22,7 @@ export const ContentWrapper = styled.div`
 
   @media ${MOBILE_MEDIA_QUERY} {
     margin-bottom: 39px;
-    padding-bottom: 0;
+    padding-bottom: 30px;
   }
 `;
 
