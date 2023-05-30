@@ -71,7 +71,6 @@ export type Social = {
 export type LegacyBlog = {
   tistory: string;
   velog: string;
-  brunch: string;
 };
 
 export type Post = {

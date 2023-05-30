@@ -28,7 +28,6 @@ export default {
     legacyBlog: {
       tistory: 'https://danminblog.tistory.com/',
       velog: 'https://velog.io/@danmin20',
-      brunch: 'https://brunch.co.kr/@danmin',
     },
   },
 

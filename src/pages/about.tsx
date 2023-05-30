@@ -59,7 +59,6 @@ export const pageQuery = graphql`
           legacyBlog {
             velog
             tistory
-            brunch
           }
         }
 
