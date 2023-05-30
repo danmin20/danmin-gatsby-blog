@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import { MOBILE_MEDIA_QUERY } from '../../styles/const';
+import { MOBILE_MEDIA_QUERY } from '@/src/styles/const';
 
 export const Wrapper = styled.div`
   width: 100%;

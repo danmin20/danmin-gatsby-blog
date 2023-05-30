@@ -1,4 +1,3 @@
-import { LegacyBlog } from '../../../src/type';
 import Image from '../Image';
 import * as S from './styled';
 

@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 
-import kakaoIcon from '../../../assets/kakao_icon.svg';
-import kakaoQr from '../../../assets/kakao_qr.svg';
-import tossIcon from '../../../assets/toss_icon.svg';
-import tossQr from '../../../assets/toss_qr.svg';
+import kakaoIcon from '@/assets/kakao_icon.svg';
+import kakaoQr from '@/assets/kakao_qr.svg';
+import tossIcon from '@/assets/toss_icon.svg';
+import tossQr from '@/assets/toss_qr.svg';
+
 import * as S from './styled';
 
 const BuyMeACoffee: React.FC = () => {

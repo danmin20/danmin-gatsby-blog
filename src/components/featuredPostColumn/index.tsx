@@ -1,4 +1,5 @@
-import PostClass from '../../../src/models/post';
+import PostClass from '@/src/models/post';
+
 import FeaturedPostCard from '../featuredPostCard';
 import * as S from './styled';
 

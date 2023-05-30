@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import { hoverUnderline, MOBILE_MEDIA_QUERY } from '../../../src/styles/const';
+import { hoverUnderline, MOBILE_MEDIA_QUERY } from '@/src/styles/const';
 
 export const Wrapper = styled.div`
   display: flex;

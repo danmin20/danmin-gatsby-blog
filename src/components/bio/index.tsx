@@ -1,7 +1,8 @@
 import * as React from 'react';
 
-import { Bio as BioType } from '../../type';
-import { capitalize } from '../../utils/capitalize';
+import { Bio as BioType } from '@/src/type';
+import { capitalize } from '@/src/utils/capitalize';
+
 import * as S from './styled';
 
 type BioProps = {

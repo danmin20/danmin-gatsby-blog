@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { Link } from 'gatsby';
 
-import { contentMaxWidth, hoverUnderline, MOBILE_MEDIA_QUERY } from '../../../src/styles/const';
+import { contentMaxWidth, hoverUnderline, MOBILE_MEDIA_QUERY } from '@/src/styles/const';
 
 export const Wrapper = styled.div`
   min-height: 150px;

@@ -1,11 +1,12 @@
 import { navigate } from 'gatsby';
 import React, { useMemo } from 'react';
 
-import PostTabs from '../../components/postTab';
-import Seo from '../../components/seo';
-import Layout from '../../layout';
-import PostClass from '../../models/post';
-import { AllMarkdownRemark } from '../../type';
+import PostTabs from '@/src/components/postTab';
+import Seo from '@/src/components/seo';
+import Layout from '@/src/layout';
+import PostClass from '@/src/models/post';
+import { AllMarkdownRemark } from '@/src/type';
+
 import * as S from './styled';
 
 type PostsTemplateProps = {
