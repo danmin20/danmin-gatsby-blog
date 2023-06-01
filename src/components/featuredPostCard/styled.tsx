@@ -59,6 +59,8 @@ export const Emoji = styled.div`
 
 export const Title = styled.div`
   font-size: 18px;
+  word-break: break-all;
+  line-height: 120%;
 
   @media ${MOBILE_MEDIA_QUERY} {
     font-size: 15px;
