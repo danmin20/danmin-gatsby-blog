@@ -4,6 +4,7 @@ title: '이딴 게.. 타이머? 자바스크립트의 런타임과 Event Loop'
 date: '2023-06-10'
 categories: Dev
 ---
+
 [지난 글](https://www.jeong-min.com/36-RAF/)에서 `requestAnimationFrame`에 대해 알아보았다. 어떤 독자는 해당 글을 읽으면서 한 궁금증이 떠올랐을지도 모른다.
 
 '왜 `setTimeout`은 타이머 주기를 보장하지 않는 거지?'
