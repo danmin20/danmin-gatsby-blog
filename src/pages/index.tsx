@@ -1,9 +1,9 @@
 import { graphql } from 'gatsby';
 import React from 'react';
 
-import FeaturedPostColumn from '../components/featuredPostColumn';
-import MainBanner from '../components/mainBanner';
-import Seo from '../components/seo';
+import FeaturedPostColumn from '../components/FeaturedPostColumn';
+import MainBanner from '../components/MainBanner';
+import Seo from '../components/Seo';
 import Layout from '../layout';
 import PostClass from '../models/post';
 import { AllMarkdownRemark, SiteMetadata } from '../type';

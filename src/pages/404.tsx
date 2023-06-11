@@ -1,7 +1,7 @@
 import { graphql } from 'gatsby';
 import * as React from 'react';
 
-import Seo from '../components/seo';
+import Seo from '../components/Seo';
 import Layout from '../layout';
 import { SiteMetadata } from '../type';
 

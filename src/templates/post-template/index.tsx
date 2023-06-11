@@ -1,11 +1,11 @@
 import { graphql } from 'gatsby';
 import React from 'react';
 
-import BuyMeACoffee from '@/src/components/buyMeACoffee';
-import PostHeader from '@/src/components/postHeader';
-import PostNavigator from '@/src/components/postNavigator';
-import Seo from '@/src/components/seo';
-import Utterances from '@/src/components/utterances';
+import BuyMeACoffee from '@/src/components/BuyMeACoffee';
+import PostHeader from '@/src/components/PostHeader';
+import PostNavigator from '@/src/components/PostNavigator';
+import Seo from '@/src/components/Seo';
+import Utterances from '@/src/components/Utterances';
 import Layout from '@/src/layout';
 import PostClass from '@/src/models/post';
 import { Post, SiteMetadata } from '@/src/type';

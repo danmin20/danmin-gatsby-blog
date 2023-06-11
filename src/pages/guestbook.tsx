@@ -1,9 +1,9 @@
 import { graphql } from 'gatsby';
 import React from 'react';
 
-import GuestbookBanner from '../components/guestbookBanner';
-import Seo from '../components/seo';
-import Utterances from '../components/utterances';
+import GuestbookBanner from '../components/GuestbookBanner';
+import Seo from '../components/Seo';
+import Utterances from '../components/Utterances';
 import Layout from '../layout';
 import { SiteMetadata } from '../type';
 
