@@ -5,7 +5,7 @@ import Bio from '../components/Bio';
 import Information from '../components/Information';
 import MainBanner from '../components/MainBanner';
 import Seo from '../components/Seo';
-import Timestamps from '../components/timestamps';
+import Timestamps from '../components/Timestamps';
 import Layout from '../layout';
 import { SiteMetadata } from '../type';
 

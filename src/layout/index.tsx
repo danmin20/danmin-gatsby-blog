@@ -5,9 +5,9 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { ThemeManagerContext } from 'gatsby-emotion-dark-mode';
 import { useContext } from 'react';
 
-import Footer from '../components/footer';
-import Header from '../components/header';
-import ThemeToggle from '../components/themeToggle';
+import Footer from '../components/Footer';
+import Header from '../components/Header';
+import ThemeToggle from '../components/ThemeToggle';
 import { darkTheme, lightTheme } from '../styles/const';
 import GlobalStyle from '../styles/GlobalStyle';
 import * as S from './styled';
