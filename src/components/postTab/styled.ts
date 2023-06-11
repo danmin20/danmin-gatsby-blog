@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import { contentMaxWidth, hoverUnderline, MOBILE_MEDIA_QUERY } from '@/src/styles/const';
+import { contentMaxWidth, MOBILE_MEDIA_QUERY } from '@/src/styles/const';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -18,6 +18,7 @@ export const Tabs = styled.div`
   max-width: ${contentMaxWidth} + 40px;
   margin-bottom: 12px;
   gap: 24px;
+  overflow-y: hidden;
   overflow-x: scroll;
   @media ${MOBILE_MEDIA_QUERY} {
     justify-content: flex-start;
@@ -28,9 +29,17 @@ export const Tabs = styled.div`
 export const Tab = styled.div<{ isSelected: 'true' | 'false' }>`
   font-size: 17px;
   cursor: pointer;
-  ${({ theme }) => hoverUnderline(theme)};
   line-height: 50px;
   color: ${({ isSelected, theme }) => (isSelected === 'true' ? theme.color.black100 : theme.color.gray60)};
+  &:hover {
+    color: ${({ theme }) => theme.color.black100};
+    @media ${MOBILE_MEDIA_QUERY} {
+      color: ${({ theme }) => theme.color.gray60};
+    }
+  }
+  &:active {
+    color: ${({ theme }) => theme.color.black100};
+  }
 `;
 
 export const PostCardsWrapper = styled.div`
