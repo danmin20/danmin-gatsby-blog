@@ -27,8 +27,19 @@ const createPosts = ({ createPage, edges }: CreatePagesFuncProps) => {
   const posts = path.resolve(`./src/templates/posts-template/index.tsx`);
   const categorySet = new Set(['All']);
 
-  edges.forEach(({ node }) => {
-    const postCategories = node.frontmatter.categories.split(' ');
+  const edgesWithMap = edges.map((edge) => {
+    const { categories } = edge.node.frontmatter;
+    const categoriesArr = categories.split(' ');
+    const categoriesMap = categoriesArr.reduce((acc, category) => {
+      acc[category] = true;
+      return acc;
+    }, {} as Record<string, boolean>);
+
+    return { ...edge, categoriesMap };
+  });
+
+  edgesWithMap.forEach((edge) => {
+    const postCategories = Object.keys(edge.categoriesMap);
     postCategories.forEach((category) => category !== 'featured' && categorySet.add(category));
   });
 
@@ -47,7 +58,7 @@ const createPosts = ({ createPage, edges }: CreatePagesFuncProps) => {
       context: {
         currentCategory,
         categories,
-        edges: edges.filter(({ node }) => node.frontmatter.categories.includes(currentCategory)),
+        edges: edgesWithMap.filter((edge) => edge.categoriesMap[currentCategory]),
       },
     });
   });

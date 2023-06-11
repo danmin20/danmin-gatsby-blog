@@ -1,7 +1,7 @@
 import { navigate } from 'gatsby';
-import React, { useMemo } from 'react';
+import React, { useEffect, useMemo, useRef } from 'react';
 
-import PostTabs from '@/src/components/PostTabs';
+import PostCard from '@/src/components/PostCard';
 import Seo from '@/src/components/Seo';
 import Layout from '@/src/layout';
 import PostClass from '@/src/models/post';
@@ -32,6 +32,15 @@ const PostsTemplate: React.FC<PostsTemplateProps> = ({ location, pageContext }) 
     navigate(`/posts/${categories[value]}`);
   };
 
+  const ref = useRef<HTMLDivElement>(null);
+
+  // currentTab이 가운데에 오도록 스크롤
+  useEffect(() => {
+    if (!ref.current) return;
+    const currentTab = ref.current.children[currentTabIndex] as HTMLDivElement;
+    ref.current.scrollTo({ left: currentTab.offsetLeft - (ref.current.offsetWidth - currentTab.offsetWidth) / 2 });
+  }, []);
+
   return (
     <Layout location={location}>
       <Seo title='개발자 단민 | Posts' />
@@ -39,7 +48,26 @@ const PostsTemplate: React.FC<PostsTemplateProps> = ({ location, pageContext }) 
         <S.CategoryTitle>{categories[currentTabIndex]}</S.CategoryTitle>
         <S.CategorySubtitle>{`${posts.length} post${posts.length < 2 ? '' : 's'}`}</S.CategorySubtitle>
       </S.CategoryWrapper>
-      <PostTabs posts={posts} onChange={onTabIndexChange} tabs={categories} tabIndex={currentTabIndex} />
+
+      <S.TabWrapper>
+        <S.Tabs ref={ref}>
+          {categories.map((title, index) => (
+            <S.Tab
+              key={index}
+              isSelected={currentTabIndex === index ? 'true' : 'false'}
+              onClick={() => onTabIndexChange(index)}
+            >
+              {title}
+            </S.Tab>
+          ))}
+        </S.Tabs>
+
+        <S.PostCardsWrapper>
+          {posts.map((post, index) => (
+            <PostCard key={index} post={post} />
+          ))}
+        </S.PostCardsWrapper>
+      </S.TabWrapper>
     </Layout>
   );
 };
