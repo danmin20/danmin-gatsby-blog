@@ -30,7 +30,7 @@ const BuyMeACoffee: React.FC = () => {
     <>
       <S.Button onClick={openModal}>
         <S.Text>
-          {'BuyMeACoffee'.split('').map((char, index) => (
+          {'BuyMeACoffee☕️'.split('').map((char, index) => (
             <p key={index}>{char}</p>
           ))}
         </S.Text>

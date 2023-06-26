@@ -35,7 +35,7 @@ export const Button = styled.div`
   background-color: #3c3d40;
   border-radius: 5px;
   position: relative;
-  width: 230px;
+  width: 260px;
   height: 50px;
   border-radius: 10px;
   &:hover {
@@ -48,7 +48,7 @@ export const Button = styled.div`
     opacity: 0.9;
   }
   @media ${MOBILE_MEDIA_QUERY} {
-    width: 160px;
+    width: 180px;
     height: 40px;
   }
 `;
