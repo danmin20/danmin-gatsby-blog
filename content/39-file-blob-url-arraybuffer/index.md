@@ -121,6 +121,8 @@ fileReader.onload = function(event) {
 fileReader.readAsArrayBuffer(blob);
 ```
 
+&nbsp;
+
 ### 7. URL 👉 ArrayBuffer
 ```ts
 // URL to ArrayBuffer
