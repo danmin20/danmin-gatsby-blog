@@ -12,6 +12,7 @@ const config: GatsbyConfig = {
     `gatsby-plugin-typescript`,
     `gatsby-plugin-emotion`,
     `gatsby-plugin-image`,
+    `gatsby-plugin-sitemap`,
     `gatsby-plugin-advanced-sitemap`,
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
@@ -37,7 +38,7 @@ const config: GatsbyConfig = {
     {
       resolve: `gatsby-plugin-gtag`,
       options: {
-        trackingId: `G-EFT2SWR5N2`,
+        trackingId: `G-W7X8818JTT`,
         head: true,
       },
     },
