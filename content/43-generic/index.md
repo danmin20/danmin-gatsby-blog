@@ -182,3 +182,6 @@ getProperty(person, 'address'); // Error: Argument of type '"address"' is not as
 타입스크립트의 제네릭은 코드의 재사용성과 유연성을 높여주는 강력한 기능이다. 제네릭을 통해 타입 안정성을 강화하고, 재사용 가능한 유연한 코드를 작성할 수 있다.
 
 ![](1.jpeg)
+
+```toc
+```

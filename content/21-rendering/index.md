@@ -93,3 +93,6 @@ html과 css의 파싱이 완료되면 두 트리를 합쳐 실제로 화면에 �
 
 리페인트를 발생시키는 대표적인 속성들은 다음과 같습니다.
 `background, color, text-decoration, border-style, border-radius`
+
+```toc
+```

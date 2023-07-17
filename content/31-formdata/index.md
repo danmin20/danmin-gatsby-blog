@@ -44,3 +44,6 @@ Object.entries(data).forEach(([key, value]) => {
 ```
 
 위와 같이 코드를 수정한 후 데이터를 전송하니, data 내부에는 json 데이터가, 파일은 각각의 `key, value` 형태로 잘 들어가는 것을 확인할 수 있었다.
+
+```toc
+```

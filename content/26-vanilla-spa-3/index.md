@@ -261,3 +261,6 @@ export function initRouter(options: { $app: HTMLElement; routes: Route[] }) {
   routerObj.onHashChangeHandler();
 }
 ```
+
+```toc
+```
