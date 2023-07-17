@@ -35,11 +35,10 @@ const config: GatsbyConfig = {
       },
     },
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: `gatsby-plugin-gtag`,
       options: {
-        trackingId: siteMetadata.ga,
+        trackingId: `G-EFT2SWR5N2`,
         head: true,
-        anonymize: true,
       },
     },
     {
