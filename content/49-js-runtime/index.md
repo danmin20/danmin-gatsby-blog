@@ -20,7 +20,7 @@ categories: Dev
    Mozilla Firefox에서 사용되는 엔진이다.
 
 3. **JavaScriptCore (Apple Safari)**  
-   Safari 브라우저에서 동작하는 엔진으로, Nitro라고도 불린다. 모바일 기기 및 macOS의 Safari 브라우저에서 사용된다.
+   Safari 브라우저에서 동작하는 엔진으로, Nitro라고도 불린다. 모바일 기기 및 macOS의 Safari 브라우저와 Bun에서 사용된다. ([Bun이 궁금하다면?](https://www.jeong-min.com/51-bun/))
 
 4. **Chakra (Microsoft Edge, Internet Explorer)**  
    Microsoft의 Edge 브라우저와 이전 버전의 Internet Explorer에서 사용되는 엔진이다.
