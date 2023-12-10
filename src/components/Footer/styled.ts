@@ -26,3 +26,7 @@ export const Footer = styled.p`
   width: 100%;
   max-width: ${contentMaxWidth};
 `;
+
+export const Link = styled.a`
+  border-bottom: 1px solid ${({ theme }) => theme.color.black100};
+`;

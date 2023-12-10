@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
     <S.Wrapper>
       <S.Footer>
         © {new Date().getFullYear()}
-        &nbsp;powered by danmin
+        &nbsp;powered by <S.Link href='https://github.com/danmin20'>danmin</S.Link>
       </S.Footer>
     </S.Wrapper>
   );
