@@ -1,6 +1,6 @@
 ---
 emoji: 🥟
-title: 'Bun 한 번 써보자 (Bun과 함께하는 React)'
+title: 'Bun 한 번 써보자'
 date: '2023-11-26'
 categories: Dev
 ---
