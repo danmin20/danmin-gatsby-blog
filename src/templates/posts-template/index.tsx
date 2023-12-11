@@ -19,8 +19,8 @@ type PostsTemplateProps = {
 };
 
 const PostsTemplate: React.FC<PostsTemplateProps> = ({ location, pageContext }) => {
-  const { edges, currentCategory } = pageContext;
-  const { categories } = pageContext;
+  const { edges, currentCategory, categories } = pageContext;
+
   const currentTabIndex = useMemo(
     () => categories.findIndex((category) => category === currentCategory),
     [categories, currentCategory],

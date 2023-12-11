@@ -2,7 +2,7 @@
 emoji: ☁️
 title: '메가존클라우드에서의 4개월'
 date: '2021-02-22'
-categories: featured 인턴회고
+categories: 인턴회고-ignore 인턴회고
 ---
 
 > 2020.11.02 - 2021.02.28 동안의 경험에 관한 글입니다.

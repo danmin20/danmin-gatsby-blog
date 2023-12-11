@@ -14,7 +14,14 @@ import * as S from './styled';
 
 type PostTemplateProps = {
   location: Location;
-  data: { prev: Post; next: Post; cur: Post; site: { siteMetadata: SiteMetadata }; markdownRemark: Post };
+  data: {
+    categories: string[];
+    prev: Post;
+    next: Post;
+    cur: Post;
+    site: { siteMetadata: SiteMetadata };
+    markdownRemark: Post;
+  };
 };
 
 const PostTemplate: React.FC<PostTemplateProps> = ({ location, data }) => {

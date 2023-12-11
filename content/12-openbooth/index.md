@@ -2,7 +2,7 @@
 emoji: 📢
 title: '컨퍼런스에서 연사로 서다'
 date: '2022-02-22'
-categories: featured Experience
+categories: Experience
 ---
 
 > 사실상 PPT 만든 게 아까워서 쓰는 글.  

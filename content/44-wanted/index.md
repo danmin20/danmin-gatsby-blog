@@ -2,7 +2,7 @@
 emoji: ✍️
 title: '원티드에 개발 아티클을 기고하다'
 date: '2023-07-19'
-categories: featured Experience
+categories: Experience
 ---
 
 ## 원티드 아티클

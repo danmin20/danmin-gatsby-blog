@@ -2,7 +2,7 @@
 emoji: 🦁
 title: '경희대학교 테크 콘서트 강연에 서다'
 date: '2022-08-30'
-categories: featured Experience
+categories: Experience
 ---
 
 > 사실상 PPT 만든 게 아까워서 쓰는 글.  

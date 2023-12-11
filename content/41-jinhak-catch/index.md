@@ -2,7 +2,7 @@
 emoji: 📺
 title: '진학사 캐치와의 만남'
 date: '2023-06-26'
-categories: featured Experience
+categories: Experience
 ---
 
 ![](0.png)
