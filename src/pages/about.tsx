@@ -2,7 +2,6 @@ import { graphql } from 'gatsby';
 import React from 'react';
 
 import Bio from '../components/Bio';
-import Information from '../components/Information';
 import MainBanner from '../components/MainBanner';
 import Seo from '../components/Seo';
 import Timestamps from '../components/Timestamps';
@@ -27,15 +26,11 @@ const About: React.FC<AboutProps> = ({ location, data }) => {
     };
   }, {} as Record<string, Timestamp[]>);
 
-  console.log('stamps', stamps);
-
   return (
     <Layout location={location}>
       <Seo title='개발자 단민 | About' />
       <MainBanner author={author} />
       <Bio bio={author.bio} />
-
-      <Information />
 
       {Object.keys(stamps).map((key) => (
         <Timestamps key={key} title={key} timestamps={stamps[key]} />
@@ -70,11 +65,11 @@ export const pageQuery = graphql`
             tistory
           }
         }
-
         timestamps {
+          category
           date
-          kr
           en
+          kr
           info
           link
         }
