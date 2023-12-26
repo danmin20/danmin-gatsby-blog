@@ -35,15 +35,15 @@ export default {
   featured: [
     {
       title: '인턴만 다섯 번을 한 사람이 있다?',
-      category: '인턴회고-ignore',
+      category: 'featured-인턴회고',
     },
     {
       title: 'LIFE',
-      category: '회고',
+      category: 'featured-회고',
     },
     {
       title: 'EXPERIENCE',
-      category: 'Experience',
+      category: 'featured-Experience',
     },
   ],
 

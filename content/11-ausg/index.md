@@ -2,7 +2,7 @@
 emoji: 🧡
 title: 'AUSG(아우쓱) 후기: 두 기수를 지내며 써보는 IT 동아리 회고 글'
 date: '2022-06-14'
-categories: Experience
+categories: featured-Experience 회고
 ---
 
 요즘 IT가 붐이긴 한가 보다! 아우쓱 지원자도 매 기수마다 기하급수적으로 늘어나고 있다 👀
