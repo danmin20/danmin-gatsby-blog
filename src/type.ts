@@ -14,6 +14,12 @@ export type SiteMetadata = {
   playground: {
     projects: Project[];
   };
+  remittances: {
+    [key: string]: {
+      link?: string;
+      qrCode?: string;
+    };
+  };
 };
 
 export type Timestamp = {

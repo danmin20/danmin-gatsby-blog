@@ -5,6 +5,21 @@ date: '2023-12-11'
 categories: Dev featured-회고
 ---
 
+<h1 align="center">
+  Danmin Gatsby Blog Template
+</h1>
+
+<p align="center">
+  <a href="https://github.com/danmin20/danmin-gatsby-blog-template/blob/main/LICENSE">
+    <img src="https://img.shields.io/badge/license-0BSD-blue.svg" alt="Danmin Gatsby Blog Template is released under the 0BSD license." />
+  </a>
+</p>
+
+**Demo Website**: [**jeong-min.com**](https://www.jeong-min.com/)  
+**Open source Code**: [**Github**](https://github.com/danmin20/danmin-gatsby-blog-template)
+
+&nbsp;
+
 ## 👋 소개
 
 X로그, X스토리, X런치, X디엄.. 안 써본 블로그 플랫폼이 없을 정도로 유목민 생활을 해왔는데요, 결국 돌고 돌아 블로그를 직접 만들게 되었습니다!
@@ -20,6 +35,7 @@ X로그, X스토리, X런치, X디엄.. 안 써본 블로그 플랫폼이 없을
 - 💅 코드 하이라이팅 지원
 - 👉 글 목차 자동 생성(ToC)
 - 💬 Utterances 댓글 기능 지원
+- ☕️ 후원을 받을 수 있는 Buy me a coffee 컴포넌트
 - 📚 글을 카테고리별로 보여주는 Posts 페이지
 - 👨‍💻 타임스탬프로 활동 경력을 보여주는 About 페이지
 - 👋 Utterances를 활용한 방명록 페이지
@@ -202,6 +218,24 @@ projects: [
     },
   },
 ],
+```
+
+&nbsp;
+
+### 7. remittances
+
+remittance 정보는 Buy me a coffee 컴포넌트에 사용됩니다.
+
+```js
+remittances: {
+  toss: {
+    link: 'https://toss.me/danmin',
+    qrCode: 'toss_qr.svg', // Path to your in the 'assets' folder
+  },
+  kakaopay: {
+    qrCode: 'kakao_qr.svg', // Path to your in the 'assets' folder
+  },
+}
 ```
 
 그렇게 내용을 문제 없이 입력하셨다면 나만의 블로그가 탄생한 것을 확인하실 수 있습니다.🎉

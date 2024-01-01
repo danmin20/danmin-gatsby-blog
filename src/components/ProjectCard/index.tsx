@@ -13,7 +13,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   return (
     <S.Wrapper>
       <S.ImageSection>
-        <Image alt='project-image' src={`${project.thumbnailUrl}`} />
+        <Image alt='project-image' src={project.thumbnailUrl} />
       </S.ImageSection>
 
       <S.Content>
