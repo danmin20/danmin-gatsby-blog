@@ -71,6 +71,37 @@ categories: featured-회고
 
 &nbsp;
 
+### 우아한스터디
+
+사내 스터디 모집글을 보다 발견한 블로그 글쓰기 스터디, **무모한 블로깅**에 참여하게 되었다.
+
+![](32.png)
+
+12주 동안의 스터디 기간 동안 어떤 의지가 불타올랐던 건진 모르겠지만 13개의 포스팅을 기록하면서 스터디 내 에이스로 자리매김하게 되었다🔥
+
+👇 당시 썼던 13개의 포스트
+- [CORS 에러를 프론트에서 해결? 무시? 아무튼? 해보자!](http://localhost:8000/30-cors-fe/)
+- [file과 json data를 formData에 같이? 따로! 넣어보자](http://localhost:8000/31-formdata/)
+- [hosts 파일을 수정해서 local domain을 변경해보자!](http://localhost:8000/32-hosts/)
+- [React에서 모달 한번 잘 만들어보자 (feat. createPortal & ref)](http://localhost:8000/33-modal/)
+- [URL엔 왜 케밥 케이스를 쓰는가?](http://localhost:8000/34-url/)
+- [CSS Module : 인라인(inline)은 나빠요!](http://localhost:8000/35-css-module/)
+- [애니메이션을 그린다고요? setTimeout 싫어요! requestAnimationFrame 좋아요!](http://localhost:8000/36-RAF/)
+- [이딴 게.. 타이머? 자바스크립트의 런타임과 Event Loop](http://localhost:8000/37-event-loop/)
+- [구글 스프레드시트 메일 자동화: Apps Script](http://localhost:8000/38-apps-script/)
+- [<Blob File URL ArrayBuffer> 그들의 사각관계?! 이미지 업로드 미리보기를 구현하고 싶습니다 : 1탄](http://localhost:8000/39-file-blob-url-arraybuffer/)
+- [<Blob File URL ArrayBuffer> 그들의 사각관계?! 이미지 업로드 미리보기를 구현하고 싶습니다 : 2탄](http://localhost:8000/40-image-upload-preview/)
+- [진학사 캐치와의 만남](http://localhost:8000/41-jinhak-catch/)
+- [패키지 매니저, 뭘 쓸까? (npm, pnpm, yarn, yarn berry, etc.)](http://localhost:8000/42-package-manager/)
+
+사내에서는 웹프론트그룹 내에서 열리는 스터디밖에 참여해보지 않았는데, 처음으로 사내 다른 직군들과 스터디를 진행하면서 사적으로(?) 친해질 수 있어던 정말 소중한 경험이었다.
+
+![](33.jpeg)
+
+> 지금도 내 맥북과 함께 하고 있는 스티커들
+
+&nbsp;
+
 ### 우아한타입스크립트
 
 작년에 진행했던 사내 프로젝트였던 우타스 집필이 드디어 세상에 드러났다! 🥹
