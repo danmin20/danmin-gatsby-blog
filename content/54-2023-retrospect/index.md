@@ -94,7 +94,7 @@ categories: featured-회고
 - [진학사 캐치와의 만남](https://www.jeong-min.com/41-jinhak-catch/)
 - [패키지 매니저, 뭘 쓸까? (npm, pnpm, yarn, yarn berry, etc.)](https://www.jeong-min.com/42-package-manager/)
 
-사내에서는 웹프론트그룹 내에서 열리는 스터디밖에 참여해보지 않았는데, 처음으로 사내 다른 직군들과 스터디를 진행하면서 사적으로(?) 친해질 수 있어던 정말 소중한 경험이었다.
+사내에서는 웹프론트그룹 내에서 열리는 스터디밖에 참여해보지 않았는데, 처음으로 사내 다른 직군들과 스터디를 진행하면서 사적으로(?) 친해질 수 있었던 정말 소중한 경험이었다.
 
 ![](33.jpeg)
 
