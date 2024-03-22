@@ -120,7 +120,7 @@ author: {
     nickname: `단민`,
     stack: ['Frontend', 'React', 'Typescript'],
     bio: {
-      email: `ljm991108@gmail.com`,
+      email: `danmin@jeong-min.com`,
       residence: 'Seoul, South Korea',
       bachelorDegree: 'Kyunghee Univ. Computer Engineering (2018.03-2022.02)',
     },
