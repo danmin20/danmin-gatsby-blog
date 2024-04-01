@@ -2,7 +2,7 @@
 emoji: 🥕
 title: '당근마켓 MVP 인턴십 (6) - 1차 검증'
 date: '2022-02-27'
-categories: 인턴회고 당근마켓시리즈
+categories: 당근마켓시리즈
 ---
 
 ## 1차 검증

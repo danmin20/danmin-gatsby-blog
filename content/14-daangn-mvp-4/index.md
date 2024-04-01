@@ -2,7 +2,7 @@
 emoji: 🥕
 title: '당근마켓 MVP 인턴십 (4) - 2차 프로덕트 배포'
 date: '2022-02-25'
-categories: 인턴회고 당근마켓시리즈
+categories: 당근마켓시리즈
 ---
 
 ## 2차 프로덕트
