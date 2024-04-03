@@ -47,15 +47,21 @@ acc.reduce((accumulator, currentValue, index, array) => {
 reduce에는 초기값을 줄 수도, 안 줄 수도 있는데,  
 이에 따라 인자의 값도 달라진다.
 
-initialValue를 준 경우,
+&nbsp;
+
+### initialValue를 준 경우,
 - accumulator는 초기값이다.
 - currentValue는 배열의 첫 번째 값이다.
 - currentIndex는 0이다.
 
-initialValue를 주지 않은 경우,
+&nbsp;
+
+### initialValue를 주지 않은 경우,
 - accumulator는 배열의 첫 번째 값이다.
 - currentValue는 배열의 두 번째 값이다.
 - currentIndex는 1이다.
+
+&nbsp;
 
 ![](1.jpeg)
 
@@ -219,9 +225,13 @@ export default function Example() {
 
 &nbsp;
 
-하지만 map을 만든다면?!
+여기서 map을 활용해본다면?!
 
-> 물론, reduce를 꼭 활용하지 않더라도 map은 만들 수 있다.
+![](4.jpeg)
+
+&nbsp;
+
+### reduce를 꼭 활용하지 않더라도 map은 만들 수 있다.
 
 ```tsx
 const unitMap: {
@@ -236,7 +246,6 @@ const unitMap: {
 const keys = Object.keys(units) as UnitType[]
 
 keys.forEach((key) => {
-  unitMap[key] = {}
   units[key].forEach((unit) => {
     unitMap[key][unit.en] = unit.ko
   })
@@ -260,17 +269,20 @@ export default function Example() {
 }
 ```
 
-하지만 reduce로 한 번에 더 효율적으로 만들 수 있다.
+&nbsp;
+
+### 하지만 reduce로 map을 더 효율적으로 만들 수 있다.
 
 ```ts
+const keys = Object.keys(units) as UnitType[]
+
 const unitMap: {
   [key in UnitType]: {
     [key: string]: string
   }
-} = data.reduce(
+} = keys.reduce(
   (acc, cur) => {
-    const { type } = cur
-    acc[type] = units[type].reduce((innerAcc, unit) => {
+    acc[cur] = units[cur].reduce((innerAcc, unit) => {
       innerAcc[unit.en] = unit.ko
       return innerAcc
     }, {} as { [key: string]: string })
