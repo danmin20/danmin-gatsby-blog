@@ -21,14 +21,17 @@ categories: Dev
 
 > ~~물려받기만 할 줄 아는 불효자 리액트~~
 
-자식에서 부모의 상태를 바꾸려면 상태를 바꾸는 setState도 자식에게 전달해야 하고 props의 개수는 점점 증가하게 된다.
+자식에서 부모의 상태를 바꾸려면 상태를 바꾸는 setState도 자식에게 전달해야 하니,  
+props의 개수는 점점 증가하게 된다.
 
 &nbsp;
 
 ### 2. props drilling
 
 `ComponentA`, 그리고 A의 자식인 `ComponentB`, 그리고 B의 자식인 `ComponentC가` 있다고 해보자.  
-A의 상태값을 B에서는 사용하지 않는데 C에서는 사용한다면,우리는 어쩔 수 없이 B에게도 상태값을 props로 전달하게 된다.  
+A의 상태값을 B에서는 사용하지 않는데 C에서는 사용한다면,  
+우리는 어쩔 수 없이 B에게도 상태값을 props로 전달하게 된다.  
+
 만약 이런 형태의 컴포넌트가 계속 깊어진다면.. 그리고 상태값도 더 많아진다면..  
 props drilling으로 꽤나 고생할 수도 있다.
 
@@ -40,16 +43,21 @@ props drilling으로 꽤나 고생할 수도 있다.
 
 ## Context API를 사용하면 되잖아?
 
-맞는 말이다! Context API를 사용한다면 컴포넌트의 깊이 여부와 무관하게 데이터가 필요한 컴포넌트에서만 가져다 쓸 수 있다.  
+맞는 말이다!  
+Context API를 사용한다면 컴포넌트의 깊이 여부와 무관하게  
+데이터가 필요한 컴포넌트에서만 가져다 쓸 수 있다.  
+
 하.지.만. 치명적인 단점이 있었으니..
 
 앱의 규모가 커질수록 Provider의 개수가 많아져서 Provider hell이 발생할 수 있고,
 
-더 큰 문제는, 동일한 Provider 하위에서 context를 구독하는 모든 컴포넌트는 Provider의 value prop이 바뀔 때마다 모두 리렌더링된다는 것이다.  
+더 큰 문제는, 동일한 Provider 하위에서 context를 구독하는 모든 컴포넌트는  
+Provider의 value prop이 바뀔 때마다 모두 리렌더링된다는 것이다.  
 
 ![](8.webp)
 
-위 문제를 해결하기 위해 memo를 사용할 수도 있지만, 부모 컴포넌트가 memo를 사용했다 하더라도 그 자식이 context를 참조한다면 그 자식의 자식 컴포넌트도 리렌더링이 된다.  
+위 문제를 해결하기 위해 memo를 사용할 수도 있지만, 부모 컴포넌트가 memo를 사용했다 하더라도  
+그 자식이 context를 참조한다면 그 자식의 자식 컴포넌트도 리렌더링이 된다.  
 
 어쨌거나 불필요한 리렌더링은 피할 수 없고, memo를 적절히 활용할 수 밖에 없는 상황에 처해지게 된다.
 
@@ -73,9 +81,11 @@ props drilling으로 꽤나 고생할 수도 있다.
 
 &nbsp;
 
-공식 문서에도 Context는 props 없이 데이터를 받을 수 있게 해주는 기능이라고 적혀있을 뿐, 상태 관리를 한다는 내용은 없다.
+공식 문서에도 Context는 props 없이 데이터를 받을 수 있게 해주는 기능이라고 적혀있을 뿐,  
+상태 관리를 한다는 내용은 없다.
 
-즉, Context는 만들어진 상태를 단순히 전달할 뿐, 실질적으로 상태를 관리하는 것은 useState와 useReducer 훅인 것이다.
+즉, Context는 만들어진 상태를 단순히 전달할 뿐,  
+실질적으로 상태를 관리하는 것은 useState와 useReducer 훅인 것이다.
 
 &nbsp;
 
@@ -127,7 +137,9 @@ Redux가 Flux인가? 라고 묻는다면 그럴 수도 있고, 아닐 수도 있
 > Redux = Red(ucer) + (fl)ux  
 > reducer는 action과 state를 받아 새로운 state로 변환하는 함수다.
 
-Redux는 Flux와는 다른 점들이 분명 많지만, Redux는 순수 함수를 통해 더 간단화된 Flux 아키텍처라고 할 수 있을 것 같다. [(더 자세한 내용은 공식 문서에서!)](https://ko.redux.js.org/understanding/history-and-design/prior-art/#flux)
+Redux는 Flux와는 다른 점들이 분명 많지만,  
+Redux는 순수 함수를 통해 더 간단화된 Flux 아키텍처라고 할 수 있을 것 같다.  
+[(더 자세한 내용은 공식 문서에서!)](https://ko.redux.js.org/understanding/history-and-design/prior-art/#flux)
 
 &nbsp;
 
@@ -136,8 +148,7 @@ Context API와 달리 Redux의 경우,
 1. Redux 자체만으로 상태를 관리할 수 있고,  
 2. 스토어의 특정 값이 변화하더라도 해당 값만 구독하고 있는 컴포넌트만 리렌더링이 발생한다.
 
-> 만일 다른 상태 관리 라이브러리와 Redux를 비교하고자 한다면, redux-toolkit과 비교하는 게 맞을 것이다.  
-> Redux에서 권장하는 구현 방식이 redux-toolkit이다!
+> 만일 다른 상태 관리 라이브러리와 Redux를 비교하고자 한다면 redux-toolkit과 비교하는 게 맞을 것이다. Redux에서 권장하는 구현 방식이 redux-toolkit이다!
 
 &nbsp;
 
@@ -253,7 +264,7 @@ MobX에서는 Action이 직접 상태를 업데이트할 수 있다.
 Facebook의 Recoil은 Redux의 store과 유사하면서도 다른 atom이라는 개념을 내놓았다.  
 Recoil은 Context API 기반으로 구현된 라이브러리지만, 위에서 말한 Context API의 문제점들을 해결해준다.
 
-또한 거대한 보일러 플레이트를 작성해야하는 Redux와 달리,
+또한 거대한 보일러 플레이트를 작성해야하는 Redux와 달리,  
 (toolkit을 사용한다면 감소하는 부분이긴 하지만)  
 Recoil은 react의 useState와 유사하게 사용할 수 있으며, 굉장히 간결하게 작성할 수 있다.  
 
@@ -345,7 +356,7 @@ function App() {
 }
 ```
 
-> 그리고 결정적으로 Recoil은.. 아직도 facebookexperimental 하위에 있으며  
+> 그리고 결정적으로 Recoil은.. 아직도 facebookexperimental 하위에 있으며,  
 > 아직도 열려있는 여러 이슈들을 보고 있자면,  ~~페이스북~~ 메타에게 버려진 게 아닌가 하는 생각이 든다..
 
 ![](7.jpeg)
@@ -353,22 +364,25 @@ function App() {
 &nbsp;
 
 > 여튼 짧게 정리해보자면..!  
-> Flux: Redux, Zustand  
-> Proxy: Mobx, Valtio  
-> Atomic: Recoil, Jotai
+> - Flux: Redux, Zustand  
+> - Proxy: Mobx, Valtio  
+> - Atomic: Recoil, Jotai
 
 &nbsp;
 
 ## 그래서 뭘 써야 하나요?
 
-atomic 패턴을 사용하고 싶다면 jotai를, flux 패턴을 사용하고 싶다면 redux-toolkit이나 zustand를 사용하면 된다는 것이 결론!  
+atomic 패턴을 사용하고 싶다면 jotai를,  
+flux 패턴을 사용하고 싶다면 redux-toolkit이나 zustand를 사용하면 된다는 것이 결론!  
 
 어떤 패턴, 어떤 라이브러리가 더 좋냐는 것에 대해서는 정답이 없다고 생각한다.  
-프로젝트마다 규모도 다르고 성격도 다르기 때문에, 프로젝트에 알맞은 라이브러리를 잘 선택하는 것이 정답이라 생각한다.
+프로젝트마다 규모도 다르고 성격도 다르기 때문에,  
+프로젝트에 알맞은 라이브러리를 잘 선택하는 것이 정답이라 생각한다.
 
 ![](6.jpeg)
 
-굳이 RTK(redux-toolkit)과 zustand를 비교해야겠다면, 서버 상태 관리 라이브러리가 큰 갈림길이 될 것 같다.  
+굳이 RTK(redux-toolkit)과 zustand를 비교해야겠다면,  
+서버 상태 관리 라이브러리가 큰 갈림길이 될 것 같다.  
 RTK는 RTK Query와 함께 사용되고, Zustand는 React-query와 상당히 조합이 괜찮다.
 
 > recoil, zustand, jotai 모두 비동기 처리를 지원하긴 하지만, 현재로서는 infinite query, mutation, optimistic updates 등 react-query에서 제공하는 기능이 더 압도적으로 보인다.
@@ -376,17 +390,44 @@ RTK는 RTK Query와 함께 사용되고, Zustand는 React-query와 상당히 조
 &nbsp;
 
 ### 저는 개인적으로..
-jotai + react-query 조합을 좋아하는 편이다!
+react-query + jotai/zustand 조합을 좋아하는 편이다!
 
 이제껏 경험한 대부분의 프로젝트에서, 클라이언트 상태 관리에 비해 서버 상태 관리가 더 큰 비중을 차지했었다. 클라이언트 내부의 상태를 관리하는 것보다는 서버에서 받아온 데이터들에 대한 상태 관리가 더 중요한 경우가 많았다.  
 
-클라이언트 상태 관리를 할 만한 것들은 전역적인 alert 상태와 같은 자잘한 것들이 대부분이었고, 해당 상태들만 atom으로 간결하게 선언하고 대부분의 상태는 props drilling이 심하지만 않다면 그냥 props로 넘기는 편이다. (정말 common하게 사용되는 경우가 아니라면 굳이라는 생각!)
+jotai와 zustand에서도 비동기 상태 관리에 관한 기능을 제공하지만,  
+보다 다양한 기능과 커스텀을 제공하는 react-query를 주로 사용한다.  
+개인적으로도 클라이언트 상태 관리와 서버 상태 관리를 분리하는 걸 선호한다 :)
 
-서버 상태 관리로는 react-query가 다양한 기능을 제공해서 주로 사용하는 편이고, 개인적으로도 클라이언트 상태 관리와 서버 상태 관리를 분리하는 걸 선호한다 :)
+&nbsp;
 
-그리고 훅 기반의 API는 사용성도 좋을 뿐만 아니라, 리액트의 생명주기와 동일하게 상태를 가져갈 수 있다는 장점도 가진다고 생각한다. Redux와 MobX의 경우, 상태가 리액트의 범위 밖에서 정의되고 핸들링된다. 더욱 복잡한 상태 관리가 가능하다는 장점이 될 수도 있지만, 디버깅 및 추적이 어려워질 수밖에 없다는 단점이 된다고 생각한다.
+클라이언트 상태 관리의 경우, 상태 관리의 경우가 크게 두 가지로 나뉜다.  
+top-down 형식의 상태 관리와,  
+> ex) 최상위 메뉴에서 선택된 어떤 값이라거나, 유저 및 권한 정보에 관한 상태 관리
+bottom-up 형식의 상태 관리.
+> ex) 하위 컴포넌트의 모달에 관한 상태 관리
 
-Zustand와 Jotai에서도 store라는 기능을 사용하면 리액트 없이 사용할 수 있지만, 어떤 사이드 이펙트가 발생할지 모른다는 점에서 사용을 지양하는 편이다.
+&nbsp;
+
+top-down에는 flux가, bottom-up에는 atomic이 잘 맞다고 생각한다.  
+그래서 최상위에서 선택된 어떤 아이템이나, 유저 및 권한에 대한 핸들링이 개발 시 우선 사항이라면  
+zustand를 사용한 뒤 이후 상태들에 따라 zustand를 유지하거나 jotai를 부분적으로 도입하고,  
+그렇지 않은 경우라면 jotai로 가볍게 아톰을 선언해서 사용하는 편이다.
+
+> zustand를 사용하든 jotai를 사용하든, props drilling이 심하지만 않다면 그냥 props로 넘기는 편이다.  
+> (정말 common하게 사용되는 경우가 아니라면 굳이라는 생각!)
+
+&nbsp;
+
+jotai와 zustand와 같은 훅 기반의 API는 사용성도 좋을 뿐만 아니라,  
+리액트의 생명주기와 동일하게 상태를 가져갈 수 있다는 장점도 가진다고 생각한다.  
+
+Redux와 MobX의 경우, 상태가 리액트의 범위 밖에서 정의되고 핸들링된다.  
+더욱 복잡한 상태 관리가 가능하다는 장점이 될 수도 있지만,  
+디버깅 및 추적이 어려워질 수밖에 없다는 단점이 될 수도 있다.
+
+> Zustand와 Jotai에서도 store라는 기능을 사용하면 리액트 없이 사용할 수 있지만, 어떤 사이드 이펙트가 발생할지 모른다는 점에서 store 지양하는 편이다.
+
+&nbsp;
 
 ![](11.jpeg)
 > 농담이에요 다른 의견 환영해요,,
