@@ -13,7 +13,7 @@ categories: Dev
 사용자 경험뿐만 아니라 성능까지 향상시킬 수 있는 방법일 것이다.
 
 > 이런 접근은 특정 리소스 파일보다는 문서 URL을 타겟으로 하기 때문에,  
-> 싱글 페이지 애플리케이션(SPA)보다는 멀티 페이지 애플리케이션(MPA)에 좀 더 유용할 수도 있다.
+> 싱글 페이지 애플리케이션(SPA)보다는 멀티 페이지 애플리케이션(MPA)에 좀 더 유용하다.
 
 이 기능에 대해서는 두 가지 개념이 존재한다.  
 
@@ -102,9 +102,30 @@ prerendering은 보다 신중하게 사용하는 것이 권장된다.
 
 &nbsp;
 
-그렇게 위 한계점들을 극복한 크롬의 새로운 API가 나오게 되었다!
+잠깐, 이 모든 것은 사용자 경험을 개선하기 위한 것.  
+그렇다면 사용자 경험을 측정하기 위한 지표는 없을까?
+
+&nbsp;
+
+## 사용자 경험 개선을 위한 지표, LCP
+
+**LCP, Largest Contentful Paint**란 페이지가 로딩되는 성능을 측정하는 지표로,  
+페이지가 처음으로 로드된 시점부터 가장 큰 시각적 요소가 렌더링되기까지의 시간을 측정한다.
+
+![](5.webp)
+
+2.5초 이내라면 좋다고 하는데..  
+아니 근데 진짜 솔직히 2.5초..는..
+너무 느리지 않나..?
+
+&nbsp;
+
+이제부터 소개할 크롬의 새로운 API는 위 한계점들을 극복했을 뿐만 아니라,  
+무려 **LCP를 20밀리초까지 줄일 수 있다**고 하는데..!
 
 ![](0.png)
+
+&nbsp;
 
 ## Speculation Rules API
 
@@ -114,7 +135,7 @@ prerendering은 보다 신중하게 사용하는 것이 권장된다.
 ![](1.jpg)
 
 크롬 주소창에 주소를 입력하면, 도메인을 미리 연결하거나 페이지를 미리 렌더링하여,  
-이전보다 크롬의 페이지 로딩이 더 즉각적으로 느껴지는 경험을 할 수 있게 되었다.
+이전보다 크롬의 페이지 로딩이 더 즉각적으로 느껴지는 경험을 할 수 있다.
 
 &nbsp;
 
@@ -156,7 +177,12 @@ prerendering은 보다 신중하게 사용하는 것이 권장된다.
 </script>
 ```
 
-> JSON 옵션들에 대한 설명은 [공식문서](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script/type/speculationrules)를 참고하도록!
+eagerness 옵션으로 어떤 조건으로 실행할 것인지 설정할 수 있다.
+- **conservative**: mouse/pointer down
+- **moderate**: 200ms 이상의 hover 또는 mouse/pointer down
+- **immediate, eager**: 그냥 바로!
+
+> 더 많은 JSON 옵션들에 대한 설명은 [공식문서](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script/type/speculationrules)를 참고하도록!
 
 &nbsp;
 
@@ -188,12 +214,16 @@ if (
 }
 ```
 
+&nbsp;
+
 여튼 이렇게, Speculation Rules API에 대해 찍먹해보았다.  
 > 더욱 자세한 내용은 역시나 [공식문서](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script/type/speculationrules)를 참고하도록!  
 여러모로 유용하게 사용할 수 있을 것 같아 기대가 많이 되는데,  
 과연 이번에는 크롬에만 국한되지 않고 웹 표준으로 자리잡을 수 있을지..
 
 ![](4.jpeg)
+
+만일 MPA를 개발하고 있다면, Speculation rules api를 한 번 적극적으로 사용해보길 추천한다!
 
 &nbsp;
 
