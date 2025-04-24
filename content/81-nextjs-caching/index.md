@@ -71,7 +71,7 @@ CSR에 익숙한 사람은 조금 낯설게 느껴질 수도 있겠지만, Next.
 ## Next.js의 Server Components
 
 서버 컴포넌트는 Next.js만의 기능은 아니다.
-React 18의 서버 컴포넌트를 기반으로 한 기능으로, 말 그대로 서버에서 렌더링되는 컴포넌트를 말한다.
+React 19의 서버 컴포넌트를 기반으로 한 기능으로, 말 그대로 서버에서 렌더링되는 컴포넌트를 말한다.
 
 Pages Router의 경우 페이지별 SSR/SSG 지원으로 성능 최적화를 했다면,
 App Router의 경우 서버 컴포넌트로 성능 최적화가 가능하다.
@@ -127,7 +127,7 @@ Hydration은 서버에서 렌더링된 HTML을 리액트 컴포넌트로 변환�
 &nbsp;
 
 당연히 SSG와 ISR은 CDN에서의 정적 페이지 캐싱을 활용할 테고, SSR은 캐싱 서버와 HTTP 캐싱을 활용할 테지만,
-Next.js 13과 React 18 이후 등장한 Sever component, Suspense, Concurrent Rendering 등의 개념으로 캐싱 전략이 더욱 세분화되었고,
+Next.js 13과 React 19 이후 등장한 Sever component, Suspense, Concurrent Rendering 등의 개념으로 캐싱 전략이 더욱 세분화되었고,
 App Router에서 지원하는 캐싱 동작 방식도 다양해졌다.
 
 &nbsp;
