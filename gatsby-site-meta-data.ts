@@ -14,7 +14,7 @@ export default {
     nickname: `단민`,
     stack: ['Frontend', 'React', 'Typescript'],
     bio: {
-      email: `danmin@jeong-min.com`,
+      email: `ljm991108@gmail.com`,
       residence: 'Seoul, South Korea',
       bachelorDegree: 'Kyunghee Univ. Computer Engineering (2018.03-2022.02)',
     },
@@ -53,7 +53,14 @@ export default {
   timestamps: [
     {
       category: 'Career',
-      date: '2022.01.04 - NOW',
+      date: '2024.11.26 - NOW',
+      en: 'Kakao Entertainment',
+      kr: '카카오엔터테인먼트',
+      info: 'Berriz FE',
+    },
+    {
+      category: 'Career',
+      date: '2022.01.04 - 2024.11.18',
       en: 'Woowa Brothers Corp.',
       kr: '우아한형제들',
       info: 'Web front development group',
