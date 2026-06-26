@@ -12,9 +12,9 @@ type MainBannerProps = {
 };
 
 const MainBanner: React.FC<MainBannerProps> = ({ author }) => {
-  const { stack, social, name, nickname, dropdown } = author;
+  const { stack, social, name, nickname, legacy } = author;
 
-  const [isDropdownOpened, setIsDropdownOpened] = useState(false);
+  const [isDropdownOpened, setIsDropdownBlogsOpened] = useState(false);
 
   return (
     <S.Wrapper>
@@ -43,23 +43,21 @@ const MainBanner: React.FC<MainBannerProps> = ({ author }) => {
                 </S.SocialButton>
               ),
           )}
-          {/* space-between을 위한 빈 div */}
-          <div />
-          <S.DropdownButton onMouseLeave={() => setIsDropdownOpened(false)}>
-            <div onMouseEnter={() => setIsDropdownOpened(true)}>legacy blogs</div>
+          <S.LegacyDropdown onMouseLeave={() => setIsDropdownBlogsOpened(false)}>
+            <div onMouseEnter={() => setIsDropdownBlogsOpened(true)}>legacy</div>
             {isDropdownOpened && (
               <S.Dropdown>
-                {Object.keys(dropdown).map(
+                {Object.keys(legacy).map(
                   (link, index) =>
-                    dropdown[link as keyof typeof dropdown] && (
-                      <S.SocialButton key={index} target='_blank' href={dropdown[link as keyof typeof dropdown]}>
+                    legacy[link as keyof typeof legacy] && (
+                      <S.SocialButton key={index} target='_blank' href={legacy[link as keyof typeof legacy]}>
                         {link}
                       </S.SocialButton>
                     ),
                 )}
               </S.Dropdown>
             )}
-          </S.DropdownButton>
+          </S.LegacyDropdown>
         </S.SocialWrapper>
       </S.IntroWrapper>
 

@@ -21,11 +21,13 @@ export default {
     social: {
       github: `https://github.com/danmin20`,
       linkedIn: `https://www.linkedin.com/in/danmin/`,
-      resume: `https://www.figma.com/file/dtkCl6G7G5DVe18DN2LWny/%EC%9D%B4%EC%A0%95%EB%AF%BC-%EC%9D%B4%EB%A0%A5%EC%84%9C?node-id=0%3A1`,
+      resume: `https://www.figma.com/design/dtkCl6G7G5DVe18DN2LWny/%EC%9D%B4%EC%A0%95%EB%AF%BC-%EC%9D%B4%EB%A0%A5%EC%84%9C?node-id=68395-133&t=bWJ58tjwISKdOHNw-4`,
     },
-    dropdown: {
+    legacy: {
       tistory: 'https://danminblog.tistory.com/',
       velog: 'https://velog.io/@danmin20',
+      firstPortfolio: 'https://first-portfolio.jeong-min.com/',
+      secondPortfolio: 'https://second-portfolio.jeong-min.com/',
     },
   },
 
@@ -56,35 +58,35 @@ export default {
       date: '2024.11.26 - NOW',
       en: 'Kakao Entertainment',
       kr: '카카오엔터테인먼트',
-      info: 'Berriz FE',
+      info: '뮤직FE개발팀, 베리즈FE개발팀',
     },
     {
       category: 'Career',
       date: '2022.01.04 - 2024.11.18',
       en: 'Woowa Brothers Corp.',
       kr: '우아한형제들',
-      info: 'Web front development group',
+      info: '웹생산성도구개발팀, 운영도구개발팀',
     },
     {
       category: 'Career',
       date: '2021.09.27 - 2021.12.26',
       en: 'Daangn',
       kr: '당근마켓 (인턴)',
-      info: 'MVP Intership',
+      info: 'MVP 인턴십',
     },
     {
       category: 'Career',
       date: '2021.07.05 - 2021.08.31',
       en: 'Woowa Brothers Corp.',
       kr: '우아한형제들 (인턴)',
-      info: 'Tech camp 4th',
+      info: '우아한테크캠프 4기',
     },
     {
       category: 'Career',
       date: '2021.03.02 - 2021.04.09',
       en: 'Naver',
       kr: '네이버 (인턴)',
-      info: 'Glace CIC / smart place service',
+      info: 'Glace CIC / 스마트플레이스서비스',
     },
     {
       category: 'Career',
@@ -98,7 +100,7 @@ export default {
       date: '2020.06.29 - 2020.10.16',
       en: 'TwentyOZ',
       kr: '트웬티온스 (인턴)',
-      info: 'Field training',
+      info: '산학협력 인턴십',
     },
     {
       category: 'Activity',
@@ -151,74 +153,14 @@ export default {
   ],
 
   /**
-   * metadata for Playground Page
-   */
-  playground: {
-    projects: [
-      {
-        title: 'first portfolio website',
-        description: '첫번째 포폴 사이트',
-        techStack: ['React', 'Next.js', 'TS'],
-        thumbnailUrl: 'first-portfolio.png',
-        links: {
-          post: '',
-          github: 'https://github.com/danmin20/LeeJeongMin',
-          demo: 'https://first-portfolio.jeong-min.com/',
-          googlePlay: '',
-          appStore: '',
-        },
-      },
-      {
-        title: 'second portfolio website',
-        description: '두번째 포폴 사이트',
-        techStack: ['React', 'Next.js', 'TS'],
-        thumbnailUrl: 'second-portfolio.png',
-        links: {
-          post: '',
-          github: 'https://github.com/danmin20/danmin',
-          demo: 'https://second-portfolio.jeong-min.com/',
-          googlePlay: '',
-          appStore: '',
-        },
-      },
-      {
-        title: 'dynamic blob',
-        description: 'a dynamic, sticky blob',
-        techStack: ['React', 'Vite', 'TS'],
-        thumbnailUrl: 'dynamic-blob.png',
-        links: {
-          post: '',
-          github: 'https://github.com/danmin20/dynamic-blob',
-          demo: 'https://dynamic-blob.jeong-min.com/',
-          googlePlay: '',
-          appStore: '',
-        },
-      },
-      {
-        title: 'venom controller',
-        description: 'a dynamic, sticky venom',
-        techStack: ['React', 'Vite', 'TS', 'Three.js'],
-        thumbnailUrl: 'venom-controller.png',
-        links: {
-          post: '',
-          github: 'https://github.com/danmin20/venom-controller',
-          demo: 'https://venom-controller.jeong-min.com/',
-          googlePlay: '',
-          appStore: '',
-        },
-      },
-    ],
-  },
-
-  /**
    * metadata for Buy Me A Coffee
    */
   remittances: {
     toss: {
-      qrCode: 'toss_qr.svg', // Path to your in the 'assets' folder
+      qrCode: 'toss_qr.svg',
     },
     kakaopay: {
-      qrCode: 'kakao_qr.svg', // Path to your in the 'assets' folder
+      qrCode: 'kakao_qr.svg',
     },
   },
 };

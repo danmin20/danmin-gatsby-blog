@@ -100,7 +100,7 @@ export const Title = styled.p`
 export const SocialWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 30px;
   align-items: flex-end;
 
   @media ${MOBILE_MEDIA_QUERY} {
@@ -118,12 +118,12 @@ export const SocialButton = styled.a`
   ${({ theme }) => hoverUnderline(theme)};
 `;
 
-export const DropdownButton = styled.div`
+export const LegacyDropdown = styled.div`
   color: ${({ theme }) => theme.color.black100};
   font-size: 18px;
   position: absolute;
-  height: 100px;
-  bottom: -100px;
+  height: 80px;
+  bottom: -90px;
   & > div:first-of-type {
     cursor: pointer;
     ${({ theme }) => hoverUnderline(theme)};
@@ -131,7 +131,7 @@ export const DropdownButton = styled.div`
   @media ${MOBILE_MEDIA_QUERY} {
     left: 0px;
     align-items: flex-start;
-    bottom: -110px;
+    bottom: -90px;
   }
 `;
 
@@ -158,7 +158,7 @@ export const BuyMeACoffeeWrapper = styled.div`
   z-index: 0;
 
   @media ${MOBILE_MEDIA_QUERY} {
-    top: 270px;
+    top: 250px;
     right: 0;
     left: auto;
   }

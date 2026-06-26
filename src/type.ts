@@ -11,9 +11,6 @@ export type SiteMetadata = {
     };
   };
   timestamps: Timestamp[];
-  playground: {
-    projects: Project[];
-  };
   remittances: {
     [key: string]: {
       link?: string;
@@ -51,7 +48,7 @@ export type Author = {
   stack: string[];
   bio: Bio;
   social: Social;
-  dropdown: Record<string, string>;
+  legacy: Record<string, string>;
 };
 
 export type Bio = {

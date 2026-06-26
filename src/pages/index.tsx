@@ -85,9 +85,11 @@ export const pageQuery = graphql`
             linkedIn
             resume
           }
-          dropdown {
+          legacy {
             velog
             tistory
+            firstPortfolio
+            secondPortfolio
           }
         }
       }
