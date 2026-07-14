@@ -15,7 +15,7 @@ const config: GatsbyConfig = {
     `gatsby-plugin-emotion`,
     `gatsby-plugin-image`,
     `gatsby-plugin-sitemap`,
-    `gatsby-plugin-offline`,
+    `gatsby-plugin-remove-serviceworker`,
     {
       resolve: `gatsby-plugin-sass`,
       options: {
