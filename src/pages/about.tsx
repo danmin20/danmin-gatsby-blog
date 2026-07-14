@@ -20,16 +20,18 @@ const About: React.FC<AboutProps> = ({ location, data }) => {
   const metaData = data.site.siteMetadata;
   const { author, timestamps } = metaData;
 
-  const stamps = timestamps.reduce((acc, cur) => {
-    return {
-      ...acc,
-      [cur.category]: [...(acc[cur.category] || []), cur],
-    };
-  }, {} as Record<string, Timestamp[]>);
+  const stamps = timestamps.reduce(
+    (acc, cur) => {
+      return {
+        ...acc,
+        [cur.category]: [...(acc[cur.category] || []), cur],
+      };
+    },
+    {} as Record<string, Timestamp[]>,
+  );
 
   return (
     <Layout location={location}>
-      <Seo title='개발자 단민 | About' />
       <MainBanner author={author} />
       <Bio bio={author.bio} />
 
@@ -43,6 +45,8 @@ const About: React.FC<AboutProps> = ({ location, data }) => {
 };
 
 export default About;
+
+export const Head = () => <Seo title='개발자 단민 | About' />;
 
 export const pageQuery = graphql`
   query {

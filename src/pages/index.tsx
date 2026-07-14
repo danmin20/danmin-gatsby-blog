@@ -29,7 +29,6 @@ const Home: React.FC<HomeProps> = ({ location, data }) => {
 
   return (
     <Layout location={location}>
-      <Seo title='개발자 단민' />
       <MainBanner author={author} />
 
       <FeaturedPostColumn title='Recent Posts' posts={recentPosts} fill={false} />
@@ -43,9 +42,11 @@ const Home: React.FC<HomeProps> = ({ location, data }) => {
 
 export default Home;
 
+export const Head = () => <Seo title='개발자 단민' />;
+
 export const pageQuery = graphql`
   query {
-    allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }) {
+    allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
       edges {
         node {
           id
