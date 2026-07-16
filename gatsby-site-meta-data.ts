@@ -9,6 +9,10 @@ export default {
       repo: `danmin20/danmin-gatsby-blog`,
     },
   },
+  adsense: {
+    publisherId: `ca-pub-8074104653609685`,
+    inArticleSlot: `8960098398`,
+  },
   author: {
     name: `이정민`,
     nickname: `단민`,
