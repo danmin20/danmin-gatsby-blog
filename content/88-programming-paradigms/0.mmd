@@ -1,0 +1,18 @@
+flowchart TB
+  P["프로그래밍 패러다임"]
+  I["명령형 (Imperative)<br/>어떻게(How)를 서술"]
+  D["선언형 (Declarative)<br/>무엇을(What)을 서술"]
+  PR["절차형 (Procedural)<br/>C, Pascal"]
+  OO["객체지향 (Object-Oriented)<br/>Smalltalk, Java"]
+  FP["함수형 (Functional)<br/>Haskell, Elm"]
+  LP["논리형 (Logic)<br/>Prolog, Datalog"]
+  JS["JavaScript / React<br/>두 갈래에 모두 발을 딛고 있다"]
+
+  P --> I
+  P --> D
+  I --> PR
+  I --> OO
+  D --> FP
+  D --> LP
+  OO -.- JS
+  FP -.- JS
