@@ -420,10 +420,14 @@ const Modal = ({ type }: { type: 'login' | 'signup' }) => (
 const Modal = ({ children }: PropsWithChildren) => <Overlay>{children}</Overlay>;
 ```
 
-`children`이나 render prop으로 구현을 주입받는 건 의존성 주입이다.  
-그 결과 Modal은 LoginForm이라는 구체적인 컴포넌트가 아니라 "렌더링 가능한 무언가"라는 추상에 의존하게 되는데,  
+`children`이나 render prop으로 구현을 안에서 만들지 않고 밖에서 받는 건 의존성 주입이다.  
+그리고 받는 타입이 LoginForm이라는 구체적인 컴포넌트가 아니라 `ReactNode`, 즉 "렌더링 가능한 무언가"라는 추상이기 때문에 Modal은 추상에 의존하게 된다.  
 이게 의존성 역전 원칙이 말하는 상태다.  
-무엇을 그릴지 결정하는 주도권이 Modal에서 사용하는 쪽으로 넘어간다.
+
+주입을 했다고 저절로 역전되는 건 아니고, 무엇을 받느냐가 추상이라서 역전이 성립하는 것이다.  
+그 결과 무엇을 그릴지 고르는 선택권이 Modal에서 사용하는 쪽으로 넘어간다.
+
+> 의존성 주입과 의존성 역전, 제어의 역전이 어떻게 다른지는 [의존성 주입을 했는데 의존성 역전은 안 됐다고요?](https://www.jeong-min.com/89-di-dip-ioc/)에서 따로 정리했다.
 
 > 이런 관점에서 디자인 시스템을 설계하는 이야기는 [Polymorphic Component](https://www.jeong-min.com/79-polymorphic-component/)와 [Render Delegation](https://www.jeong-min.com/80-render-delegation/)에서 다뤘다.
 
