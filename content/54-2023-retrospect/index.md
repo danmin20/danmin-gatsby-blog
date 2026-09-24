@@ -86,7 +86,7 @@ categories: featured-회고
 - [React에서 모달 한번 잘 만들어보자 (feat. createPortal & ref)](https://www.jeong-min.com/33-modal/)
 - [URL엔 왜 케밥 케이스를 쓰는가?](https://www.jeong-min.com/34-url/)
 - [CSS Module : 인라인(inline)은 나빠요!](https://www.jeong-min.com/35-css-module/)
-- [애니메이션을 그린다고요? setTimeout 싫어요! requestAnimationFrame 좋아요!](https://www.jeong-min.com/36-RAF/)
+- [애니메이션을 그린다고요? setTimeout 싫어요! requestAnimationFrame 좋아요!](https://www.jeong-min.com/36-raf/)
 - [이딴 게.. 타이머? 자바스크립트의 런타임과 Event Loop](https://www.jeong-min.com/37-event-loop/)
 - [구글 스프레드시트 메일 자동화: Apps Script](https://www.jeong-min.com/38-apps-script/)
 - [<Blob File URL ArrayBuffer> 그들의 사각관계?! 이미지 업로드 미리보기를 구현하고 싶습니다 : 1탄](https://www.jeong-min.com/39-file-blob-url-arraybuffer/)

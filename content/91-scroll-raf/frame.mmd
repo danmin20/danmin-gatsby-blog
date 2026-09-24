@@ -1,0 +1,13 @@
+flowchart TB
+  T["task 실행 → microtask 실행"]
+
+  subgraph R["렌더링 갱신 단계"]
+    direction LR
+    E["scroll<br/>이벤트"] --> RAF["rAF<br/>콜백"] --> SL["style<br/>layout"] --> RO["Resize<br/>Observer"] --> IO["Intersection<br/>Observer"] --> P["paint"]
+    RO -. "다시" .-> SL
+  end
+
+  C["composite → 화면"]
+
+  T -- "화면을 갱신할 때가 됐다면" --> R
+  R --> C
