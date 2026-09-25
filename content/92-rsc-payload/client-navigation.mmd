@@ -1,0 +1,23 @@
+sequenceDiagram
+  participant B as 브라우저
+  participant S as 서버
+
+  Note over B: #60;Link#62; 클릭
+  alt Client Cache에 있음
+    Note over B: 서버 요청 없이 캐시된 RSC Payload 사용
+  else Client Cache에 없음
+    B->>S: RSC 요청 (rsc: 1 헤더, HTML 요청 아님)
+    alt Full Route Cache에 있음
+      Note over S: 서버 컴포넌트 렌더링 건너뜀
+    else Full Route Cache에 없음
+      Note over S: 서버 컴포넌트 렌더링 → RSC Payload
+    end
+    S-->>B: RSC Payload (HTML 없음)
+    Note over B: Client Cache에 저장
+  end
+  opt 새로 필요한 클라이언트 컴포넌트가 있으면
+    B->>S: JS chunk 요청
+    S-->>B: 클라이언트 컴포넌트 JS
+  end
+  Note over B: Reconciliation (공유 layout 유지, 바뀐 segment만 교체)
+  Note over B: DOM 업데이트 (Hydration 없음)

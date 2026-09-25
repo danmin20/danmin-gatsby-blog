@@ -1,0 +1,18 @@
+sequenceDiagram
+  participant B as 브라우저
+  participant S as 서버
+
+  B->>S: HTML 문서 요청 (주소창 입력, 새로고침)
+  alt Full Route Cache에 있음
+    Note over S: 서버 컴포넌트 렌더링 건너뜀
+  else Full Route Cache에 없음
+    Note over S: 서버 컴포넌트 렌더링 → RSC Payload
+    Note over S: RSC Payload + 클라이언트 컴포넌트 렌더링 → HTML
+  end
+  S-->>B: HTML (안에 RSC Payload, JS script 태그)
+  Note over B: HTML로 화면 표시 (아직 반응 없음)
+  B->>S: JS chunk 요청 (HTML을 읽으면서 바로 시작)
+  S-->>B: 클라이언트 컴포넌트 JS
+  Note over B: RSC Payload + JS로 컴포넌트 트리 생성
+  Note over B: Hydration (기존 DOM에 이벤트 핸들러 연결)
+  Note over B: 인터랙션 가능
