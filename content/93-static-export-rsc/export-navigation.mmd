@@ -1,0 +1,25 @@
+sequenceDiagram
+  participant B as 브라우저
+  participant C as CDN / 스토리지
+
+  Note over B: #60;Link#62;가 화면에 보임
+  B->>C: HEAD /blog/first-post
+  C-->>B: 200
+  B->>C: GET /blog/first-post/__next._tree.txt
+  C-->>B: route tree
+  B->>C: GET /blog/first-post/__next.blog.#36;d#36;slug.__PAGE__.txt
+  C-->>B: segment 데이터
+  Note over B: Client Cache에 저장
+
+  Note over B: 링크 클릭
+  alt prefetch한 데이터가 있음
+    Note over B: 요청 없이 화면 전환
+  else prefetch한 데이터가 없음 (실패했거나 아직 안 함)
+    B->>C: GET /blog/first-post.txt
+    alt 페이지 전체 payload를 받음
+      C-->>B: 200
+      Note over B: 화면 전환
+    else 이것도 실패
+      B->>C: GET /blog/first-post (문서 전체 새로 로드)
+    end
+  end
