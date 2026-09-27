@@ -46,7 +46,7 @@ export const Head = () => <Seo title='개발자 단민' />;
 
 export const pageQuery = graphql`
   query {
-    allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
+    allMarkdownRemark(sort: [{ fields: { order: DESC } }, { frontmatter: { date: DESC } }]) {
       edges {
         node {
           id

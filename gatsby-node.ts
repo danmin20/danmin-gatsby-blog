@@ -90,7 +90,7 @@ const createPost = ({ createPage, edges }: CreatePagesFuncProps) => {
 export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
 
-  // Get all markdown blog posts sorted by date
+  // Get all markdown blog posts sorted by folder number (then date)
   const result: {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     errors?: any;
@@ -99,7 +99,7 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions,
     };
   } = await graphql(`
     {
-      allMarkdownRemark(sort: { frontmatter: { date: DESC } }, limit: 1000) {
+      allMarkdownRemark(sort: [{ fields: { order: DESC } }, { frontmatter: { date: DESC } }], limit: 1000) {
         edges {
           node {
             id
@@ -166,5 +166,9 @@ export const onCreateNode: GatsbyNode['onCreateNode'] = ({ node, actions, getNod
   if (node.internal.type === `MarkdownRemark`) {
     const slug = createFilePath({ node, getNode, basePath: `content` });
     createNodeField({ node, name: `slug`, value: slug });
+
+    // 글 폴더 이름 앞의 숫자(예: /95-state-ownership/ → 95)로 글 순서를 정한다.
+    const order = parseInt(slug.replace(/^\//, ''), 10);
+    createNodeField({ node, name: `order`, value: Number.isNaN(order) ? 0 : order });
   }
 };

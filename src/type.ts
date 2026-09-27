@@ -94,4 +94,5 @@ export type Frontmatter = {
 
 export type Fields = {
   slug: string;
+  order?: number;
 };
