@@ -25,7 +25,7 @@ function ProductSearchPage() {
   const visibleProducts = category === 'all' ? products : products.filter((p) => p.category === category)
 
   const handleLike = async (id: string, liked: boolean) => {
-    await setLike(id, liked)
+    await putLike(id, liked)
     refetch()
   }
 
@@ -265,8 +265,7 @@ keyword처럼 서버 응답을 바꾸는 URL의 값은 그대로 queryKey에 들
 다만 queryKey가 모든 경쟁 상태를 막아주지는 않는다.  
 queryFn이 queryKey에 없는 변수를 클로저로 읽으면 다른 조건의 결과가 같은 엔트리에 들어간다. `setQueryData`로 캐시에 직접 쓸 때도, 진행 중이던 요청의 응답이 나중에 도착해 그 값을 덮어쓸 수 있다.
 
-> 좋아요처럼 서버의 값을 바꾸는 요청끼리의 순서는 queryKey와는 상관이 없다.  
-> 이 경우는 뒤에서 다시 보자.
+> 좋아요처럼 서버의 값을 바꾸는 요청끼리의 순서도 queryKey와는 상관이 없다. 이 문제는 좋아요를 다룬 뒤에 다시 꺼내 보자.
 
 &nbsp;
 
@@ -370,9 +369,9 @@ const category: Category = isCategory(rawCategory) ? rawCategory : 'all'
 const key = ['products', { keyword }]
 
 const likeMutation = useMutation({
-  mutationFn: ({ id, liked }: { id: string; liked: boolean }) => setLike(id, liked),
+  mutationFn: ({ id, liked }: { id: string; liked: boolean }) => putLike(id, liked),
   onMutate: async ({ id, liked }) => {
-    await queryClient.cancelQueries({ queryKey: key })
+    await queryClient.cancelQueries({ queryKey: key }) // 진행 중인 refetch가 optimistic 값을 덮어쓰지 않게 한다
     const previous = queryClient.getQueryData<Product[]>(key)
     queryClient.setQueryData<Product[]>(key, (old) => old?.map((p) => (p.id === id ? { ...p, liked } : p)))
     return { previous }
@@ -399,7 +398,7 @@ const likeMutation = useMutation({
 function LikeButton({ product }: { product: Product }) {
   const queryClient = useQueryClient()
   const { mutate, variables, isPending } = useMutation({
-    mutationFn: (liked: boolean) => setLike(product.id, liked),
+    mutationFn: (liked: boolean) => putLike(product.id, liked),
     onSettled: () => queryClient.invalidateQueries({ queryKey: ['products'] }),
   })
 
@@ -411,45 +410,27 @@ function LikeButton({ product }: { product: Product }) {
 ```
 
 버튼을 누르면 `mutate(true)`가 실행되고, 요청이 끝날 때까지 `variables`에 true가 들어 있다. 그동안 버튼은 `product.liked` 대신 이 값을 그리고, Query Cache의 목록은 건드리지 않는다.  
-`onSettled`는 invalidate가 돌려준 Promise를 반환한다. TanStack Query는 이 Promise가 끝날 때까지 mutation을 진행 중으로 보기 때문에, 새 목록이 도착해서 `product.liked`가 true로 바뀐 뒤에야 `isPending`이 false가 된다.  
-Promise를 반환하지 않으면 서버 응답이 오자마자 `isPending`이 false가 되는데, 이때 `product.liked`는 아직 새 목록을 받기 전이라 false다. 채워졌던 하트가 잠깐 빈 하트로 돌아갔다가, 새 목록이 오면 다시 채워진다.
-
 요청이 실패해도 캐시를 되돌릴 필요가 없다. `isPending`이 false가 되면 버튼은 다시 `product.liked`를 그리는데, 캐시를 고친 적이 없으니 이 값은 처음부터 서버가 준 값이다.
 
 다만 true는 이 `LikeButton` 안에만 있다. 같은 상품을 보여주는 상세 페이지 같은 다른 컴포넌트는 그 화면의 데이터를 다시 받아올 때까지 예전 하트를 보여준다. 그러니 같은 값을 여러 곳에서 보여준다면 앞의 캐시 방식을 쓰자.
 
 &nbsp;
 
-### 빠르게 여러 번 누르면
+### 같은 liked, 다른 값
 
-좋아요 API가 `setLike(productId, liked)`처럼 원하는 값을 직접 보내는 방식이라고 해보자.  
-서버는 처리했는데 응답이 늦어 같은 `setLike(id, true)` 요청을 다시 보내도, 결과는 그대로 true다(idempotent).  
-> `toggleLike(productId)`였다면 다시 보낸 요청 때문에 반대가 됐을 것이다.  
+두 방식 모두 화면에는 똑같이 `liked: true`가 보인다. 하지만 그 true가 무엇인지는 다르다.
 
-하지만 버튼을 다시 누르면 `!liked`가 새로 계산돼서 다른 요청이 나간다.  
-사용자가 좋아요를 빠르게 세 번 누르면 요청은 이렇게 나간다.
+Query Cache에 있던 값은 클라이언트가 마지막으로 받아 둔 서버의 값이다. 서버가 "이 상품은 좋아요 상태"라고 알려준 사실의 사본이다.  
+optimistic 값은 사용자가 방금 누른 값이다. 서버는 아직 이 값을 확인하지 않았다.  
+캐시 방식은 이 값을 서버 값이 있던 캐시 엔트리에 덮어써 두고, `variables` 방식은 대기 중인 mutation 안에 따로 들고 있다. 어디에 두든 이 값은 요청이 끝나면 없어진다. 성공하면 서버에서 다시 받아온 값으로 바뀌고, 실패하면 rollback하거나 서버 값으로 돌아간다.
 
-```text
-초기값 false
-요청 1: setLike(id, true)
-요청 2: setLike(id, false)
-요청 3: setLike(id, true)    ← 사용자가 원하는 최종 상태
-```
+그래서 optimistic 값은 서버 값과 같은 `Product.liked` 모양이어도, 누가 확정했는지와 언제 사라지는지가 다르다.
 
-요청이 true, false, true로 나가는 건 optimistic update가 화면의 하트를 먼저 바꿔 두기 때문이다.  
-처음 코드처럼 응답을 기다린 뒤 목록을 다시 받아오면, 그동안 화면은 계속 false라서 세 번 모두 `setLike(id, true)`가 나간다. 서버 값은 true로 맞지만, 사용자가 켰다 껐다 켠 것과는 다른 요청이 나갈 수 있다.
+&nbsp;
 
-TanStack Query의 mutation은 기본적으로 [병렬로 실행된다](https://tanstack.com/query/latest/docs/framework/react/guides/mutations#mutation-scopes).  
-그래서 서버가 3 → 1 → 2 순서로 처리하게 된다면 최종 값은 false가 된다.  
-화면은 마지막 optimistic 값인 true를 보여주다가, invalidate로 다시 받아오는 순간 false로 뒤집히게 된다.
-
-rollback도 문제가 될 수 있다. 요청 1만 실패하면 `onError`가 요청 1 직전의 스냅샷인 false로 캐시를 되돌린다. 그사이 반영된 요청 2, 3의 optimistic 값까지 지워진다.
-
-해결 방법은 상황에 따라 다르다.
-
-- **같은 상품의 mutation을 차례로 보내기**: 앞의 `LikeButton`처럼 상품마다 `useMutation`을 두고 ``scope: { id: `like-${product.id}` }``를 주면, 같은 scope의 mutation은 앞의 것이 끝난 뒤에 실행된다.
-- **중간 요청 합치기**: 연타하는 동안은 화면만 바꾸고, 멈췄을 때 마지막 상태 하나만 보낸다.
-- **서버에서 순서 확인하기**: 요청에 버전을 담아 서버가 오래된 요청을 거절하게 한다.
+> 여기까지 오면 새로운 문제가 생긴다. 사용자가 서버 응답을 기다리지 않고 좋아요를 다시 누른다면 어떤 값이 최신 상태일까?  
+> 먼저 보낸 요청이 나중에 끝날 수도 있고, 이전 스냅샷으로 rollback하다가 더 최근의 사용자 입력을 덮어쓸 수도 있다.  
+> 이건 상태를 어디에 두느냐보다 동시성과 일관성에 가까운 문제라서, [다음 글](https://www.jeong-min.com/96-optimistic-concurrency/)에서 따로 다뤄 보려 한다.
 
 &nbsp;
 
